@@ -1,10 +1,7 @@
-## FreeRTOS-Partner-Supported-Demos
+## FreeRTOS Partner Supported Demos
 
-This repository is under construction.
-
-## Security
-
-See [CONTRIBUTING](.github/CONTRIBUTING.md#security-issue-notifications) for more information.
+This repository contains demos for FreeRTOS ports supported by FreeRTOS partners.
+Follow [these steps](https://github.com/FreeRTOS/FreeRTOS/blob/main/FreeRTOS/Demo/ThirdParty/Template/README.md) to contribute a demo to this repository.
 
 ## License
 
