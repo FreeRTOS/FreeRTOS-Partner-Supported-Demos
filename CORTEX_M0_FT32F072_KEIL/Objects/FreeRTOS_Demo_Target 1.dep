@@ -1,0 +1,1695 @@
+Dependencies for Project 'FreeRTOS_Demo', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 6160000::V6.16::ARMCLANG
+F (.\User\main.c)(0x61E8CF70)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/main.o -MD)
+I (User\Include\main.h)(0x61E8F2D0)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+I (User\Template\TestRunner.h)(0x618EB4B2)
+F (.\User\Libraries\CMSIS\FT32F0xx\source\arm\startup_ft32f072xb.s)(0x61E8D8D3)(--target=arm-arm-none-eabi -mcpu=cortex-m0 -masm=auto -c-gdwarf-3 -Wa,armasm,--pd,"__MICROLIB SETA 1" -Wa,armasm,--pd,"__EVAL SETA 1"-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 535" -Wa,armasm,--pd,"FT32F072x8 SETA 1"-o ./objects/startup_ft32f072xb.o)
+F (.\User\main-standardtest.c)(0x61E7FE18)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/main-standardtest.o -MD)
+I (User\Include\main.h)(0x61E8F2D0)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+I (User\Template\TestRunner.h)(0x618EB4B2)
+F (.\User\main-demo.c)(0x61E7FBD0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/main-demo.o -MD)
+I (User\Include\main.h)(0x61E8F2D0)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (.\User\ft32f0xx_it.c)(0x61E8F6F2)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_it.o -MD)
+I (User\Include\ft32f0xx_it.h)(0x6151614B)
+I (User\Include\main.h)(0x61E8F2D0)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+I (User\Template\IntQueueTimer.h)(0x618EB4B2)
+F (.\User\Driver\src\board.c)(0x61513F4B)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/board.o -MD)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (.\User\Driver\src\Peripheral.c)(0x619DB214)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/peripheral.o -MD)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (..\..\Source\croutine.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/croutine.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\croutine.h)(0x618EB504)
+F (..\..\Source\event_groups.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/event_groups.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\..\Source\include\event_groups.h)(0x618EB504)
+F (..\..\Source\list.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/list.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+F (..\..\Source\queue.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/queue.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+F (..\..\Source\stream_buffer.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/stream_buffer.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\stream_buffer.h)(0x618EB504)
+F (..\..\Source\tasks.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/tasks.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\..\Source\include\stack_macros.h)(0x618EB504)
+F (..\..\Source\timers.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/timers.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+F (..\..\Source\portable\MemMang\heap_4.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/heap_4.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+F (..\..\Source\portable\GCC\ARM_CM0\port.c)(0x618EB504)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/port.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_adc.c)(0x61931F34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_adc.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_comp.c)(0x61931F34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_comp.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_crc.c)(0x61931F34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_crc.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_crs.c)(0x61931F34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_crs.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_dac.c)(0x61931F34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_dac.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_debug.c)(0x61931FEC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_debug.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_dma.c)(0x61931FEC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_dma.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_exti.c)(0x61931FEC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_exti.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_flash.c)(0x61931FEC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_flash.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_gpio.c)(0x61931FEC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_gpio.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_i2c.c)(0x6193204E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_i2c.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_iwdg.c)(0x6193204E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_iwdg.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_misc.c)(0x6193204E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_misc.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_opa.c)(0x6193204E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_opa.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_pwr.c)(0x6193204E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_pwr.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_rcc.c)(0x619320C4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_rcc.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_rtc.c)(0x619320C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_rtc.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_spi.c)(0x619320C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_spi.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_syscfg.c)(0x619320C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_syscfg.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_tim.c)(0x619320C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_tim.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_usart.c)(0x619320C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_usart.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\FT32F0xx_Driver\Src\ft32f0xx_wwdg.c)(0x619320C6)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/ft32f0xx_wwdg.o -MD)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+F (.\User\Libraries\CMSIS\FT32F0xx\source\system_ft32f0xx.c)(0x61E7A558)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/system_ft32f0xx.o -MD)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+F (.\User\Template\IntQueueTimer.c)(0x61E8CF70)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/intqueuetimer.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Template\IntQueueTimer.h)(0x618EB4B2)
+I (..\Common\include\IntQueue.h)(0x619D9FC8)
+F (.\User\Template\RegTests.c)(0x61E7BE45)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/regtests.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (User\Template\RegTests.h)(0x618EB4B2)
+F (.\User\Template\TestRunner.c)(0x61E8F3F5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/testrunner.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\Common\include\BlockQ.h)(0x619D9FC8)
+I (..\Common\include\integer.h)(0x619D9FC8)
+I (..\Common\include\semtest.h)(0x619D9FC8)
+I (..\Common\include\PollQ.h)(0x619D9FC8)
+I (..\Common\include\GenQTest.h)(0x619D9FC8)
+I (..\Common\include\QPeek.h)(0x619D9FC8)
+I (..\Common\include\recmutex.h)(0x619D9FC8)
+I (..\Common\include\flop.h)(0x619D9FC8)
+I (..\Common\include\TimerDemo.h)(0x619D9FC8)
+I (..\Common\include\countsem.h)(0x619D9FC8)
+I (..\Common\include\death.h)(0x619D9FC8)
+I (..\Common\include\QueueSet.h)(0x619D9FC8)
+I (..\Common\include\QueueOverwrite.h)(0x619D9FC8)
+I (..\Common\include\EventGroupsDemo.h)(0x619D9FC8)
+I (..\Common\include\IntSemTest.h)(0x619D9FC8)
+I (..\Common\include\IntQueue.h)(0x619D9FC8)
+I (..\Common\include\TaskNotify.h)(0x619D9FC8)
+I (..\Common\include\TaskNotifyArray.h)(0x619D9FC8)
+I (..\Common\include\QueueSetPolling.h)(0x619D9FC8)
+I (..\Common\include\StaticAllocation.h)(0x619D9FC8)
+I (..\Common\include\blocktim.h)(0x619D9FC8)
+I (..\Common\include\AbortDelay.h)(0x619D9FC8)
+I (..\Common\include\MessageBufferDemo.h)(0x619D9FC8)
+I (..\Common\include\StreamBufferDemo.h)(0x619D9FC8)
+I (..\Common\include\StreamBufferInterrupt.h)(0x619D9FC8)
+I (User\Template\RegTests.h)(0x618EB4B2)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (..\Common\Minimal\AbortDelay.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/abortdelay.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x603507CA)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\event_groups.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\..\Source\include\stream_buffer.h)(0x618EB504)
+I (..\Common\include\AbortDelay.h)(0x619D9FC8)
+F (..\Common\Minimal\BlockQ.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/blockq.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\BlockQ.h)(0x619D9FC8)
+F (..\Common\Minimal\blocktim.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/blocktim.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\blocktim.h)(0x619D9FC8)
+F (..\Common\Minimal\countsem.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/countsem.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\countsem.h)(0x619D9FC8)
+F (..\Common\Minimal\death.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/death.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\Common\include\death.h)(0x619D9FC8)
+F (..\Common\Minimal\dynamic.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/dynamic.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\dynamic.h)(0x619D9FC8)
+F (..\Common\Minimal\EventGroupsDemo.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/eventgroupsdemo.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\event_groups.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\Common\include\EventGroupsDemo.h)(0x619D9FC8)
+F (..\Common\Minimal\flop.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/flop.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\math.h)(0x603507CA)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\Common\include\flop.h)(0x619D9FC8)
+F (..\Common\Minimal\GenQTest.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/genqtest.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\Common\include\GenQTest.h)(0x619D9FC8)
+F (..\Common\Minimal\integer.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/integer.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\Common\include\integer.h)(0x619D9FC8)
+F (..\Common\Minimal\IntQueue.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/intqueue.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\Common\include\IntQueue.h)(0x619D9FC8)
+I (User\Template\IntQueueTimer.h)(0x618EB4B2)
+F (..\Common\Minimal\IntSemTest.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/intsemtest.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\IntSemTest.h)(0x619D9FC8)
+F (..\Common\Minimal\MessageBufferAMP.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/messagebufferamp.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\message_buffer.h)(0x618EB504)
+I (..\..\Source\include\stream_buffer.h)(0x618EB504)
+I (..\Common\include\MessageBufferAMP.h)(0x619D9FC8)
+F (..\Common\Minimal\MessageBufferDemo.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/messagebufferdemo.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\message_buffer.h)(0x618EB504)
+I (..\..\Source\include\stream_buffer.h)(0x618EB504)
+I (..\Common\include\MessageBufferDemo.h)(0x619D9FC8)
+F (..\Common\Minimal\PollQ.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/pollq.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\PollQ.h)(0x619D9FC8)
+F (..\Common\Minimal\QPeek.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/qpeek.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\Common\include\QPeek.h)(0x619D9FC8)
+F (..\Common\Minimal\QueueOverwrite.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/queueoverwrite.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\QueueOverwrite.h)(0x619D9FC8)
+F (..\Common\Minimal\QueueSet.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/queueset.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x603507CA)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\QueueSet.h)(0x619D9FC8)
+F (..\Common\Minimal\QueueSetPolling.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/queuesetpolling.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x603507CA)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\QueueSetPolling.h)(0x619D9FC8)
+F (..\Common\Minimal\recmutex.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/recmutex.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\recmutex.h)(0x619D9FC8)
+F (..\Common\Minimal\semtest.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/semtest.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\Common\include\semtest.h)(0x619D9FC8)
+F (..\Common\Minimal\StaticAllocation.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/staticallocation.o -MD)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (..\..\Source\include\event_groups.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\Common\include\StaticAllocation.h)(0x619D9FC8)
+F (..\Common\Minimal\StreamBufferDemo.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/streambufferdemo.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\stream_buffer.h)(0x618EB504)
+I (..\Common\include\StreamBufferDemo.h)(0x619D9FC8)
+F (..\Common\Minimal\StreamBufferInterrupt.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/streambufferinterrupt.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\stream_buffer.h)(0x618EB504)
+I (..\Common\include\StreamBufferInterrupt.h)(0x619D9FC8)
+F (..\Common\Minimal\TaskNotify.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/tasknotify.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x603507CA)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\Common\include\TaskNotify.h)(0x619D9FC8)
+F (..\Common\Minimal\TaskNotifyArray.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/tasknotifyarray.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\limits.h)(0x603507CA)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\Common\include\TaskNotifyArray.h)(0x619D9FC8)
+F (..\Common\Minimal\TimerDemo.c)(0x619D9FC7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/timerdemo.o -MD)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\timers.h)(0x618EB504)
+I (..\Common\include\TimerDemo.h)(0x619D9FC8)
+F (.\User\Tasks\src\HighProTask.c)(0x61517444)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/highprotask.o -MD)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (.\User\Tasks\src\IdleTask.c)(0x61517444)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/idletask.o -MD)
+I (User\Tasks\inc\IdleTask.h)(0x6151716A)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (.\User\Tasks\src\InitTask.c)(0x619DB240)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/inittask.o -MD)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+F (.\User\Tasks\src\LowProTask.c)(0x61517B73)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/lowprotask.o -MD)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+F (.\User\Tasks\src\TaskManager.c)(0x61E8F471)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -D__MICROLIB -gdwarf-4 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ./User/Include -I ../../Source/include -I ./User/Driver/inc -I ./User/Libraries/FT32F0xx_Driver/Inc -I ./User/Tasks/inc -I ./User/Template -I ./User/Libraries/CMSIS/FT32F0xx/Include -I ../Common/include -I ../../Source/portable/GCC/ARM_CM0-IC:/Users/Administrator/AppData/Local/Arm/Packs/FMD/FT32F0xx_DFP/1.0.3/Drivers/CMSIS/FT32F0xx/Include-D__UVISION_VERSION="535" -DFT32F072x8-o ./objects/taskmanager.o -MD)
+I (User\Tasks\inc\TaskManager.h)(0x61518012)
+I (User\Include\config.h)(0x61E8F490)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x603507D0)
+I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x603507D0)
+I (User\Include\appconfig.h)(0x614D750E)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x603507D4)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f0xx.h)(0x619DD1BA)
+I (User\Libraries\CMSIS\FT32F0xx\Include\ft32f072x8.h)(0x619DD411)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cm0.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmInstr.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\core_cmFunc.h)(0x559CEB9A)
+I (User\Libraries\CMSIS\FT32F0xx\Include\system_ft32f0xx.h)(0x610A6F3E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_adc.h)(0x61931B2E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_comp.h)(0x61931B18)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crc.h)(0x61931B04)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_crs.h)(0x61931D34)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dac.h)(0x61931DAC)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_dma.h)(0x61931E00)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_debug.h)(0x61931DDE)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_exti.h)(0x61931E16)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_flash.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_gpio.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_i2c.h)(0x61931E4A)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_iwdg.h)(0x61931E48)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_misc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_opa.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_pwr.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rcc.h)(0x61931E76)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_rtc.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_spi.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_syscfg.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_tim.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_usart.h)(0x61931E9E)
+I (User\Libraries\FT32F0xx_Driver\Inc\ft32f0xx_wwdg.h)(0x60581072)
+I (User\Driver\inc\board.h)(0x619DD48C)
+I (User\Driver\inc\Peripheral.h)(0x61973900)
+I (..\..\Source\include\FreeRTOS.h)(0x618EB504)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x603507D0)
+I (User\Include\FreeRTOSConfig.h)(0x61E90082)
+I (..\..\Source\include\projdefs.h)(0x618EB504)
+I (..\..\Source\include\portable.h)(0x618EB504)
+I (..\..\Source\include\deprecated_definitions.h)(0x618EB504)
+I (..\..\Source\portable\GCC\ARM_CM0\portmacro.h)(0x618EB504)
+I (..\..\Source\include\mpu_wrappers.h)(0x618EB504)
+I (..\..\Source\include\task.h)(0x618EB504)
+I (..\..\Source\include\list.h)(0x618EB504)
+I (..\..\Source\include\queue.h)(0x618EB504)
+I (..\..\Source\include\semphr.h)(0x618EB504)
+I (User\Tasks\inc\InitTask.h)(0x61CBF01F)
+I (User\Tasks\inc\HighProTask.h)(0x615169A9)
+I (User\Tasks\inc\LowProTask.h)(0x61517B74)
