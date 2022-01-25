@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>FT32F072R8ATx</Device>
           <Vendor>FMD</Vendor>
-          <PackID>FMD.FT32F0xx_DFP.1.0.3</PackID>
+          <PackID>FMD.FT32F0xx_DFP.1.0.5</PackID>
           <PackURL>https://www.fremontmicro.com/upload/tools/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00002000) IROM(0x08000000,0x00010000) CPUTYPE("Cortex-M0") CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -407,6 +407,11 @@
               <FileName>ft32f0xx_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\User\ft32f0xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>README.md</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\README.md</FilePath>
             </File>
           </Files>
         </Group>

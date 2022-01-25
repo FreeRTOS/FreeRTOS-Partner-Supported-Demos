@@ -92,7 +92,7 @@ typedef enum
 #define container_of(ptr, type, member) (type *)( ((unsigned long)ptr)- offsetof(type,member))
 #define XMK_STR(x)				#x
 #define MK_STR(x) 				XMK_STR(x)
-//#define mainCREATE_DEMO_ONLY	1
+
 #define CLR_BIT(data, bit)			((data) &= (~(0x01 << (bit))))
 #define CPL_BIT(data, bit)			((data) ^= ((0x01 << (bit))))
 #define GET_BIT(data, bit)			(((data) & (0x01 << (bit))) == (0x01 << (bit)))

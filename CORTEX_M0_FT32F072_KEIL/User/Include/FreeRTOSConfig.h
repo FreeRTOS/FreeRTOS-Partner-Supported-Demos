@@ -49,7 +49,7 @@
   #include <ft32f072x8.h>
 #endif
 
-
+#define mainCREATE_DEMO_ONLY	1
 
 
 #define configUSE_TICK_HOOK 1
