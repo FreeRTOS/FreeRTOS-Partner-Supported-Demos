@@ -1,0 +1,152 @@
+
+export TI_PORT_DEMO_ROOT?=$(abspath ../)
+include $(TI_PORT_DEMO_ROOT)/imports.mak
+
+CG_TOOL_ROOT=$(CGT_GCC_AARCH64_PATH)
+
+CC=$(CGT_GCC_AARCH64_PATH)/bin/aarch64-none-elf-gcc
+AR=$(CGT_GCC_AARCH64_PATH)/bin/aarch64-none-elf-gcc-ar
+
+LIBNAME:=freertos-smp.am64x.a53.gcc-aarch64.lib
+
+FILES_common := \
+    AddrTranslateP.c \
+    boot_armv8.c \
+    CacheP_armv8.c \
+    ClockP_freertos.c \
+    ClockP_freertos_a53.c \
+    DebugP_freertos.c \
+    DebugP_log.c \
+    DebugP_memTraceLogWriter.c \
+    DebugP_shmLogReader_freertos.c \
+    DebugP_shmLogWriter.c \
+    DebugP_shmLogReader.c \
+    DebugP_uartLogWriter.c \
+    DebugP_uartScanf.c \
+    event_groups.c \
+    EventP_freertos.c \
+    heap_4.c \
+    HeapP_freertos.c \
+    HeapP_internal.c \
+    HwiP_armv8_gic.c \
+    HwiP_armv8_handlers_freertos.c \
+    list.c \
+    MmuP_armv8.c \
+    PmuP_armv8.c \
+    port.c \
+    printf.c \
+    queue.c \
+    QueueP_nortos.c \
+    stream_buffer.c \
+    SemaphoreP_freertos.c \
+    tasks.c \
+    timers.c \
+    TimerP.c \
+    TaskP_freertos.c \
+
+ASMFILES_common := \
+    boot_armv8_asm.S \
+    CacheP_armv8_asm.S \
+    common_armv8_asm.S \
+    HwiP_armv8_asm.S \
+    MmuP_armv8_asm.S \
+    PmuP_armv8_asm.S \
+    portASM.S \
+
+FILES_PATH_common = \
+    a53 \
+    common \
+    $(FREERTOS_SRC)/ \
+    $(FREERTOS_SRC)/portable/MemMang \
+    $(FREERTOS_PORTABLE) \
+	$(TI_PORT_DEMO_ROOT)/ \
+
+INCLUDES_common := \
+    -I${TI_PORT_DEMO_ROOT} \
+    -I$(FREERTOS_SRC)/include \
+    -I$(FREERTOS_PORTABLE) \
+    -Iconfig/am64x/a53-smp \
+
+DEFINES_common := \
+    -DSOC_AM64X \
+    -DSMP_FREERTOS \
+
+CFLAGS_common := \
+    -mcpu=cortex-a53+fp+simd \
+    -mabi=lp64 \
+    -mcmodel=large \
+    -mstrict-align \
+    -mfix-cortex-a53-835769 \
+    -mfix-cortex-a53-843419 \
+    -Wall \
+    -Werror \
+    -g \
+    -Wno-int-to-pointer-cast \
+    -Wno-pointer-to-int-cast \
+    -Wno-unused-but-set-variable \
+    -fdata-sections \
+    -ffunction-sections \
+    -Wno-unused-function \
+    -Wno-maybe-uninitialized \
+
+CFLAGS_debug := \
+    -D_DEBUG_=1 \
+
+ARFLAGS_common := \
+    cr \
+
+FILES := $(FILES_common)
+ASMFILES := $(ASMFILES_common)
+FILES_PATH := $(FILES_PATH_common)
+CFLAGS := $(CFLAGS_common)
+ASMFLAGS := $(CFLAGS_common)
+ifeq ($(CPLUSPLUS_BUILD), yes)
+CFLAGS += $(CFLAGS_cpp_common)
+endif
+DEFINES := $(DEFINES_common)
+INCLUDES := $(INCLUDES_common)
+ARFLAGS := $(ARFLAGS_common)
+
+LIBDIR := lib
+OBJDIR := obj/gcc-aarch64/a53/freertos-smp/
+OBJS := $(FILES:%.c=%.obj)
+OBJS += $(ASMFILES:%.S=%.obj)
+DEPS := $(FILES:%.c=%.d)
+
+vpath %.obj $(OBJDIR)
+vpath %.c $(FILES_PATH)
+vpath %.S $(FILES_PATH)
+
+$(OBJDIR)/%.obj %.obj: %.c
+	@echo  Compiling: $(LIBNAME): $<
+	$(CC) -c $(CFLAGS) $(INCLUDES) $(DEFINES) -MMD -MT $@ -o $(OBJDIR)/$@ $<
+
+$(OBJDIR)/%.obj %.obj: %.S
+	@echo  Compiling: $(LIBNAME): $<
+	$(CC) -c -x assembler-with-cpp $(CFLAGS) $(INCLUDES) $(DEFINES) -o $(OBJDIR)$@ $<
+
+all: $(LIBDIR)/$(LIBNAME)
+
+$(LIBDIR)/$(LIBNAME): $(OBJS) | $(LIBDIR)
+	@echo  .
+	@echo  Archiving: $(LIBNAME) to $@ ...
+	$(AR) $(ARFLAGS) $@ $(addprefix $(OBJDIR), $(OBJS))
+	@echo  Archiving: $(LIBNAME) Done !!!
+	@echo  .
+
+clean:
+	@echo  Cleaning: $(LIBNAME) ...
+	$(RMDIR) $(OBJDIR)
+	$(RM) $(LIBDIR)/$(LIBNAME)
+
+scrub:
+	@echo  Scrubing: $(LIBNAME) ...
+	-$(RMDIR) obj/
+	-$(RMDIR) lib/
+
+$(OBJS): | $(OBJDIR)
+
+$(LIBDIR) $(OBJDIR):
+	$(MKDIR) $@
+
+-include $(addprefix $(OBJDIR)/, $(DEPS))
