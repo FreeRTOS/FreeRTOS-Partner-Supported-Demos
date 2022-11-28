@@ -23,7 +23,7 @@ for CCS is below.
 ## NodeJs
 - NodeJS needs to be installed as it is used for appimage generation.
 - NodeJS can be downloaded from the link below
-    - [Linux](https://nodejs.org/dist/latest-v18.x/node-v18.12.1-linux-x64.tar.xz)
+    - [Linux](https://nodejs.org/dist/latest-v18.x/node-v12.18.4-linux-x64.tar.xz)
     - [Windows](https://nodejs.org/dist/latest-v18.x/node-v18.12.1-x64.msi)
 - The NodeJs path needs to be set correctly in `imports.mak` file
 
