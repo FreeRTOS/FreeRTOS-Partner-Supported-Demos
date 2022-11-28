@@ -38,7 +38,7 @@ endif
 FREERTOS_CLONE=$(HOME_DIR)/FreeRTOS/FreeRTOS
 FREERTOS_SRC=$(FREERTOS_CLONE)/Source
 FREERTOS_PORTABLE=$(FREERTOS_CLONE)/Source/portable/ThirdParty/Partner-Supported-Ports/TI/CORTEX_A53_64-BIT_TI_AM64_SMP
-PORT_SRC=$(FREERTOS_CLONE)/Demo/ThirdParty/Partner-Supported-Demos/FreeRTOS-Partner-Supported-Demos/CORTEX_A53_64-BIT_TI_AM64_SMP
+PORT_SRC=$(FREERTOS_CLONE)/Demo/ThirdParty/Partner-Supported-Demos/CORTEX_A53_64-BIT_TI_AM64_SMP
 
 # Path to the signing tools, keys etc
 SIGNING_TOOL_PATH=$(TI_PORT_DEMO_ROOT)/tools/boot/signing
