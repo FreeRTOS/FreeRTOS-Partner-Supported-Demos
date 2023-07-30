@@ -184,11 +184,18 @@ Continuing.
 
 6. On hyperterminal configured on /dev/ttyUSB0 115200-8-N-1, you should see:
 ```
-Hello CVA6
-FreeRTOS Demo Start
-FreeRTOS Demo SUCCESS
-FreeRTOS Demo SUCCESS
-FreeRTOS Demo SUCCESS
+Hello World!
+init SPI
+SPI initialized!
+init_uart
+No errors
+No errors
+No errors
+No errors
+.
+.
+
+
 ```
 This result is obtained just after the FPGA bitstream loading.
 
