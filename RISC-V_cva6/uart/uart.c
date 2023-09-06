@@ -21,7 +21,7 @@
 
 #include "uart.h"
 
-//#include "plic.h"
+#include "../plic/plic.h"
 #include "../hw_platform.h"
 
 
@@ -52,6 +52,9 @@
 #define IIRF_RX_LINE_STATUS             0x06u
 #define IIRF_DATA_TIMEOUT               0x0Cu
 
+ 
+//#define PLIC_DEMO 1
+// Source/portable/GCC/RISC-V/portASM.S:290:freertos_risc_v_application_interrupt_handler (weak function : User application can add there own override)
 
 uart_instance_t g_uart_0 = { .hw_reg = FPGA_UART_0_BASE };
 
@@ -389,7 +392,9 @@ UART_set_rx_handler
 {
     //ASSERT(handler != INVALID_IRQ_HANDLER );
     //ASSERT(trigger_level < UART_FIFO_INVALID_TRIG_LEVEL);
-    //PLIC_init();
+#ifdef PLIC_DEMO 
+    PLIC_init();
+#endif
     
     if ((handler != INVALID_IRQ_HANDLER) &&
        (trigger_level < UART_FIFO_INVALID_TRIG_LEVEL))
@@ -810,13 +815,16 @@ enable_irq
 )
 {
 
-
-   //PLIC_IRQn_Type plic_num = 0;
+#ifdef PLIC_DEMO
+   PLIC_IRQn_Type plic_num = 0;
+#endif
 
     if (&g_uart_0 == this_uart )
     {
         //printf("enable_irq() UART assign plic_num = %d\n",plic_num);
-        //plic_num = UART_0_PLIC_IRQHandler;
+#ifdef PLIC_DEMO
+        plic_num = UART_0_PLIC_IRQHandler;
+#endif
 
     }
     else
@@ -825,8 +833,10 @@ enable_irq
         //ASSERT(0); /*Alternative case has been considered*/
     }
 
+#ifdef PLIC_DEMO
     /* Enable UART instance interrupt in PLIC. */
-    //PLIC_EnableIRQ(plic_num);
+    PLIC_EnableIRQ(plic_num);
+#endif
 }
 
 static void __attribute__ ((unused))
@@ -835,11 +845,15 @@ disable_irq
     const uart_instance_t * this_uart
 )
 {
-    //PLIC_IRQn_Type plic_num = 0;
+#ifdef PLIC_DEMO
+    PLIC_IRQn_Type plic_num = 0;
+#endif
 
     if (&g_uart_0 == this_uart )
     {
-        //plic_num = UART_0_PLIC_IRQHandler;
+#ifdef PLIC_DEMO
+        plic_num = UART_0_PLIC_IRQHandler;
+#endif
     }
     else
     {
@@ -847,6 +861,8 @@ disable_irq
     }
 
     /* Disable UART instance interrupt in PLIC. */
-    //PLIC_DisableIRQ(plic_num);
+#ifdef PLIC_DEMO
+    PLIC_DisableIRQ(plic_num);
+#endif
 }
 

@@ -8,7 +8,6 @@ https://github.com/openhwgroup/cva6
 
 # Prerequisites
 
-
 ## RISC-V tool chain setting up
 The tool chain is available at: https://github.com/riscv/riscv-gnu-toolchain.
 At first, you have to get the sources of the RISCV GNU toolchain:
@@ -36,12 +35,7 @@ export PATH=$PATH:$RISCV/bin
 >> export RISCV_CCPATH=<path>/cva6/tools/riscv_gnu_toolchain/install_latest_rv32imaf/
 
 
-
- 
-
-
 ## OpenOCD
-
 To be able to run and debug software applications on CVA6, you need to install OpenOCD tool.
 OpenOCD is a free and open-source software distributed under the GPL-2.0 license.
 It provides on-chip programming and debugging support with a layered architecture of JTAG interface and TAP support.
@@ -90,7 +84,6 @@ $ export PATH=$PATH:<path to riscv-openocd>/build/bin
 # FreeRTOS
 
 ## FPGA emulation
-
 A FPGA platform emulating **CV32A6** (CVA6 in 32b flavor) has been implemented on **Genesys-2** board.
 This platform includes a CV32A6 processor, a JTAG interface to run and debug software applications and a UART interface to display strings on hyperterminal.
 Refer: https://github.com/openhwgroup/cva6
@@ -98,13 +91,11 @@ Refer: https://github.com/openhwgroup/cva6
 The steps to run the FreeRTOS on CV32A6 FPGA platform are described below.
 
 ## Compile FreeRTOS
-
 git clone --recursive https://github.com/FreeRTOS/FreeRTOS.git
-cd FreeRTOS/FreeRTOS/Demo/RISC-V_cva6
+cd FreeRTOS/FreeRTOS/Demo/ThirdParty/Partner-Supported-Demos/RISC-V_cva6
 make
 
 ## Get started with FreeRTOS application on Genesys-2
-
 When the mcs is loaded, the orange LED `done` lights up.
 1. Then, in a terminal, launch **OpenOCD**:
 ```
@@ -195,9 +186,7 @@ No errors
 .
 .
 
-
 ```
-This result is obtained just after the FPGA bitstream loading.
 
 
 
