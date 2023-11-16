@@ -1,0 +1,5 @@
+Debug/
+Release/
+External GCC - Debug/
+External GCC - Release/
+*.launch
