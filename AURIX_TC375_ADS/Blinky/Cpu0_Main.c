@@ -23,6 +23,8 @@
  * COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN 
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
  * IN THE SOFTWARE.
+ * 
+ * SPDX-License-Identifier: BSL-1.0
  *********************************************************************************************************************/
  /*\title TC375 Basic FreeRTOS interrupt usage example
  * \abstract This example shows how to get started with using the AURIX(TM) FreeRTOS port

@@ -1,16 +1,4 @@
-The following license applies to all files EXCEPT source files coming from FreeRTOS, which carry their original licenses.
-These include:
-- ./iLLD_TC375_ADS_KernelPort_Tests/IntQueueTimer.c
-- ./iLLD_TC375_ADS_KernelPort_Tests/IntQueueTimer.h
-- ./iLLD_TC375_ADS_KernelPort_Tests/RegTests.c
-- ./iLLD_TC375_ADS_KernelPort_Tests/RegTests.h
-- ./iLLD_TC375_ADS_KernelPort_Tests/TestRunner.c
-- ./iLLD_TC375_ADS_KernelPort_Tests/TestRunner.h
-- ./iLLD_TC375_ADS_KernelPort_Tests/FreeRTOS/*
-- ./iLLD_TC375_ADS_KernelPort_Tests/FreeRTOS/include/*
-- ./iLLD_TC375_ADS_KernelPort_Tests/FreeRTOS/Minimal/*
-
-===================================================================================================================
+SPDX-License-Identifier: BSL-1.0
 
 Copyright (C) Infineon Technologies AG 2023
 
@@ -35,6 +23,4 @@ WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-I
 COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN 
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS 
 IN THE SOFTWARE.
-
-===================================================================================================================
 
