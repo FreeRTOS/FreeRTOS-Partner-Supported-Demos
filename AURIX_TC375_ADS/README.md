@@ -76,9 +76,10 @@ Creates one task which blinks `LED1` cyclically and polls `BUTTON1` and toggles 
 ## Run and Test
 - Compile the code using the _**Build Active Project**_ button (![](./images/build_activeproj.gif)) in the toolbar or by right-clicking the project name and selecting _**Build Project**_ (if it is not already the active project, right click on the respective demo project and click ___Set Active Project___)
 - Connect the lite kit to the PC using a micro-USB cable
-- Click the **Debug Active Project** button (<img src="./images/debug_activeproj.gif"/>) to flash and debug the project
+- Click the **Debug Active Project** button (<img src="./images/debug_activeproj.gif"/>) to flash and debug the project. When the "Debug Condifuration" dialog pops-up, double-click the "__winIDEA Debugger__" to create a debug configuration and click **Close**. Now click **Debug Active Project** button  (<img src="./images/debug_activeproj.gif"/>) and wait for the debugger window to open  
+<img src="images/ads-debugger-config.png">
 
-Once the debugger opens, the code will stop at a default startup breakpoint, click <img src="./images/debug_resume.gif"/> or press F8 to continue.
+Once the debugger opens, the code will stop at a default startup breakpoint, click <img src="./images/debug_resume.gif" height=15px width=20px/> or press F5 to continue.
 
 ## References  
 
