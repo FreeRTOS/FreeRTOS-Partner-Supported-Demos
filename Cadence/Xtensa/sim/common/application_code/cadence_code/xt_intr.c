@@ -407,9 +407,10 @@ int main_xt_intr(int argc, char *argv[])
 
     puts("Xtensa interrupt/exception test (xt_intr) running...");
 
-    /* Find one or two sw interrupts */
+    /* Find one or two sw interrupts <= XCHAL_EXCM_LEVEL */
     for (i = 0; i < XCHAL_NUM_INTERRUPTS; i++) {
-        if (Xthal_inttype[i] == XTHAL_INTTYPE_SOFTWARE) {
+        if ((Xthal_inttype[i] == XTHAL_INTTYPE_SOFTWARE) &&
+			(Xthal_intlevel[i] <= XCHAL_EXCM_LEVEL)) {
             printf("interrupt %d\n", i);
             if (x == -1) {
                 x = i;
