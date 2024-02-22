@@ -1,2 +1,8 @@
 
 Cadence/Xtensa/sim/build/
+Cadence/Xtensa/sim/Xplorer/.cproject
+Cadence/Xtensa/sim/Xplorer/.settings/*.prefs
+Cadence/Xtensa/sim/Xplorer/.settings/*/*/Debug/
+Cadence/Xtensa/sim/Xplorer/.settings/*/*/Release/
+Cadence/Xtensa/sim/Xplorer/bin/
+Cadence/Xtensa/sim/Xplorer/Makefile

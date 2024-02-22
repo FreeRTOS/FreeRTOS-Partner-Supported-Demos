@@ -34,6 +34,9 @@ OSINCDIR    = $(abspath $(OSROOT)$(S)..$(S)..$(S)..$(S)..$(S)..$(S)include)
 
 # Source files
 
+COMM_FILES  = \
+    assert.c
+
 TEST_FILES  = \
     example.c            \
     timer_test1.c        \
@@ -45,12 +48,18 @@ TEST_FILES  = \
     xt_clib.c            \
     xt_intr.c
 
+ALL_FILES	= $(COMM_FILES) $(TEST_FILES)
+
+XPLORER_C	= \
+    main.c
+
 ifeq ($(MPU),1)
 TEST_FILES += mpu_basic.c
 endif
 
 EXE         = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.exe,$(TEST_FILES)))
-OBJS        = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(TEST_FILES)))
+COMM_OBJS   = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(COMM_FILES)))
+OBJS        = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(ALL_FILES)))
 SRC_FILES   = $(TEST_FILES)
 
 # Search paths
@@ -155,8 +164,8 @@ MPULSP = $(LSPPATH)/.mkdir
 lsptest : $(LSPPATH)/.mkdir
 endif
 
-$(EXE) : $(BLDDIR)/%.exe : $(BLDDIR)/%.o $(OSLIB) $(MPULSP)
-	$(CC) -o $@ $< -mlsp=$(LSPPATH) $(LDFLAGS) $(OSLIB) -lxtutil -lm
+$(EXE) : $(BLDDIR)/%.exe : $(BLDDIR)/%.o $(COMM_OBJS) $(OSLIB) $(MPULSP)
+	$(CC) -o $@ $(filter %.o,$^) -mlsp=$(LSPPATH) $(LDFLAGS) $(OSLIB) -lxtutil -lm
 
 $(OBJS) : $(BLDDIR)/%.o : %.c $(BLDDIR)/.mkdir $(OSLIB)
 	$(CC) $(CCFLAGS) $(CFLAGS_$*) $(INCS) -MD -MF $(subst .o,.d,$@) -c -o $@ $<
