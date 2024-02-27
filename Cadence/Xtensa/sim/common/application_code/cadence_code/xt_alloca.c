@@ -40,6 +40,7 @@
 #include    <unistd.h>
 #include    <alloca.h>
 #include    <assert.h>
+#include    <stdio.h>
 
 #ifdef XT_BOARD
 #include    <xtensa/xtbsp.h>

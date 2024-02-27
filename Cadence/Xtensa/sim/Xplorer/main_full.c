@@ -391,8 +391,6 @@ static void prvCheckTask( void * pvParameters )
 /* Called by vApplicationTickHook(), which is defined in main.c. */
 void vFullDemoTickHookFunction( void )
 {
-    TaskHandle_t xTimerTask;
-
     #if ( mainENABLE_INT_QUEUE_TESTS == 0 )
     {
         /* Exercise using task notifications from an interrupt. */

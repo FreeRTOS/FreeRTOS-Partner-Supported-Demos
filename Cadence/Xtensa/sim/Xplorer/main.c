@@ -131,7 +131,7 @@ void vApplicationMallocFailedHook( void )
      * (although it does not provide information on how the remaining heap might be
      * fragmented). See http://www.freertos.org/a00111.html for more information.
      */
-    vAssertCalled( __LINE__, __FILE__ );
+    vAssertCalled( __FILE__, __LINE__ );
 }
 /*-----------------------------------------------------------*/
 
@@ -144,7 +144,7 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask,
     /* Run time stack overflow checking is performed if
      * configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
      * function is called if a stack overflow is detected. */
-    vAssertCalled( __LINE__, __FILE__ );
+    vAssertCalled( __FILE__, __LINE__ );
 }
 /*-----------------------------------------------------------*/
 
@@ -163,10 +163,9 @@ void vApplicationTickHook( void )
 }
 /*-----------------------------------------------------------*/
 
-void vAssertCalled( unsigned long ulLine,
-                    const char * const pcFileName )
+void vAssertCalled( const char * const pcFileName,
+                    unsigned long ulLine )
 {
-    static BaseType_t xPrinted = pdFALSE;
     volatile uint32_t ulSetToNonZeroInDebuggerToContinue = 0;
 
     /* Called if an assertion passed to configASSERT() fails.  See
