@@ -159,7 +159,7 @@ static void timer(TimerHandle_t t)
 static void timer1(void *p)
 {
     set_ccompare(0);
-    (void)p;
+    UNUSED(p);
 }
 
 static void Init_Task(void *pdata)
@@ -167,6 +167,7 @@ static void Init_Task(void *pdata)
     struct timer_data td[1] = {};
     uint32_t delta;
 
+    UNUSED(pdata);
     set_ccompare(0);
     xt_set_interrupt_handler(XCHAL_TIMER_INTERRUPT(OTHER_TIMER_INDEX), timer1, NULL);
     xt_interrupt_enable(XCHAL_TIMER_INTERRUPT(OTHER_TIMER_INDEX));
@@ -196,6 +197,8 @@ void vApplicationTickHook(void)
 
 void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
 {
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     puts("\nStack overflow, stopping.");
     show_results_and_exit(1);
 }
@@ -203,7 +206,7 @@ void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
 int main(void)
 {
 #ifdef OTHER_TIMER_INDEX
-    uint32_t err = xTaskCreate(Init_Task, "Init_Task", TASK_STK_SIZE, NULL, INIT_TASK_PRIO, NULL);
+    int err = xTaskCreate(Init_Task, "Init_Task", TASK_STK_SIZE, NULL, INIT_TASK_PRIO, NULL);
 
     if (err != pdPASS) {
         printf("FAILED! main\n");

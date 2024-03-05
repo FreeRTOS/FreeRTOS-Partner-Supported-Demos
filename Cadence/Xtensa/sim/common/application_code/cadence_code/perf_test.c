@@ -88,7 +88,7 @@ static void yield_func(void * arg)
     {
         // In FreeRTOS, context switch can occur after interrupts, which can preempt this task for another one of equal priority
         // Hence we disable interrupts for proper behavior. The extras are time calibrated and corrected.
-        int state = portENTER_CRITICAL_NESTED();
+        uint32_t state = portENTER_CRITICAL_NESTED();
         clock_vals[indx++] = xthal_get_ccount();
         portEXIT_CRITICAL_NESTED(state);
         taskYIELD();
@@ -676,7 +676,7 @@ void msgq_test(void* arg)
 
     for (i = 0; i < 16; i++)
     {
-        uint32_t start = xthal_get_ccount();
+        start = xthal_get_ccount();
 
         xQueueReceive(xQueue, msg, portMAX_DELAY);
         delta = xthal_get_ccount() - start;
@@ -767,18 +767,18 @@ void yieldTest(void)
 {
 #define OVERHEAD_MEASUREMENT_RPT	10
     uint32_t oh_cycles;
-    int32_t  i;
+    uint32_t i;
 
     printf("\nYield timing test"
            "\n-----------------\n");
 
     // Measure the overhead of updating the cycle count
 
-    register int state0 = portENTER_CRITICAL_NESTED();
+    register uint32_t state0 = portENTER_CRITICAL_NESTED();
 
     for (i = 0; i < OVERHEAD_MEASUREMENT_RPT; i++) {
         // Copied from yield_func to calibrate timing
-        int state = portENTER_CRITICAL_NESTED();
+        uint32_t state = portENTER_CRITICAL_NESTED();
         clock_vals[indx++] = xthal_get_ccount();
         portEXIT_CRITICAL_NESTED(state);
     }
@@ -815,7 +815,7 @@ void yieldTest(void)
             continue;
         }
         uint32_t delta = clock_vals[i] - clock_vals[i-1] - oh_cycles;
-        stats_update(&solicited, delta);
+        stats_update(&solicited, (int)delta);
     }
 
     if (printStats)
@@ -833,8 +833,9 @@ volatile unsigned unsolicited_cycles = 0;
 stats_t unsolicited_stats;
 
 // Background task
-void unsolicited_background()
+void unsolicited_background(void *arg)
 {
+    UNUSED(arg);
     while (!unsolicited_done) {
         unsolicited_cycles = xthal_get_ccount();  // Keep recording the counter's value
     }
@@ -842,13 +843,14 @@ void unsolicited_background()
 }
 
 // Preempting task (we measure the unsolicited context switch time)
-void unsolicited_hipriority()
+void unsolicited_hipriority(void *arg)
 {
     int i;
+    UNUSED(arg);
     for (i = 0; i < 16; i++) {
         vTaskDelay(10); // Give time to background task
         unsigned cycles = xthal_get_ccount() - unsolicited_cycles;
-        stats_update(&unsolicited_stats, cycles);
+        stats_update(&unsolicited_stats, (int)cycles);
     }
     unsolicited_done = 1;
     vTaskDelete(NULL);
@@ -885,8 +887,9 @@ void unsolicitedTest(void)
 
     if (printStats)
         printf("Unsolicited context switch time      : avg %u max %u cycles [calibration %d]\n",
-                (unsolicited_stats.sum + unsolicited_stats.cnt - 1) / unsolicited_stats.cnt - calib,
-                unsolicited_stats.max - calib,
+                (unsigned)(unsolicited_stats.sum + unsolicited_stats.cnt - 1) /
+    				(unsigned)unsolicited_stats.cnt - calib,
+                (unsigned)unsolicited_stats.max - calib,
                 calib);
 
     portbenchmarkPrint();
@@ -949,6 +952,7 @@ void queueTest(void)
 
 void test(void* pArg)
 {
+    UNUSED(pArg);
     #if configBENCHMARK
     printStats = 0;
     printf("\nRunning in ISR benchmarking mode; context switch timing will not be reported since it is"
@@ -986,6 +990,8 @@ void vApplicationTickHook( void )
 
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     /* For some reason printing pcTaskName is not working */
     puts("\nStack overflow, stopping.");
     exit(0);

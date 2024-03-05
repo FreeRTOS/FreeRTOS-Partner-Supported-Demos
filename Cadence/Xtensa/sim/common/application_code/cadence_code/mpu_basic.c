@@ -78,7 +78,7 @@ check task will think the timer has stopped. */
  * what's expected. However, the full testing doing automated invalid/valid
  * accesses should be done.
  */
-void read_mpu_map()
+void read_mpu_map(void)
 {
   char* name = pcTaskGetName(NULL);
   xthal_MPU_entry   mpumap[XCHAL_MPU_ENTRIES];
@@ -90,8 +90,8 @@ void read_mpu_map()
   }
 }
 
-static void restrictedUserTask1();
-static void restrictedPrivTask1();
+static void restrictedUserTask1(void *arg);
+static void restrictedPrivTask1(void *arg);
 
 /*
  * Prototype for a task created in Privileged mode using the original
@@ -143,7 +143,7 @@ static int  exp_passes = 23;
 /* Define the constants used to allocate the reg test task stacks.  Note that
 that stack size is defined in words, not bytes. Also note that this size has
 to be a multiple of the MPU align size. */
-#define mainTASK_STACK_SIZE    (((XT_STACK_MIN_SIZE + XCHAL_MPU_ALIGN - 1) & -XCHAL_MPU_ALIGN) / sizeof(StackType_t))
+#define mainTASK_STACK_SIZE    (((XT_STACK_MIN_SIZE + XCHAL_MPU_ALIGN - 1U) & (uint32_t)-XCHAL_MPU_ALIGN) / sizeof(StackType_t))
 
 /* Declare the stacks that will be used by the reg test tasks.  The kernel will
 automatically create an MPU region for the stack.  The stack alignment must
@@ -190,7 +190,7 @@ int find_address_in_mpu(xthal_MPU_entry mpumap[], uint32_t addr)
 {
   int i;
   for (i = XCHAL_MPU_ENTRIES-1; i >= 0; i--) {
-     if (addr >= (uint32_t)((uint32_t)mpumap[i].as & ~0x1))
+     if (addr >= (uint32_t)((uint32_t)mpumap[i].as & ~0x1U))
         return i;
   }
   return -1;
@@ -213,7 +213,8 @@ int find_address_in_mpu(xthal_MPU_entry mpumap[], uint32_t addr)
 int check_mpu(char name[], uint32_t priv_code_attr, uint32_t priv_data_attr, uint32_t other_mem_attr)
 {
   /* Check MPU expected access attr and memory type. */
-  uint32_t type, attr, start, mpu_index;
+  uint32_t type, attr, start;
+  int32_t  mpu_index;
   xthal_MPU_entry   mpumap[XCHAL_MPU_ENTRIES];
   xthal_read_map(mpumap);
 
@@ -295,7 +296,7 @@ int check_private_mpu(TaskParameters_t* taskParams)
     mpu_index = find_address_in_mpu(mpumap, start);
     if (mpu_index < 0) {
         xt_printf("%s: FAIL (line:%d): Couldn't find address '%x' in mpumap\n", taskParams->pcName, __LINE__, start);
-	//exit(1);
+        //exit(1);
     }
     // now check the attribute/type
     type   = XTHAL_MPU_ENTRY_GET_MEMORY_TYPE(mpumap[mpu_index]);
@@ -321,9 +322,11 @@ int check_private_mpu(TaskParameters_t* taskParams)
  * private memory while all other memory should be RWXrx, thus only readable
  * from this task.
  */
-static void restrictedUserTask1( )
+static void restrictedUserTask1( void *arg )
 {
   uint32_t readData;
+
+  UNUSED(arg);
   puts("\nEntering restrictedUserTask1\n");
 
   /* check private memory attributes */
@@ -376,10 +379,11 @@ static void restrictedUserTask1( )
  * private memory while all other memory should be RWXrx, thus  fully accessible
  * from this task.
  */
-static void restrictedPrivTask1( )
+static void restrictedPrivTask1( void *arg )
 {
   uint32_t readData;
 
+  UNUSED(arg);
   puts("\nEntering restrictedPrivTask1\n");
 
   /* check general memory MPU */
@@ -409,8 +413,9 @@ static void PrivTask1( void *pvParameters )
 {
   uint32_t readData;
 
+  UNUSED(pvParameters);
   puts("\nEntering PrivTask1\n");
-    read_mpu_map();
+  read_mpu_map();
 
   check_mpu((char*)__FUNCTION__ , portDFLT_KERNCODE_ACCESS, portDFLT_KERNDATA_ACCESS, portDFLT_UNUSED_MEM_ACCESS);
 
@@ -439,6 +444,7 @@ static void staticUserTask1( void *pvParameters )
 {
   uint32_t readData;
 
+  UNUSED(pvParameters);
   puts("\nEntering staticUserTask1\n");
 
   /* Tests below can't increment *passed_p because this task doesn't
@@ -466,6 +472,7 @@ static void staticUserTask1( void *pvParameters )
  */
 static void idleTask( void *pvParameters )
 {
+  UNUSED(pvParameters);
   puts("\nEntering idleTask\n");
   if (*passes_p != exp_passes) {
     xt_printf("TESTING FAILURE: #passes:%d, expected:%d\n", *passes_p, exp_passes);
@@ -496,7 +503,7 @@ void privilegedStoreException(XtExcFrame *frame)
 
   /* Move the PC past the illegal (3-byte) instruction */
   frame->pc += skip;
-  if (frame->excvaddr == (uint32_t)passes_p) {
+  if (frame->excvaddr == (long)passes_p) {
       xt_printf("Store Exception on attempt to increment passes_p, fixing up\n");
       (*passes_p)++;
   } else {
@@ -522,7 +529,7 @@ void privilegedLoadException(XtExcFrame *frame)
   xt_printf("Load Exception (%d), skip:%d and return\n", (*excp_cnt_p), skip);
 }
 
-void setupMPU() {
+void setupMPU(void) {
   extern char private_region1_start[];
   extern char private_region2_start[];
   extern char private_region3_start[];
@@ -533,13 +540,13 @@ void setupMPU() {
   extern char private_stack_end[];
   //extern char __stack[];
 
-  uint32_t stack_size_words = (((uint32_t)private_stack_end & ~(XCHAL_MPU_ALIGN - 1)) - (uint32_t)private_stack_start) / sizeof(int);
+  uint32_t stack_size_words = (((uint32_t)private_stack_end & ~(XCHAL_MPU_ALIGN - 1U)) - (uint32_t)private_stack_start) / sizeof(int);
 
   MemoryRegion_t mpuPrivRegions[] =
   {
-     { private_region1_start, private_region1_end - private_region1_start, 0},
-     { private_region2_start, private_region2_end - private_region2_start, 0},
-     { private_region3_start, private_region3_end - private_region3_start, 0}
+     { private_region1_start, (uint32_t)(private_region1_end - private_region1_start), 0},
+     { private_region2_start, (uint32_t)(private_region2_end - private_region2_start), 0},
+     { private_region3_start, (uint32_t)(private_region3_end - private_region3_start), 0}
   };
 
   vPortStoreTaskMPUSettings(NULL, mpuPrivRegions, (StackType_t *)private_stack_start, stack_size_words );

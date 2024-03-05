@@ -121,10 +121,10 @@ void illegalInstHandler(XtExcFrame *frame)
 */
 void softwareIntHandler(void* arg)
 {
-    SemaphoreHandle_t xSem = (SemaphoreHandle_t)arg;
+    SemaphoreHandle_t s = (SemaphoreHandle_t)arg;
 
     /* Signal the semaphore */
-    xSemaphoreGiveFromISR(xSem, NULL);
+    xSemaphoreGiveFromISR(s, NULL);
 
 #if defined(XT_USE_SWPRI) || XCHAL_HAVE_XEA3
     if (uiSwInt2Num) {
@@ -151,6 +151,7 @@ void softwareIntHandler(void* arg)
 */
 void softwareHighHandler(void* arg)
 {
+    UNUSED(arg);
     iFlag = 55;
     putchar('H');
 }
@@ -167,6 +168,7 @@ static void Task0(void* pvData)
     //int err;
 
     /* This task simply sits in while-forever-sleep loop.  */
+    UNUSED(pvData);
     while(1)
     {
         #ifdef DEMO_USE_PRINTF
@@ -195,6 +197,8 @@ static void Task1(void *pvData)
 {
     BaseType_t err = pdPASS;
     uint32_t i;
+
+    UNUSED(pvData);
 
     /* Set up interrupt handling and enable interrupt */
     xt_set_interrupt_handler(uiSwIntNum, softwareIntHandler, (void*)xSem);
@@ -248,6 +252,7 @@ static void Task2(void* pvData)
     BaseType_t err = pdPASS;
 
     /* This task retrieves messages placed on the queue by task 1 */
+    UNUSED(pvData);
     for (i = 0; i < TEST_ITER; i++) {
         /* Wait for the semaphore to be signalled */
         xSemaphoreTake(xSem, portMAX_DELAY);
@@ -331,6 +336,8 @@ static void initTask(void* pvData)
 {
     BaseType_t err = 0;
 
+    UNUSED(pvData);
+
     /* Create test semaphore. */
     xSem = xSemaphoreCreateCounting( SEM_CNT, 0 );
     /* Create queue for sequence of counts. */
@@ -389,6 +396,8 @@ void vApplicationTickHook( void )
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
     /* For some reason printing pcTaskName is not working */
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     puts("\nStack overflow, stopping.");
     exit(0);
 }
@@ -429,7 +438,7 @@ int main_xt_intr(int argc, char *argv[])
     }
 
     /* Set default */
-    uiSwIntNum = x;
+    uiSwIntNum = (uint32_t)x;
 
     if (y == -1) {
         printf("Second sw interrupt not found, nested test will not run.\n");
@@ -438,11 +447,11 @@ int main_xt_intr(int argc, char *argv[])
 #if XCHAL_HAVE_XEA2 && defined(XT_USE_SWPRI)
         if (Xthal_intlevel[x] == Xthal_intlevel[y]) {
             printf("Both interrupts at same priority, nested test will not run.\n");
-            uiSwIntNum = x;
+            uiSwIntNum = (uint32_t)x;
         }
         else {
-            uiSwIntNum  = Xthal_intlevel[x] > Xthal_intlevel[y] ? y : x;
-            uiSwInt2Num = Xthal_intlevel[x] > Xthal_intlevel[y] ? x : y;
+            uiSwIntNum  = (uint32_t)(Xthal_intlevel[x] > Xthal_intlevel[y] ? y : x);
+            uiSwInt2Num = (uint32_t)(Xthal_intlevel[x] > Xthal_intlevel[y] ? x : y);
         }
 #endif
 #if XCHAL_HAVE_XEA3

@@ -105,6 +105,8 @@ void Count_Task( void * pdata )
 {
     uint32_t count = 1;
 
+    UNUSED(pdata);
+
     PRINTF( "[Count_Task] Started.\n" );
 
     // Count at regular intervals and place counter in queue.
@@ -147,6 +149,8 @@ void Report_Task( void * pdata )
 {
     uint32_t count;
     int32_t  err = 0;
+
+    UNUSED(pdata);
 
     PRINTF( "[Report_Task] Started.\n" );
 
@@ -193,6 +197,8 @@ void Init_Task( void * pdata )
 {
     int32_t err = 0;
     int32_t exit_code = 0;
+
+    UNUSED(pdata);
 
     PRINTF( "[Init_Task] Started.\n" );
 
@@ -284,13 +290,19 @@ void vApplicationTickHook( void )
 
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char * pcTaskName )
 {
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
+
     puts( "\nStack overflow, stopping." );
     exit( 0 );
 }
 
 int main( int argc, char * argv[] )
 {
-    uint32_t err = 0;
+    int err = 0;
+
+    UNUSED(argc);
+    UNUSED(argv);
 
 #ifdef XT_BOARD
     // Display waypoint for debugging.

@@ -102,6 +102,8 @@ static void Init_Task(void *pdata)
     struct timer_data td[1] = {};
     uint32_t delta;
 
+    UNUSED(pdata);
+
     td->lock = xSemaphoreCreateCounting(1, 0);
     td->timer = xTimerCreate("", TIMER_PERIOD, 1, td, timer);
     xTimerStart(td->timer, portMAX_DELAY);
@@ -129,13 +131,15 @@ void vApplicationTickHook(void)
 
 void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
 {
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     puts("\nStack overflow, stopping.");
     show_results_and_exit(1);
 }
 
 int main(void)
 {
-    uint32_t err = xTaskCreate(Init_Task, "Init_Task", TASK_STK_SIZE, NULL, INIT_TASK_PRIO, NULL);
+    int err = xTaskCreate(Init_Task, "Init_Task", TASK_STK_SIZE, NULL, INIT_TASK_PRIO, NULL);
 
     if (err != pdPASS) {
         printf("FAILED! main\n");

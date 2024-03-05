@@ -134,6 +134,7 @@ INCS        = -I$(SRCDIR) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S
 DFLAGS     += -DSTANDALONE
 CFLAGS     ?= -O2 -Os -g -Wall -Werror
 CCFLAGS     = $(CFLAGS) -ffunction-sections -mlongcalls $(DFLAGS) $(MPUFLAGS)
+XX_CCFLAGS  = $(filter-out -Werror,$(CFLAGS)) -ffunction-sections -mlongcalls $(DFLAGS)
 LDFLAGS    ?= -Wl,--gc-sections $(CFLAGS)
 
 CFLAGS_mpu_basic = -O0
@@ -213,13 +214,13 @@ $(BLDDIR)/Xplorer/Xplorer.exe : $(XPLORER_BASE_O) $(XPLORER_COMM_O) $(OSLIB) $(M
 	$(CC) -o $@ $(filter %.o,$^) -mlsp=$(LSPPATH) $(LDFLAGS) $(OSLIB) -lxtutil -lm
 
 $(BLDDIR)/Xplorer/%.o : Xplorer/%.c $(BLDDIR)/.mkdir $(BLDDIR)/Xplorer/.mkdir $(OSLIB)
-	$(CC) $(CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
 $(BLDDIR)/Xplorer/%.o : Xplorer/%.S $(BLDDIR)/.mkdir $(BLDDIR)/Xplorer/.mkdir $(OSLIB)
-	$(CC) $(CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
 $(BLDDIR)/Xplorer/Common/Minimal/%.o : $(COMMDIR)/Minimal/%.c $(BLDDIR)/.mkdir $(BLDDIR)/Xplorer/.mkdir $(OSLIB)
-	$(CC) $(filter-out -Werror,$(CCFLAGS)) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
 $(OSLIB) ::
 	$(MAKE) -f $(OSROOT)$(S)Makefile all TARGET=$(TARGET) CFLAGS="$(CFLAGS)" SRCROOT=$(OSROOT) BLDROOT=$(BLDROOT) MPU=$(MPU)

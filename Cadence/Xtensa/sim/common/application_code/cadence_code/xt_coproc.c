@@ -91,15 +91,15 @@ different tasks in disjoint regions. Different params are chosen for configs wit
 floating-point co-processor so that this test will run on any config in reasonable time.
 */
 #if XCHAL_HAVE_FP
-    #define TASK0_PARAMS    50000, 0.9997, 2.0
-    #define TASK1_PARAMS    50000, 0.9996, 4.0
-    #define TASK2_PARAMS    50000, 0.9995, 6.0
-    #define TASK3_PARAMS    50000, 0.9994, 8.0
+    #define TASK0_PARAMS    50000, 0.9997F, 2.0
+    #define TASK1_PARAMS    50000, 0.9996F, 4.0
+    #define TASK2_PARAMS    50000, 0.9995F, 6.0
+    #define TASK3_PARAMS    50000, 0.9994F, 8.0
 #else                       
-    #define TASK0_PARAMS      500, 0.97,   2.0
-    #define TASK1_PARAMS      500, 0.96,   4.0
-    #define TASK2_PARAMS      500, 0.95,   6.0
-    #define TASK3_PARAMS      500, 0.94,   8.0
+    #define TASK0_PARAMS      500, 0.97F,   2.0
+    #define TASK1_PARAMS      500, 0.96F,   4.0
+    #define TASK2_PARAMS      500, 0.95F,   6.0
+    #define TASK3_PARAMS      500, 0.94F,   8.0
 #endif
 
 /* Expected and Actual Results. */
@@ -126,14 +126,14 @@ static float crunch(unsigned n, float x, float z)
     unsigned i = 0;
     unsigned j = 0;
     float    mx = -x;
-    float    result = z;
+    float    res = z;
 
     for (i=0; i<n; i+=j) {
         for (j=0; j < n>>3; ++j) {
-            result += x * z;
+            res += x * z;
             x = mx * x;
         }
-        // printf(" %f %f\n", result, z);
+        // printf(" %f %f\n", res, z);
 
         /*
         Solicit context-switch to exercise exception handler not saving state.
@@ -150,7 +150,7 @@ static float crunch(unsigned n, float x, float z)
         	vTaskDelay(1);
     }
 
-    return result;
+    return res;
 }
 
 /*
@@ -179,6 +179,7 @@ static TaskHandle_t Task_TCB[4];
 
 void Task0(void *pdata)
 {
+    UNUSED(pdata);
     result[0] = crunch(TASK0_PARAMS);
     if (result[0] == 0) result[0] = -1;
     vTaskDelete(NULL);
@@ -187,6 +188,7 @@ void Task0(void *pdata)
 
 void Task1(void *pdata)
 {
+    UNUSED(pdata);
     result[1] = crunch(TASK1_PARAMS);
     if (result[1] == 0) result[1] = -1;
     vTaskDelete(NULL);
@@ -195,6 +197,7 @@ void Task1(void *pdata)
 
 void Task2(void *pdata)
 {
+    UNUSED(pdata);
     result[2] = crunch(TASK2_PARAMS);
     if (result[2] == 0) result[2] = -1;
     vTaskDelete(NULL);
@@ -203,6 +206,7 @@ void Task2(void *pdata)
 
 void Task3(void *pdata)
 {
+    UNUSED(pdata);
     result[3] = crunch(TASK3_PARAMS);
     if (result[3] == 0) result[3] = -1;
     vTaskDelete(NULL);
@@ -228,6 +232,8 @@ static void Init_Task(void *pdata)
     int         exit_code = 0;
     int         err = 0;
 
+    UNUSED(pdata);
+
     /* Initialize the results. */
     for (i=0; i<NTASKS; ++i)
         result[i] = 0.0;
@@ -244,28 +250,28 @@ static void Init_Task(void *pdata)
 #endif
 
     /* Create the application tasks (all are lower priority so wait for us). */
-	err = xTaskCreate(Task0, "Task0", TASK_STK_SIZE_STD, NULL, TASK0_PRIO, &Task_TCB[0]);
+    err = xTaskCreate(Task0, "Task0", TASK_STK_SIZE_STD, NULL, TASK0_PRIO, &Task_TCB[0]);
     if (err != pdPASS)
     {
         puts("FAILED to create Task0\n");
         goto done;
     }
 
-	err = xTaskCreate(Task1, "Task1", TASK_STK_SIZE_STD, NULL, TASK1_PRIO, &Task_TCB[1]);
+    err = xTaskCreate(Task1, "Task1", TASK_STK_SIZE_STD, NULL, TASK1_PRIO, &Task_TCB[1]);
     if (err != pdPASS)
     {
         puts("FAILED to create Task1\n");
         goto done;
     }
 
-	err = xTaskCreate(Task2, "Task2", TASK_STK_SIZE_STD, NULL, TASK2_PRIO, &Task_TCB[2]);
+    err = xTaskCreate(Task2, "Task2", TASK_STK_SIZE_STD, NULL, TASK2_PRIO, &Task_TCB[2]);
     if (err != pdPASS)
     {
         puts("FAILED to create Task2\n");
         goto done;
     }
 
-	err = xTaskCreate(Task3, "Task3", TASK_STK_SIZE_STD, NULL, TASK3_PRIO, &Task_TCB[3]);
+    err = xTaskCreate(Task3, "Task3", TASK_STK_SIZE_STD, NULL, TASK3_PRIO, &Task_TCB[3]);
     if (err != pdPASS)
     {
         puts("FAILED to create Task3\n");
@@ -279,9 +285,9 @@ static void Init_Task(void *pdata)
     do {
         busy = 0;
         for (i = 0; i < NTASKS; ++i) {
-			vTaskPrioritySet(Task_TCB[i], TASK_HIGH_PRIO);
+    		vTaskPrioritySet(Task_TCB[i], TASK_HIGH_PRIO);
             vTaskDelay(1);
-			vTaskPrioritySet(Task_TCB[i], task_prios[i]);
+    		vTaskPrioritySet(Task_TCB[i], task_prios[i]);
             busy |= result[i] == 0.0;
         }
     } while (busy);
@@ -346,6 +352,8 @@ void vApplicationTickHook( void )
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
     /* For some reason printing pcTaskName is not working */
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     puts("\nStack overflow, stopping.");
     exit(0);
 }
@@ -358,6 +366,8 @@ int main_xt_coproc(int argc, char *argv[])
     int     err = 0;
     int     exit_code = 0;
 
+    UNUSED(argc);
+    UNUSED(argv);
     printf("Number of coprocessors = %d\n", XCHAL_CP_NUM);
     printf("You should verify that there is a float coprocessor!\n");
 
@@ -367,7 +377,7 @@ int main_xt_coproc(int argc, char *argv[])
     puts("Running...\n");
 
     /* Create the control task initially with the high priority. */
-	err = xTaskCreate(Init_Task, "Init_Task", TASK_STK_SIZE_STD, NULL, TASK_INIT_PRIO, NULL);
+    err = xTaskCreate(Init_Task, "Init_Task", TASK_STK_SIZE_STD, NULL, TASK_INIT_PRIO, NULL);
     if (err != pdPASS)
     {
         puts("FAILED to create Init_Task\n");
@@ -375,7 +385,7 @@ int main_xt_coproc(int argc, char *argv[])
     }
 
     /* Start task scheduler */
-	vTaskStartScheduler();
+    vTaskStartScheduler();
 
 done:
     exit_code = err;

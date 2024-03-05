@@ -78,14 +78,14 @@ static const unsigned STUFF[16] = {
 /* Output a simple string to the console. */
 static void putstr(const char *s)
 {
-    int c;
+    char c;
 
     while ((c = *s) != '\0') {
         if (c == '\n') {
             outbyte('\r');
             outbyte('\n');
         }
-        else if (iscntrl(c) && c != '\r') {
+        else if (iscntrl((int)c) && c != '\r') {
             outbyte('^');
             outbyte('@' + c);
         }
@@ -162,6 +162,8 @@ static void Init_Task(void *pdata)
 {
     int ok;
 
+    UNUSED(pdata);
+
     /* Call a function that does an alloca over my base save area. */
     ok = test_alloca();
     #ifdef XT_BOARD
@@ -209,6 +211,8 @@ void vApplicationTickHook( void )
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char *pcTaskName )
 {
     /* For some reason printing pcTaskName is not working */
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     puts("\nStack overflow, stopping.");
     exit(0);
 }
@@ -227,7 +231,7 @@ int main_xt_alloca(int argc, char *argv[])
     putstr(TEST_PFX " running...\n");
 
     /* Create the control task initially with the high priority. */
-	err = xTaskCreate(Init_Task, "Init_Task", INIT_TASK_STK_SIZE, NULL, TASK_INIT_PRIO, NULL);
+    err = xTaskCreate(Init_Task, "Init_Task", INIT_TASK_STK_SIZE, NULL, TASK_INIT_PRIO, NULL);
     if (err != pdPASS)
     {
         putstr(TEST_PFX " FAILED to create Init_Task\n");
@@ -235,7 +239,7 @@ int main_xt_alloca(int argc, char *argv[])
     }
 
     /* Start task scheduler */
-	vTaskStartScheduler();
+    vTaskStartScheduler();
 
 done:
     exit_code = err;

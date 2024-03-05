@@ -76,7 +76,7 @@ extern volatile uint32_t * volatile pxCurrentTCB;
 // Task function.
 void Task_Func( void * pdata )
 {
-    int32_t  val = (int32_t) pdata;
+    uint32_t val = (uint32_t) pdata;
     uint32_t cnt = 0;
     void *   test_p;
 
@@ -108,7 +108,7 @@ void Task_Func( void * pdata )
   #error Unsupported C library
 #endif
 
-        test_p = malloc( rand() % 500 );
+        test_p = malloc( (size_t)(rand() % 500) );
         if ( !test_p )
         {
             printf( "Task %d, malloc() failed\n", val );
@@ -142,12 +142,13 @@ void Task_Func( void * pdata )
 // Init Task.
 static void Init_Task( void * pdata )
 {
-    int32_t t0;
-    int32_t t1;
+    uint32_t t0;
+    uint32_t t1;
     int32_t i;
     int32_t busy;
     int32_t err = 0;
 
+    UNUSED(pdata);
     for ( i = 0; i < NTASKS; ++i )
     {
         // Create the application tasks (all are lower priority so wait for us).
@@ -198,6 +199,8 @@ done:
 
 void vApplicationStackOverflowHook( TaskHandle_t xTask, char * pcTaskName )
 {
+    UNUSED(xTask);
+    UNUSED(pcTaskName);
     puts( "\nStack overflow, stopping." );
     exit( -1 );
 }
