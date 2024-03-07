@@ -92,8 +92,8 @@ COMM_OBJS   = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(COMM_FILES)))
 OBJS        = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(ALL_FILES)))
 SRC_FILES   = $(TEST_FILES)
 
-XPLORER_BASE_O	= $(addprefix $(BLDDIR)/Xplorer/,$(XPLORER_O))
-XPLORER_COMM_O	= $(addprefix $(BLDDIR)/Xplorer/Common/Minimal/,$(patsubst %.c,%.o,$(XPLORER_COMM_C)))
+XPLORER_BASE_O	= $(addprefix $(BLDDIR)/stress/,$(XPLORER_O))
+XPLORER_COMM_O	= $(addprefix $(BLDDIR)/stress/Common/Minimal/,$(patsubst %.c,%.o,$(XPLORER_COMM_C)))
 
 # Search paths
 
@@ -193,10 +193,10 @@ $(BLDDIR)/.mkdir :
 	@$(MKPATH) $(BLDDIR)
 	@echo "" > $@
 
-$(BLDDIR)/Xplorer/.mkdir : $(BLDDIR)/.mkdir
-	@$(MKPATH) $(BLDDIR)$(S)Xplorer
-	@$(MKPATH) $(BLDDIR)$(S)Xplorer$(S)Common
-	@$(MKPATH) $(BLDDIR)$(S)Xplorer$(S)Common$(S)Minimal
+$(BLDDIR)/stress/.mkdir : $(BLDDIR)/.mkdir
+	@$(MKPATH) $(BLDDIR)$(S)stress
+	@$(MKPATH) $(BLDDIR)$(S)stress$(S)Common
+	@$(MKPATH) $(BLDDIR)$(S)stress$(S)Common$(S)Minimal
 	@echo "" > $@
 
 ifeq ($(MPU),1)
@@ -210,17 +210,17 @@ $(EXE) : $(BLDDIR)/%.exe : $(BLDDIR)/%.o $(COMM_OBJS) $(OSLIB) $(MPULSP)
 $(OBJS) : $(BLDDIR)/%.o : %.c $(BLDDIR)/.mkdir $(OSLIB)
 	$(CC) $(CCFLAGS) $(CFLAGS_$*) $(INCS) -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
-$(BLDDIR)/Xplorer/Xplorer.exe : $(XPLORER_BASE_O) $(XPLORER_COMM_O) $(OSLIB) $(MPULSP)
+$(BLDDIR)/stress/stress.exe : $(XPLORER_BASE_O) $(XPLORER_COMM_O) $(OSLIB) $(MPULSP)
 	$(CC) -o $@ $(filter %.o,$^) -mlsp=$(LSPPATH) $(LDFLAGS) $(OSLIB) -lxtutil -lm
 
-$(BLDDIR)/Xplorer/%.o : Xplorer/%.c $(BLDDIR)/.mkdir $(BLDDIR)/Xplorer/.mkdir $(OSLIB)
-	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+$(BLDDIR)/stress/%.o : stress/%.c $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB)
+	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
-$(BLDDIR)/Xplorer/%.o : Xplorer/%.S $(BLDDIR)/.mkdir $(BLDDIR)/Xplorer/.mkdir $(OSLIB)
-	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+$(BLDDIR)/stress/%.o : stress/%.S $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB)
+	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
-$(BLDDIR)/Xplorer/Common/Minimal/%.o : $(COMMDIR)/Minimal/%.c $(BLDDIR)/.mkdir $(BLDDIR)/Xplorer/.mkdir $(OSLIB)
-	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -IXplorer -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+$(BLDDIR)/stress/Common/Minimal/%.o : $(COMMDIR)/Minimal/%.c $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB)
+	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
 $(OSLIB) ::
 	$(MAKE) -f $(OSROOT)$(S)Makefile all TARGET=$(TARGET) CFLAGS="$(CFLAGS)" SRCROOT=$(OSROOT) BLDROOT=$(BLDROOT) MPU=$(MPU)
@@ -239,7 +239,7 @@ xt_clib   : $(BLDDIR)/xt_clib.exe
 
 xt_intr   : $(BLDDIR)/xt_intr.exe
 
-Xplorer   : $(BLDDIR)/Xplorer/Xplorer.exe
+stress   : $(BLDDIR)/stress/stress.exe
 
 # xt_clib uses asm-offsets.h, which is build as a side effect of $(OSLIB)
 $(BLDDIR)/xt_clib.o : $(OSLIB)

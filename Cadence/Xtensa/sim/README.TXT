@@ -47,6 +47,16 @@ the modified config. So you should do a "make clean" before running
 "make small" to make sure you get the smaller version. Similarly,
 run "make clean" before running "make all".
 
+To build a larger stress test, run "make stress".  This will build the 
+following test in build/stress/ -
+
+    stress.exe -- Continuous stress test
+
+This test runs until manually terminated by the user and displays 
+minimal output at occasional intervals.  Note that this test may run
+slowly in simulation and may not display output for several minutes.
+
+
 Notes for version 1.8
 ---------------------
 
