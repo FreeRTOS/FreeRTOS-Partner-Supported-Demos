@@ -215,6 +215,7 @@ int main(void)
 
     // Set stderr to unbuffered
     setvbuf(stderr, NULL, _IONBF, 0);
+	printf("XT_TIMER_INDEX %d OTHER_TIMER_INDEX %d\n", XT_TIMER_INDEX, OTHER_TIMER_INDEX);
 
     vTaskStartScheduler();
     printf( "vTaskStartScheduler FAILED!\n" );

@@ -229,6 +229,8 @@ mpu_basic : $(BLDDIR)/mpu_basic.exe
 
 example   : $(BLDDIR)/example.exe
 
+timer2   : $(BLDDIR)/timer_test2.exe
+
 perf_test : $(BLDDIR)/perf_test.exe
 
 xt_coproc : $(BLDDIR)/xt_coproc.exe

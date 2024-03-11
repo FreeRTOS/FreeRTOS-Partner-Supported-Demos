@@ -521,6 +521,9 @@ void event_test(void * arg)
     uiTaskResponse[1] = 0;
     task_create(event_get, "event_get", configMINIMAL_STACK_SIZE, (void *)&uiTaskResponse[1], portPRIVILEGE_BIT | (PERF_TEST_PRIORITY - 1), NULL);
 
+    // Let the other thread run so that it can block on the event
+    vTaskDelay(1);
+
     test_total = 0;
     test_max = 0;
 
