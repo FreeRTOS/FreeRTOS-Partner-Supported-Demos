@@ -285,9 +285,9 @@ static void Init_Task(void *pdata)
     do {
         busy = 0;
         for (i = 0; i < NTASKS; ++i) {
-    		vTaskPrioritySet(Task_TCB[i], TASK_HIGH_PRIO);
+    		vTaskPrioritySet(Task_TCB[i], TASK_HIGH_PRIO & ~portPRIVILEGE_BIT);
             vTaskDelay(1);
-    		vTaskPrioritySet(Task_TCB[i], task_prios[i]);
+    		vTaskPrioritySet(Task_TCB[i], task_prios[i] & ~portPRIVILEGE_BIT);
             busy |= result[i] == 0.0;
         }
     } while (busy);

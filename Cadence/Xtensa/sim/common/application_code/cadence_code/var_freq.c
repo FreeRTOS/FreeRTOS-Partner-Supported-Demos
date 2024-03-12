@@ -58,6 +58,13 @@
   #endif
 #endif
 
+static inline void show_results_and_exit(int rc)
+{
+    printf("%s (%d)\n", rc == 0 ? "Passed" : "Failed", rc);
+    exit(rc);
+}
+
+
 #define FREQ_LOW 50000000
 #define FREQ_HIGH 500000000
 static uint32_t clock_freq = FREQ_LOW;
@@ -80,6 +87,8 @@ struct timer_data
     uint32_t delta;
     uint32_t timer_cnt;
     uint32_t thread_cnt;
+    uint32_t missed_delta;
+    int32_t  missed_dir;
 };
 
 static inline uint32_t get_ccount(void)
@@ -113,22 +122,58 @@ static void timer(TimerHandle_t t)
 {
     struct timer_data *td = pvTimerGetTimerID(t);
     uint32_t ccount = get_ccount();
-#if 1
     if (td->ccount) {
-        if (ccount - td->ccount > TIMER_CLOCKS + (TICK_CLOCKS - 1) / 2 ||
-            ccount - td->ccount < TIMER_CLOCKS - (TICK_CLOCKS - 1) / 2) {
-            printf("%s: %d, expected: %d; delta: %d\n",
-                   __func__, ccount - td->ccount, TIMER_CLOCKS, td->delta);
+        /* In tickless mode, it is possible that a timer can be handled
+         * one tick later than expected, with a subsequent expiration
+         * handled one tick earlier.  Adjust for this possibility and 
+         * only flag an error if it is not corrected in the opposite dir.
+         */
+        if (ccount - td->ccount > TIMER_CLOCKS + (TICK_CLOCKS - 1) / 2 &&
+            ccount - td->ccount < TIMER_CLOCKS + (TICK_CLOCKS - 1)) {
+            if (td->missed_delta == 0) {
+                td->missed_delta = td->delta;
+                td->missed_dir = 1;
+                printf("%s: %d, expected: %d +/- %d; delta: %d\n",
+                    __func__, ccount - td->ccount, TIMER_CLOCKS, (TICK_CLOCKS - 1) / 2, td->delta);
+                printf("%s: (suppressing at delta %d)\n", __func__, td->delta);
+            } else if (td->missed_dir == -1) {
+                printf("%s: (compensated at delta %d (+ to -); ignored)\n", __func__, td->delta);
+                td->missed_delta = 0;
+                td->missed_dir = 0;
+            } else {
+                printf("%s: (suppressing additional + drift at delta %d\n", __func__, td->delta);
+            }
+        } else if (ccount - td->ccount < TIMER_CLOCKS - (TICK_CLOCKS - 1) / 2 &&
+                   ccount - td->ccount > TIMER_CLOCKS - (TICK_CLOCKS - 1)) {
+            if (td->missed_delta == 0) {
+                td->missed_delta = td->delta;
+                td->missed_dir = -1;
+                printf("%s: %d, expected: %d +/- %d; delta: %d\n",
+                    __func__, ccount - td->ccount, TIMER_CLOCKS, (TICK_CLOCKS - 1) / 2, td->delta);
+                printf("%s: (suppressing at delta %d)\n", __func__, td->delta);
+            } else if (td->missed_dir == 1) {
+                printf("%s: (compensated at delta %d (- to +); ignored)\n", __func__, td->delta);
+                td->missed_delta = 0;
+                td->missed_dir = 0;
+            } else {
+                printf("%s: (suppressing additional - drift at delta %d\n", __func__, td->delta);
+            }
+        } else if (ccount - td->ccount > TIMER_CLOCKS + (TICK_CLOCKS - 1) ||
+                   ccount - td->ccount < TIMER_CLOCKS - (TICK_CLOCKS - 1)) {
+            printf("%s: %d, expected: %d +/- %d; delta: %d\n",
+                   __func__, ccount - td->ccount, TIMER_CLOCKS, (TICK_CLOCKS - 1) / 2, td->delta);
             rc = 1;
         }
     }
-#endif
     td->ccount = ccount;
     ++td->timer_cnt;
     if (td->timer_cnt - td->thread_cnt > 10) {
         printf("%s: bailing out with delta = %d, TICK_CLOCKS = %d\n",
                __func__, td->delta, TICK_CLOCKS);
-        exit(rc);
+        if (rc == 0) {
+            printf("Done\n");
+        }
+        show_results_and_exit(rc);
     }
     xSemaphoreGive(td->lock);
 }
@@ -155,7 +200,7 @@ static void Init_Task(void *pdata)
     struct timer_data td[1] = {};
     uint32_t delta;
 
-	UNUSED(pdata);
+    UNUSED(pdata);
     set_ccompare(0);
     xt_set_interrupt_handler(XCHAL_TIMER_INTERRUPT(OTHER_TIMER_INDEX), timer1, NULL);
     xt_interrupt_enable(XCHAL_TIMER_INTERRUPT(OTHER_TIMER_INDEX));
@@ -172,7 +217,7 @@ static void Init_Task(void *pdata)
         ++td->thread_cnt;
     }
     printf("Done\n");
-    exit(rc);
+    show_results_and_exit(rc);
 }
 
 #endif
@@ -188,7 +233,7 @@ void vApplicationStackOverflowHook(TaskHandle_t xTask, char *pcTaskName)
     UNUSED(xTask);
     UNUSED(pcTaskName);
     puts("\nStack overflow, stopping.");
-    exit(1);
+    show_results_and_exit(1);
 }
 
 int main(void)
@@ -200,11 +245,17 @@ int main(void)
         printf("FAILED! main\n");
         return 1;
     }
+
+    // Set stderr to unbuffered
+    setvbuf(stderr, NULL, _IONBF, 0);
+    printf("XT_TIMER_INDEX %d OTHER_TIMER_INDEX %d\n", XT_TIMER_INDEX, OTHER_TIMER_INDEX);
+
     vTaskStartScheduler();
     printf( "vTaskStartScheduler FAILED!\n" );
     return 1;
 #else
-	printf( "no acceptable timer for early wakeup test\n" );
-	return 0;
+    printf( "no acceptable timer for early wakeup test\n" );
+    show_results_and_exit(0);
+    return 0;
 #endif
 }
