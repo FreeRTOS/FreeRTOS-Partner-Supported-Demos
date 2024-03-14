@@ -977,6 +977,7 @@ void test(void* pArg)
     eventTest();
     vTaskDelay(1);
     queueTest();
+    printf("\nTest PASSED\n");
     exit(0);
 }
 
