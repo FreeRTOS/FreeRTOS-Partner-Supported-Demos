@@ -40,7 +40,7 @@
 #include "queue.h"
 
 #include "asm-offsets.h"
-#include <testcommon.h>
+#include "testcommon.h"
 
 #if (XT_USE_THREAD_SAFE_CLIB > 0)
 #include <sys/reent.h>

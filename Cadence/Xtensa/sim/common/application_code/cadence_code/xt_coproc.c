@@ -53,7 +53,7 @@
 #include "task.h"
 #include "queue.h"
 
-#include <testcommon.h>
+#include "testcommon.h"
 
 #if XT_USE_THREAD_SAFE_CLIB > 0u
 #include    <stdio.h>

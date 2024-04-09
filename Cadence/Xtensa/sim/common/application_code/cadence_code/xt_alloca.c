@@ -46,7 +46,7 @@
 #include    <xtensa/xtbsp.h>
 #endif
 
-#include <testcommon.h>
+#include "testcommon.h"
 
 #include "FreeRTOS.h"
 #include "task.h"

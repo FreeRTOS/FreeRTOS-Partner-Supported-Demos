@@ -33,7 +33,7 @@
 #include "semphr.h"
 #include "event_groups.h"
 
-#include <testcommon.h>
+#include "testcommon.h"
 
 #if (XT_USE_THREAD_SAFE_CLIB > 0)
 #include <stdio.h>
