@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>dspic33c-host-freertos-demo</name>
+            <creation-uuid>35a98026-c295-4ad8-be63-863fde1be90c</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <c-extensions>c</c-extensions>
+            <cpp-extensions/>
+            <header-extensions>h</header-extensions>
+            <asminc-extensions/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList>
+                <sourceRootElem>..</sourceRootElem>
+                <sourceRootElem>..\serial</sourceRootElem>
+                <sourceRootElem>..\..\..\Source\portable\MemMang</sourceRootElem>
+                <sourceRootElem>..\ParTest</sourceRootElem>
+                <sourceRootElem>..\..\..\Source\include</sourceRootElem>
+                <sourceRootElem>..\..\Common\Minimal</sourceRootElem>
+                <sourceRootElem>..\..\..\Source</sourceRootElem>
+                <sourceRootElem>..\..\..\Source\portable\MPLAB\PIC24_dsPIC</sourceRootElem>
+            </sourceRootList>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>

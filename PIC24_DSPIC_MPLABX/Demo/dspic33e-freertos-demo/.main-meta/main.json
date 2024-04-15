@@ -1,0 +1,43 @@
+{
+   "metaDataVersion": "1.0.0",
+   "category": "com.microchip.ide.project",
+   "content": {
+      "metaDataVersion": "1.3.0",
+      "name": "com.microchip.mplabx.project.dspic33e-freertos-demo",
+      "version": "1.1.1",
+      "displayName": "dsPIC33E FreeRTOS Demo",
+      "projectName": "dspic33e-freertos-demo",
+      "shortDescription": "dsPIC33E FreeRTOS Demo",
+      "ide": {
+         "name": "MPLABX",
+         "semverRange": ">=6.0.0"
+      },
+      "compiler": {
+         "name": "XC16",
+         "semverRange": "^2.0.0"
+      },
+      "dfp": {
+         "name": "dsPIC33E-GM-GP-MC-GU-MU_DFP",
+         "semverRange": ">=1.3.85"
+      },
+      "configurator": {
+         "name": "MCC",
+         "semverRange": ">=4.0.1"
+      },
+      "device": {
+         "metaDataVersion": "1.0.0",
+         "category": "com.microchip.portal.contentRef",
+         "content": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.device",
+            "name": "dsPIC33EP512MU810",
+            "versionRange": "*"
+         }
+      },
+      "keywords": [
+         "FreeRTOS",
+         "RTOS",
+         "Dual Core"
+      ]
+   }
+}

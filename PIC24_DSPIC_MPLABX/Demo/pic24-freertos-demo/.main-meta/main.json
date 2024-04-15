@@ -1,0 +1,43 @@
+{
+   "metaDataVersion": "1.0.0",
+   "category": "com.microchip.ide.project",
+   "content": {
+      "metaDataVersion": "1.3.0",
+      "name": "com.microchip.mplabx.project.pic24-freertos-demo",
+      "version": "1.1.1",
+      "displayName": "PIC24 FreeRTOS Demo",
+      "projectName": "pic24-freertos-demo",
+      "shortDescription": "PIC24 FreeRTOS Demo",
+      "ide": {
+         "name": "MPLABX",
+         "semverRange": ">=6.0.0"
+      },
+      "compiler": {
+         "name": "XC16",
+         "semverRange": "^2.0.0"
+      },
+      "dfp": {
+         "name": "PIC24F-GA-GB_DFP",
+         "semverRange": ">=1.5.81"
+      },
+      "configurator": {
+         "name": "MCC",
+         "semverRange": ">=4.0.1"
+      },
+      "device": {
+         "metaDataVersion": "1.0.0",
+         "category": "com.microchip.portal.contentRef",
+         "content": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.device",
+            "name": "PIC24FJ128GA010",
+            "versionRange": "*"
+         }
+      },
+      "keywords": [
+         "FreeRTOS",
+         "RTOS",
+         "Dual Core"
+      ]
+   }
+}

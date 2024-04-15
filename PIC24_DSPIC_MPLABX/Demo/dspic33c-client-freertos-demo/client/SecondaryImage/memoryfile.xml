@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/production/dspic33c_client_freertos_demo.X.production.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>4096</length>
+      <used>3470</used>
+      <free>626</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>23808</length>
+      <used>22614</used>
+      <free>1194</free>
+    </memory>
+  </executable>
+</project>
