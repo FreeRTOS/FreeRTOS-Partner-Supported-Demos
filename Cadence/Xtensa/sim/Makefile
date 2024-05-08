@@ -132,7 +132,12 @@ endif
 
 INCS        = -I$(SRCDIR) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR)
 DFLAGS     += -DSTANDALONE
-CFLAGS     ?= -O2 -Os -g -Wall -Werror
+ifeq ($(OVERLAY),1)
+CFLAGS     ?= -Os
+else
+CFLAGS     ?= -O2
+endif
+CFLAGS     += -g -Wall -Werror
 CCFLAGS     = $(CFLAGS) -ffunction-sections -mlongcalls $(DFLAGS) $(MPUFLAGS)
 XX_CCFLAGS  = $(filter-out -Werror,$(CFLAGS)) -ffunction-sections -mlongcalls $(DFLAGS)
 LDFLAGS    ?= -Wl,--gc-sections $(CFLAGS)
@@ -259,8 +264,8 @@ OVLYLSP = $(BLDDIR)/olsp
 
 $(OVLYLSP) :
 	xt-regenlsps -mlsp=sim -b $@
-	@echo "OVERLAYS = 4" >> $@/memmap.xmm
-	@echo "OVERLAY_ALIGN = 4096" >> $@/memmap.xmm
+	@echo OVERLAYS = 4 >> $@/memmap.xmm
+	@echo OVERLAY_ALIGN = 4096 >> $@/memmap.xmm
 	xt-genldscripts -b $@
 
 # Must specify this object file to override default version in liboverlay.
@@ -270,7 +275,7 @@ $(BLDDIR)/overlay_test.exe : overlay_test.c $(SRCDIR)/$(COMM_FILES) $(OSLIB) $(O
 	$(CC) $(CCFLAGS) $(CFLAGS_$*) $(INCS) -o $@ $< $(SRCDIR)/$(COMM_FILES) $(FIX) $(OSLIB) -loverlay -lxtutil -mlsp=$(OVLYLSP)
 
 overlay : $(BLDDIR)/.mkdir
-	$(MAKE) --no-print-directory $(BLDDIR)/overlay_test.exe CFLAGS="$(CFLAGS) -DXT_USE_OVLY=1"
+	$(MAKE) --no-print-directory $(BLDDIR)/overlay_test.exe OVERLAY=1
 
 
 clean :

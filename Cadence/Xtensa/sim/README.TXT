@@ -29,9 +29,12 @@ following test in build/ -
     overlay_test.exe -- Code overlay manager integration
 
 NOTE: The overlay test requires the FreeRTOS library to be built with
-XT_USE_OVLY = 1. The makefile takes care of this, but you should do a
-"make clean" before running "make overlay". Similarly, run "make clean"
-before running "make all".
+XT_USE_OVLY = 1. The makefile takes care of this by building FreeRTOS
+with "make OVERLAY=1 overlay", but you should do a "make clean" first.
+Similarly, run "make clean" before running "make all".
+FreeRTOS overlay support is built without optimization to improve debug
+visibility; see the System Software Reference Manual, "Overlay" chapter,
+"Debugging Support" section for more details.
 
 To build a minimal-size test, run "make small". This will build the
 following test in build/ -
