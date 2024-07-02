@@ -30,18 +30,20 @@ int printf (const char * format, ...)
 
 ```
 
-Select test case you want to run by changing definition `configSTART_<Test_Name>_TESTS` in `freertos\FreeRTOSConfig.h` macros to `0` or ` 1` as needed
+Select the device you want to test by updating the macros `DEVICE_F1KH` or `DEVICE_F1KM` in `bsp\common\coldreset.asm`.
+
+Select the test case you want to run by changing the definition of `configSTART_<Test_Name>_TESTS` in the `freertos\FreeRTOSConfig.h` macros to `0` or `1` as needed.
 
 ## Linker
 
 This project also support other single core devices by changing the linker.
 
-F1KM-S4 1 core
+**F1KM-S4**
 ```c
 RESET,RESET_PE1,RESET_PEn,STARTUP_CODE/0,ex_entry_PE1/800,.const,.INIT_BSEC.const,.INIT_DSEC.const,.data,.text/00002000,.stack.bss,.data.R,.bss/FEBD0000
 ```
 
-F1KH-D8 device 2 core
+**F1KH-D8**
 ```c
 RESET,RESET_PE1,RESET_PEn,STARTUP_CODE/0,ex_entry_PE1/800,.const,.INIT_BSEC.const,.INIT_DSEC.const,.data,.text/00002000,.stack.bss,.data.R,.bss/FEEE8000
 ```

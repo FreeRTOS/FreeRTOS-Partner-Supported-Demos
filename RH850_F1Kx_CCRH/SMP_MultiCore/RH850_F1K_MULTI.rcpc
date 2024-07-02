@@ -31,8 +31,6 @@
       <Category Name="freertos">
         <Path>freertos\FreeRTOSConfig.h</Path>
         <Path>freertos\FreeRTOSConfigMultiCore.h</Path>
-        <Path>freertos\FreeRTOSConfigSingleCore.h</Path>
-        <Path>freertos\note.txt</Path>
         <Category Name="Common">
           <Path>..\..\..\..\Common\ReadMe.txt</Path>
           <Category Name="Full">

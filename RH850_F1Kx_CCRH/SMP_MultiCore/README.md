@@ -30,6 +30,7 @@ int printf (const char * format, ...)
 }
 
 ```
+Select test case you want to run by changing definition `configSTART_<Test_Name>_TESTS` in `freertos\FreeRTOSConfig.h` macros to `0` or ` 1` as needed
 
 ## Linker Script
 Add below linker script to your linker section
@@ -38,3 +39,11 @@ RESET,RESET_PE1,RESET_PEn,STARTUP_CODE/0,ex_entry_PE1/800,ex_entry_PE2,.const,.I
 ```
 ![Linker section](../Image//Linker.png)
 
+## Note
+1. The configuration `configRUN_MULTIPLE_PRIORITIES` must be set to `0` to PASS the following test cases:
+- `vStartGenericQueueTasks`
+- `vStartQueuePeekTasks`
+- `vStartEventGroupTasks`
+- `vInterruptSemaphorePeriodicTest`
+- `vTimerPeriodicISRTests`
+2. The test cases `vPeriodicStreamBufferProcessing` and `portYIELD_FROM_ISR` are out of scope.

@@ -124,23 +124,6 @@
 							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.2053224019" name="Resource Custom Build Step Output Type"/>
 						</tool>
 					</fileInfo>
-					<fileInfo id="com.renesas.cdt.managedbuild.renesas.ccrh.hardwaredebug.configuration.1239971482.1462018663" name="FreeRTOSConfigSingleCore.h" rcbsApplicability="disable" resourcePath="freertos/FreeRTOSConfigSingleCore.h" toolsToInvoke="">
-						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.120045467" name="Resource Custom Build Step">
-							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1287613601" name="Resource Custom Build Step Input Type">
-								<additionalInput kind="additionalinputdependency" paths=""/>
-							</inputType>
-							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.481794497" name="Resource Custom Build Step Output Type"/>
-						</tool>
-					</fileInfo>
-					<fileInfo id="com.renesas.cdt.managedbuild.renesas.ccrh.hardwaredebug.configuration.1239971482.1382043366" name="IntQueue.c" rcbsApplicability="disable" resourcePath="freertos/Common/Minimal/IntQueue.c" toolsToInvoke="com.renesas.cdt.managedbuild.renesas.ccrh.base.compiler.1397935451.351325232">
-						<tool id="com.renesas.cdt.managedbuild.renesas.ccrh.base.compiler.1397935451.351325232" name="Compiler" superClass="com.renesas.cdt.managedbuild.renesas.ccrh.base.compiler.1397935451"/>
-						<tool customBuildStep="true" id="org.eclipse.cdt.managedbuilder.ui.rcbs.1894344390" name="Resource Custom Build Step">
-							<inputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.inputtype.1967846799" name="Resource Custom Build Step Input Type">
-								<additionalInput kind="additionalinputdependency" paths=""/>
-							</inputType>
-							<outputType id="org.eclipse.cdt.managedbuilder.ui.rcbs.outputtype.985175503" name="Resource Custom Build Step Output Type"/>
-						</tool>
-					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="bsp"/>
 						<entry excluding="Common/Minimal/IntQueue.c|Common/Minimal/MessageBufferAMP.c|freertos_kernel/portable/WizC|freertos_kernel/portable/ThirdParty|freertos_kernel/portable/template|freertos_kernel/portable/Tasking|freertos_kernel/portable/Softune|freertos_kernel/portable/SDCC|freertos_kernel/portable/RVDS|freertos_kernel/portable/Rowley|freertos_kernel/portable/Renesas|freertos_kernel/portable/Paradigm|freertos_kernel/portable/oWatcom|freertos_kernel/portable/MSVC-MingW|freertos_kernel/portable/MPLAB|freertos_kernel/portable/MikroC|freertos_kernel/portable/Keil|freertos_kernel/portable/IAR|freertos_kernel/portable/GCC|freertos_kernel/portable/Common|freertos_kernel/portable/CodeWarrior|freertos_kernel/portable/CCS|freertos_kernel/portable/BCC|freertos_kernel/portable/ARMv8M|freertos_kernel/portable/ARMClang|Common/Minimal/sp_flop.c|Common/Minimal/flash.c|Common/Minimal/flash_timer.c|Common/Minimal/crhook.c|Common/Minimal/crflash.c|Common/Minimal/comtest.c|Common/Minimal/comtest_strings.c|freertos_kernel/examples|Common/Full|Common/ethernet|Common/drivers|Common/ARMv8M|demo_minimal/crhook.c|freertos_kernel/portable/MemMang/heap_5.c|freertos_kernel/portable/MemMang/heap_2.c|freertos_kernel/portable/MemMang/heap_3.c|demo_minimal/comtest.c|freertos_kernel/portable/MemMang/heap_1.c|demo_minimal/comtest_strings.c|demo_minimal/flash.c|demo_minimal/crflash.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="freertos"/>
