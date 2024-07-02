@@ -1,0 +1,1 @@
+RESET,RESET_PE1,RESET_PEn,STARTUP_CODE/0,ex_entry_PE1/800,.const,.INIT_BSEC.const,.INIT_DSEC.const,.data,.text/00002000,.stack.bss,.data.R,.bss/FEEE8000
