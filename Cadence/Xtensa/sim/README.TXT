@@ -74,7 +74,12 @@ Notes for version 1.8
 
 - MPU port requires LSP to include sections 'privileged_functions' and
   'privileged_data'. They also need to be aligned and padded to the
-  MPU align requirements.
+  MPU align requirements. 
+
+  NOTE: Xtensa toolchain RJ-2024.3 or later is recommended for ensuring
+  this alignment/padding. This version of xt-genldscripts supports the 
+  "ALIGN SECTIONS" directive within memmap.xmm files. Earlier tools may
+  require manual alignment in the LSP.
 
 - The port doesn't include any protection against user code calling
   xPortRaisePrivilege directly. This is expected to come in future
