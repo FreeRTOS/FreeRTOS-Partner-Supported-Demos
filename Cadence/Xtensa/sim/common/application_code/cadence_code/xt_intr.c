@@ -30,6 +30,7 @@
 #ifdef XT_BOARD
 #include    <xtensa/xtbsp.h>
 #endif
+#include <xtensa/xtutil.h>
 
 #include "FreeRTOS.h"
 

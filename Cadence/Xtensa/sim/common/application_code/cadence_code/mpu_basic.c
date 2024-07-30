@@ -529,6 +529,27 @@ void privilegedLoadException(XtExcFrame *frame)
   xt_printf("Load Exception (%d), skip:%d and return\n", (*excp_cnt_p), skip);
 }
 
+void privilegedLoadStoreException(XtExcFrame *frame)
+{
+  uint32_t skip = 3;
+
+  uint32_t* pcptr = (uint32_t*)(frame->pc & ~0x3);
+  uint32_t index = frame->pc & 0x3;
+  uint8_t instr = (pcptr[0] >> (index*8)) & 0xf;
+  if ((instr == 8) || (instr == 9)) // l32i.n || s32i.n
+    skip = 2;
+
+  /* Move the PC past the illegal (3-byte) instruction */
+  frame->pc += skip;
+  if (frame->excvaddr == (long)passes_p) {
+      xt_printf("Load/Store Exception on attempt to increment passes_p, fixing up\n");
+      (*passes_p)++;
+  } else {
+      (*excp_cnt_p)++;
+      xt_printf("Load/Store Exception (%d), skip:%d and return\n", (*excp_cnt_p), skip);
+  }
+}
+
 void setupMPU(void) {
   extern char private_region1_start[];
   extern char private_region2_start[];
@@ -562,8 +583,12 @@ int main( void )
 
    puts("(MAIN)    Entering...\n");
   /* Install handler for prohibited access*/
+#if XCHAL_HAVE_XEA2
   xt_set_exception_handler(EXCCAUSE_STORE_PROHIBITED, privilegedStoreException);
   xt_set_exception_handler(EXCCAUSE_LOAD_PROHIBITED,  privilegedLoadException);
+#else
+  xt_set_exception_handler(EXCCAUSE_MEMORY, privilegedLoadStoreException);
+#endif
 
   puts("(MAIN)    prvSetupHardware\n");
   prvSetupHardware();

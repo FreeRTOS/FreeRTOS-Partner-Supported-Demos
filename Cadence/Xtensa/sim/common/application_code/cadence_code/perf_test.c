@@ -24,6 +24,8 @@
 
 // perf_test.c -- measure FreeRTOS operation timing.
 
+#include <xtensa/xtutil.h>
+
 #include "testcommon.h"
 #include <stdio.h>
 #include "FreeRTOS.h"
