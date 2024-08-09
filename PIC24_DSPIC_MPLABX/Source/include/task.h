@@ -193,7 +193,9 @@ typedef enum
  * \defgroup taskYIELD taskYIELD
  * \ingroup SchedulerControl
  */
-#define taskYIELD()                        portYIELD()
+#ifndef taskYIELD
+#define taskYIELD()              portYIELD()
+#endif
 
 /**
  * task. h

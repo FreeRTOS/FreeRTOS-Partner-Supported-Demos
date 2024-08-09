@@ -50,7 +50,11 @@
  * included here.  In this case the path to the correct portmacro.h header file
  * must be set in the compiler's include path. */
 #ifndef portENTER_CRITICAL
+#ifdef __dsPIC33A__
+    #include "../../Source/portable/MPLAB/dsPIC33A/portmacro.h"
+#else
     #include "../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+#endif
 #endif
 
 #if portBYTE_ALIGNMENT == 32
