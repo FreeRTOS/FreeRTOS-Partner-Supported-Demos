@@ -71,10 +71,6 @@
 #include "integer.h"
 #include "comtest2.h"
 #include "partest.h"
-#include "lcd.h"
-#include "timertest.h"
-
-#pragma config FCKSM = CSECMD  
 
 /* Demo task priorities. */
 #define mainBLOCK_Q_PRIORITY				( tskIDLE_PRIORITY + 2 )
@@ -82,7 +78,7 @@
 #define mainCOM_TEST_PRIORITY				( 2 )
 
 /* The check task may require a bit more stack as it calls sprintf(). */
-#define mainCHECK_TASK_STACK_SIZE			( configMINIMAL_STACK_SIZE * 4 )
+#define mainCHECK_TASK_STACK_SIZE			( configMINIMAL_STACK_SIZE )
 
 /* The execution period of the check task. */
 #define mainCHECK_TASK_PERIOD				( ( TickType_t ) 3000 / portTICK_PERIOD_MS )
@@ -122,17 +118,7 @@ static void vCheckTask( void *pvParameters );
  * Setup the processor ready for the demo.
  */
 static void prvSetupHardware( void );
-
-/*
- * Setup the Clock.
- */
-void prvSetupClock(void);
-
-/*-----------------------------------------------------------*/
-
-/* The queue used to send messages to the LCD task. */
-static QueueHandle_t xLCDQueue;
-
+static void vClockInitialise( void );
 /*-----------------------------------------------------------*/
 
 /*
@@ -153,10 +139,6 @@ int main( void )
 	/* Create the test tasks defined within this file. */
 	xTaskCreate( vCheckTask, "Check", mainCHECK_TASK_STACK_SIZE, NULL, mainCHECK_TASK_PRIORITY, NULL );
 
-	/* Start the task that will control the LCD.  This returns the handle
-	to the queue used to write text out to the task. */
-	xLCDQueue = xStartLCDTask();
-
 	/* Finally start the scheduler. */
 	vTaskStartScheduler();
 
@@ -164,52 +146,109 @@ int main( void )
 	the scheduler. */
 	return 0;
 }
-
 /*-----------------------------------------------------------*/
 
 static void prvSetupHardware( void )
 {
-    prvSetupClock();
+    vClockInitialise();
 	vParTestInitialise();
 }
 
-void prvSetupClock(void)
+/*-----------------------------------------------------------
+ * Clock Initialization.
+ *-----------------------------------------------------------*/
+
+void vClockInitialise()
 {
-    // FRCDIV FRC/1; PLLPRE 1; DOZE 1:8; DOZEN disabled; ROI disabled; 
-    CLKDIV = 0x3001;
-    // PLLFBDIV 50; 
-    PLLFBD = 0x32;
-    // TUN Center frequency; 
-    OSCTUN = 0x00;
-    // POST1DIV 1:4; VCODIV FVCO/4; POST2DIV 1:1; 
-    PLLDIV = 0x41;
-    // CF no clock failure; NOSC FRCPLL; CLKLOCK unlocked; OSWEN Switch is Complete; 
-    __builtin_write_OSCCONH((uint8_t) ((0x100 >> _OSCCON_NOSC_POSITION) & 0x00FF));
-    __builtin_write_OSCCONL((uint8_t) ((0x100 | _OSCCON_OSWEN_MASK) & 0xFF));
-    // Wait for Clock switch to occur
-    while (OSCCONbits.OSWEN != 0);
-    while (OSCCONbits.LOCK != 1);
+       /*  
+        System Clock Source                             :  PLL1 Out output
+        System/Generator 1 frequency (Fosc)             :  50 MHz
+        
+        Clock Generator 2 frequency                     : 8 MHz
+        Clock Generator 3 frequency                     : 8 MHz
+        Clock Generator 8 frequency                     : 8 MHz
+        
+        PLL 1 frequency                                 : 200 MHz
+        PLL 1 VCO Out frequency                         : 1000 MHz
+
+    */
+    // TUN 0x0; 
+    FRCTUN = 0x0UL;
+    // TUN 0x0; 
+    BFRCTUN = 0x0UL;
+    
+    OSCCTRLbits.FRCEN = 1U;
+    while(OSCCTRLbits.FRCRDY == 0U){}; 
+    OSCCTRLbits.BFRCEN = 1U;
+    while(OSCCTRLbits.BFRCRDY == 0U){};
+    
+    // NOSC FRC Oscillator; OE enabled; SIDL disabled; ON enabled; BOSC Serial Test Mode clock (PGC); FSCMEN disabled; DIVSWEN disabled; OSWEN disabled; EXTCFSEL disabled; EXTCFEN disabled; FOUTSWEN disabled; RIS disabled; PLLSWEN disabled; 
+    PLL1CON = 0x9100UL;
+    // POSTDIV2 1x divide; POSTDIV1 5x divide; PLLFBDIV 125; PLLPRE 1; 
+    PLL1DIV = 0x1007D29UL;
+    //Enable PLL Input and Feedback Divider update
+    PLL1CONbits.PLLSWEN = 1U;
+    while (PLL1CONbits.PLLSWEN == 1){};
+    PLL1CONbits.FOUTSWEN = 1U;
+    while (PLL1CONbits.FOUTSWEN == 1U){};
+    //enable clock switching
+    PLL1CONbits.OSWEN = 1U; 
+    //wait for switching
+    while(PLL1CONbits.OSWEN == 1U){}; 
+    //wait for clock to be ready
+    while(OSCCTRLbits.PLL1RDY == 0U){};    
+    
+    //Configure VCO Divider
+    // INTDIV 0; 
+    VCO1DIV = 0x0UL;
+    //enable PLL VCO divider
+    PLL1CONbits.DIVSWEN = 1U; 
+    //wait for setup complete
+    while(PLL1CONbits.DIVSWEN == 1U){}; 
+    
+    // NOSC PLL1 Out output; OE enabled; SIDL disabled; ON enabled; BOSC FRC Oscillator; FSCMEN disabled; DIVSWEN disabled; OSWEN disabled; EXTCFSEL External clock fail detection module #1; EXTCFEN disabled; RIS disabled; 
+    CLK1CON = 0x19500UL;
+    // FRACDIV 0; INTDIV 2; 
+    CLK1DIV = 0x20000UL;
+    //enable divide factors
+    CLK1CONbits.DIVSWEN = 1U; 
+    //wait for divide factors to get updated
+    while(CLK1CONbits.DIVSWEN == 1U){};
+    //enable clock switching
+    CLK1CONbits.OSWEN = 1U; 
+    //wait for clock switching complete
+    while(CLK1CONbits.OSWEN == 1U){};
+    
+    // NOSC FRC Oscillator; OE enabled; SIDL disabled; ON enabled; BOSC FRC Oscillator; FSCMEN disabled; DIVSWEN disabled; OSWEN disabled; EXTCFSEL External clock fail detection module #1; EXTCFEN disabled; RIS disabled; 
+    CLK2CON = 0x19101UL;
+    //enable clock switching
+    CLK2CONbits.OSWEN = 1U; 
+    //wait for clock switching complete
+    while(CLK2CONbits.OSWEN == 1U){};
+    
+    // NOSC Backup FRC Oscillator; OE enabled; SIDL disabled; ON enabled; BOSC Backup FRC Oscillator; FSCMEN disabled; DIVSWEN disabled; OSWEN disabled; EXTCFSEL External clock fail detection module #1; EXTCFEN disabled; RIS disabled; 
+    CLK3CON = 0x29202UL;
+    //enable clock switching
+    CLK3CONbits.OSWEN = 1U; 
+    //wait for clock switching complete
+    while(CLK3CONbits.OSWEN == 1U){};
+    
+    // NOSC FRC Oscillator; OE enabled; SIDL disabled; ON enabled; BOSC Serial Test Mode clock (PGC); FSCMEN disabled; DIVSWEN disabled; OSWEN disabled; EXTCFSEL External clock fail detection module #1; EXTCFEN disabled; RIS disabled; 
+    CLK8CON = 0x9100UL;
+    // FRACDIV 0x0; INTDIV 0x0; 
+    CLK8DIV = 0x0UL;
+    //enable clock switching
+    CLK8CONbits.OSWEN = 1U; 
+    //wait for clock switching complete
+    while(CLK8CONbits.OSWEN == 1U){};
+     
 }
 /*-----------------------------------------------------------*/
 
 static void vCheckTask( void *pvParameters )
 {
-/* Used to wake the task at the correct frequency. */
-TickType_t xLastExecutionTime;
-
-extern unsigned short runCount ;
-
-/* Buffer into which the maximum jitter time is written as a string. */
-static char cStringBuffer[ mainMAX_STRING_LENGTH ];
-
-/* The message that is sent on the queue to the LCD task.  The first
-parameter is the minimum time (in ticks) that the message should be
-left on the LCD without being overwritten.  The second parameter is a pointer
-to the message to display itself. */
-xLCDMessage xMessage = { 0, cStringBuffer };
-
-/* Set to pdTRUE should an error be detected in any of the standard demo tasks. */
-unsigned short usErrorDetected = pdFALSE;
+    /* Used to wake the task at the correct frequency. */
+    TickType_t xLastExecutionTime;
 
 	/* Initialise xLastExecutionTime so the first call to vTaskDelayUntil()
 	works correctly. */
@@ -224,36 +263,32 @@ unsigned short usErrorDetected = pdFALSE;
 
 		if( xAreIntegerMathsTaskStillRunning() != pdTRUE )
 		{
-			usErrorDetected = pdTRUE;
-			sprintf( cStringBuffer, "FAIL #1" );
+            PORTDbits.RD0 = 1; //Green
 		}
 
 		if( xAreComTestTasksStillRunning() != pdTRUE )
 		{
-			usErrorDetected = pdTRUE;
-			sprintf( cStringBuffer, "FAIL #2" );
+            PORTDbits.RD2 = 1; //Blue
 		}
 
 		if( xAreBlockTimeTestTasksStillRunning() != pdTRUE )
 		{
-			usErrorDetected = pdTRUE;
-			sprintf( cStringBuffer, "FAIL #3" );
+            PORTCbits.RC2 = 1; //Red
 		}
 
 		if( xAreBlockingQueuesStillRunning() != pdTRUE )
 		{
-			usErrorDetected = pdTRUE;
-			sprintf( cStringBuffer, "FAIL #4" );
+            PORTDbits.RD0 = 1;
+            Nop();
+            Nop();
+            Nop();
+            Nop();
+            PORTDbits.RD2 = 1;
+            Nop();
+            Nop();
+            Nop();
+            Nop();
 		}
-
-		if( usErrorDetected == pdFALSE )
-		{
-			/* No errors have been discovered, so display LCD task run count". */
-			sprintf( cStringBuffer, "No Errors :%d", ( short ) runCount );
-		}
-
-		/* Send the message to the LCD gatekeeper for display. */
-		xQueueSend( xLCDQueue, &xMessage, portMAX_DELAY );
 	}
 }
 /*-----------------------------------------------------------*/
