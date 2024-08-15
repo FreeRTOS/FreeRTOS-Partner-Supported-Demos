@@ -262,11 +262,23 @@ small_test : $(BLDDIR)/.mkdir
 
 OVLYLSP = $(BLDDIR)/olsp
 
+ifeq ($(MPU),1)
+$(OVLYLSP) :
+	xt-regenlsps -mlsp=sim -b $@
+	@echo OVERLAYS = 4 >> $@/memmap.xmm
+	@echo OVERLAY_ALIGN = 4096 >> $@/memmap.xmm
+	@echo $(SECT_PRIV) >> $@$(S)memmap.xmm
+	$(CP) $@$(S)memmap.xmm $@$(S)memmap.xmm.noalign
+	@echo $(SECT_ALIGN) >> $@$(S)memmap.xmm
+	-xt-genldscripts -b $@ > $@$(S)sect_align.log 2>&1 || $(CP) $@$(S)memmap.xmm.noalign $@$(S)memmap.xmm
+	xt-genldscripts -b $@ >> $@$(S)sect_align.log 2>&1
+else
 $(OVLYLSP) :
 	xt-regenlsps -mlsp=sim -b $@
 	@echo OVERLAYS = 4 >> $@/memmap.xmm
 	@echo OVERLAY_ALIGN = 4096 >> $@/memmap.xmm
 	xt-genldscripts -b $@
+endif
 
 # Must specify this object file to override default version in liboverlay.
 FIX = $(BLDDIR)/xtensa_overlay_os_hook.o

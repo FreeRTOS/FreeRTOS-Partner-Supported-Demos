@@ -34,7 +34,8 @@ with "make OVERLAY=1 overlay", but you should do a "make clean" first.
 Similarly, run "make clean" before running "make all".
 FreeRTOS overlay support is built without optimization to improve debug
 visibility; see the System Software Reference Manual, "Overlay" chapter,
-"Debugging Support" section for more details.
+"Debugging Support" section for more details.  Overlay support works 
+only with the windowed ABI option.
 
 To build a minimal-size test, run "make small". This will build the
 following test in build/ -
