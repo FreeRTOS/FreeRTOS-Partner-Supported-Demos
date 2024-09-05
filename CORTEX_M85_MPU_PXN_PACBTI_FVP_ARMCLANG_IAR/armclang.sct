@@ -1,0 +1,100 @@
+#! armclang --target=arm-arm-none-eabi -march=armv8.1-m.main+mve.fp+fp.dp -E -x c
+/*
+ * Copyright (c) 2021-2024 Arm Limited. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#define FLASH_NS_PARTITION_SIZE           0x340000
+#define FLASH_S_PARTITION_SIZE            0x40000
+#define ROM_START                         0x28000000
+#define BL2_HEADER_SIZE                   0x400
+#define BL2_TRAILER_SIZE                  0xC00
+#define ISRAM0_BASE_ADDRESS               0x21000000
+#define ISRAM1_OFFSET                     0x00200000
+#define ISRAM1_SIZE                       0x00200000
+#define STACK_SIZE                        0x00001000
+#define HEAP_SIZE                         0x000C0000
+#define _Privileged_Functions_Region_Size 0x00010000
+#define _Privileged_Sram_Region_Size      0x00001000
+#define __privileged_functions_start__    (ROM_START + ((((0) + (FLASH_S_PARTITION_SIZE)) + BL2_HEADER_SIZE)))
+#define __privileged_functions_end__      (__privileged_functions_start__ + _Privileged_Functions_Region_Size)
+#define __SRAM_segment_start__            (ISRAM0_BASE_ADDRESS + ((ISRAM1_OFFSET)))
+#define __SRAM_segment_end__              (__SRAM_segment_start__ + ISRAM1_SIZE)
+#define __privileged_sram_start__         __SRAM_segment_start__
+#define __privileged_sram_end__           (__privileged_sram_start__ + _Privileged_Sram_Region_Size)
+
+LOAD_REGION_0 __privileged_functions_start__
+{
+    flash +0 ALIGN 32
+    {
+        *.o(RESET, +First)
+        *(InRoot$$Sections) ; All sections that must be in a root region
+        *(privileged_functions)
+    }
+
+    ER_IROM_NS_PRIVILEGED_ALIGN +0 ALIGN 32 EMPTY 0x0
+    {
+    }
+
+    ER_IROM_NS_FREERTOS_SYSTEM_CALLS +0 ALIGN 32
+    {
+        *(freertos_system_calls)
+    }
+
+    ER_IROM_NS_FREERTOS_SYSTEM_CALLS_ALIGN +0 ALIGN 32 EMPTY 0x0
+    {
+    }
+
+    ER_IROM_NS_PRIVILEGED_EXECUTE_NEVER +0 ALIGN 32
+    {
+        *(privileged_execute_never_functions)
+    }
+
+    ER_IROM_NS_PRIVILEGED_EXECUTE_NEVER_ALIGN +0 ALIGN 32 EMPTY 0x0
+    {
+    }
+
+    ER_IROM_NS_UNPRIVILEGED +0 ALIGN 32
+    {
+        *(+RO)
+    }
+
+    ER_IROM_NS_UNPRIVILEGED_ALIGN +0 ALIGN 32 EMPTY 0x0
+    {
+    }
+
+    ER_IRAM_NS_PRIVILEGED __SRAM_segment_start__ ALIGN 32
+    {
+        *(privileged_data)
+    }
+
+    ER_IRAM_NS_PRIVILEGED_ALIGN +0 ALIGN 32 EMPTY 0x0
+    {
+    }
+
+    ER_IRAM_NS_UNPRIVILEGED +0 ALIGN 32
+    {
+        *(+RW, +ZI)
+    }
+
+    ER_IRAM_NS_UNPRIVILEGED_ALIGN +0 ALIGN 32 EMPTY 0x0
+    {
+    }
+
+    ARM_LIB_STACK +0 ALIGN 32 EMPTY (STACK_SIZE) {
+    }
+
+    ARM_LIB_HEAP +0 ALIGN 8 EMPTY (HEAP_SIZE) {
+    }
+}
