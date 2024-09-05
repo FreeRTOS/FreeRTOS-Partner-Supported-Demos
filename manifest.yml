@@ -9,4 +9,10 @@ dependencies:
       type: "git"
       url: "https://git.gitlab.arm.com/iot/open-iot-sdk/arm-corstone-platform-bsp.git"
       path: "Demos_Dependencies/arm_corstone_platform_bsp"
-
+  - name: "trusted-firmware-m"
+    license: "BSD-3-Clause"
+    version: "deda2ede367b4c181311b8a56bb5ec617403201c"
+    repository:
+      type: "git"
+      url: "https://git.trustedfirmware.org/TF-M/trusted-firmware-m.git"
+      path: "Demos_Dependencies/trusted_firmware-m"
