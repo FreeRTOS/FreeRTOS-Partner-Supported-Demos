@@ -1,4 +1,6 @@
 [submodule "Demos_Dependencies/arm_corstone_platform_bsp"]
 	path = Demos_Dependencies/arm_corstone_platform_bsp
 	url = https://git.gitlab.arm.com/iot/open-iot-sdk/arm-corstone-platform-bsp.git
-
+[submodule "Demos_Dependencies/trusted_firmware-m"]
+	path = Demos_Dependencies/trusted_firmware-m
+	url = https://review.trustedfirmware.org/TF-M/trusted-firmware-m.git
