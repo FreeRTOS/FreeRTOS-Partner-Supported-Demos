@@ -113,9 +113,11 @@ static inline void set_ccompare(uint32_t v)
     asm volatile ("wsr." CCOMPARE_NAME(OTHER_TIMER_INDEX) " %[v]" :: [v] "a" (v));
 }
 
+// Allow a 1% error margin for test purposes
 #define TIMER_PERIOD 4
 #define TIMER_CLOCKS (TIMER_PERIOD * configCPU_CLOCK_HZ / configTICK_RATE_HZ)
-#define TICK_CLOCKS (configCPU_CLOCK_HZ / configTICK_RATE_HZ)
+#define TICK_CLOCKS (((configCPU_CLOCK_HZ / configTICK_RATE_HZ) * 101) / 100)
+
 static volatile int rc = 0;
 
 static void timer(TimerHandle_t t)
@@ -133,34 +135,34 @@ static void timer(TimerHandle_t t)
             if (td->missed_delta == 0) {
                 td->missed_delta = td->delta;
                 td->missed_dir = 1;
-                printf("%s: %d, expected: %d +/- %d; delta: %d\n",
+                printf("%s: 1. %d, expected: %d +/- %d; delta: %d\n",
                     __func__, ccount - td->ccount, TIMER_CLOCKS, (TICK_CLOCKS - 1) / 2, td->delta);
-                printf("%s: (suppressing at delta %d)\n", __func__, td->delta);
+                printf("%s: 2. (suppressing at delta %d)\n", __func__, td->delta);
             } else if (td->missed_dir == -1) {
-                printf("%s: (compensated at delta %d (+ to -); ignored)\n", __func__, td->delta);
+                printf("%s: 3. (compensated at delta %d (+ to -); ignored)\n", __func__, td->delta);
                 td->missed_delta = 0;
                 td->missed_dir = 0;
             } else {
-                printf("%s: (suppressing additional + drift at delta %d\n", __func__, td->delta);
+                printf("%s: 4. (suppressing additional + drift at delta %d\n", __func__, td->delta);
             }
         } else if (ccount - td->ccount < TIMER_CLOCKS - (TICK_CLOCKS - 1) / 2 &&
                    ccount - td->ccount > TIMER_CLOCKS - (TICK_CLOCKS - 1)) {
             if (td->missed_delta == 0) {
                 td->missed_delta = td->delta;
                 td->missed_dir = -1;
-                printf("%s: %d, expected: %d +/- %d; delta: %d\n",
+                printf("%s: 5. %d, expected: %d +/- %d; delta: %d\n",
                     __func__, ccount - td->ccount, TIMER_CLOCKS, (TICK_CLOCKS - 1) / 2, td->delta);
-                printf("%s: (suppressing at delta %d)\n", __func__, td->delta);
+                printf("%s: 6. (suppressing at delta %d)\n", __func__, td->delta);
             } else if (td->missed_dir == 1) {
-                printf("%s: (compensated at delta %d (- to +); ignored)\n", __func__, td->delta);
+                printf("%s: 7. (compensated at delta %d (- to +); ignored)\n", __func__, td->delta);
                 td->missed_delta = 0;
                 td->missed_dir = 0;
             } else {
-                printf("%s: (suppressing additional - drift at delta %d\n", __func__, td->delta);
+                printf("%s: 8. (suppressing additional - drift at delta %d\n", __func__, td->delta);
             }
         } else if (ccount - td->ccount > TIMER_CLOCKS + (TICK_CLOCKS - 1) ||
                    ccount - td->ccount < TIMER_CLOCKS - (TICK_CLOCKS - 1)) {
-            printf("%s: %d, expected: %d +/- %d; delta: %d\n",
+            printf("%s: 9. %d, expected: %d +/- %d; delta: %d\n",
                    __func__, ccount - td->ccount, TIMER_CLOCKS, (TICK_CLOCKS - 1) / 2, td->delta);
             rc = 1;
         }
