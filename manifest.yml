@@ -1,0 +1,12 @@
+name : "FreeRTOS-Partner-Supported-Demos"
+description: |-
+  "FreeRTOS-Partner-Supported-Demos repository contains demos for FreeRTOS ports supported by FreeRTOS partners"
+dependencies:
+  - name: "arm-corstone-platform-bsp"
+    license: "Apache-2.0"
+    version: "v0.4.0"
+    repository:
+      type: "git"
+      url: "https://git.gitlab.arm.com/iot/open-iot-sdk/arm-corstone-platform-bsp.git"
+      path: "Demos_Dependencies/arm_corstone_platform_bsp"
+

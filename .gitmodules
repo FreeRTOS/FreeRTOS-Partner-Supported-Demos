@@ -1,0 +1,4 @@
+[submodule "Demos_Dependencies/arm_corstone_platform_bsp"]
+	path = Demos_Dependencies/arm_corstone_platform_bsp
+	url = https://git.gitlab.arm.com/iot/open-iot-sdk/arm-corstone-platform-bsp.git
+
