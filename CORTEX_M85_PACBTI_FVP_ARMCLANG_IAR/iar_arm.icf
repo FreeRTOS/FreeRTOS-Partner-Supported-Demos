@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2009-2024 Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * Licensed under the Apache License, Version 2.0 (the License); you may
+ * not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */  
+
+define region ROM_region = mem:[from 0x28040400 size 0x0033F000];
+define region RAM_region = mem:[from 0x21200000 size 0x00200000];
+
+define block CSTACK with alignment = 8, size = 0x00001000 { };
+define block HEAP   with alignment = 8, size = 0x00080000 { };
+
+do not initialize { section .noinit };
+
+place at start of ROM_region { readonly section .intvec };
+place in ROM_region { readonly };
+
+initialize by copy { readwrite };
+
+place in RAM_region { readwrite, block CSTACK, block HEAP };
