@@ -67,8 +67,11 @@
 #define SECOND_TIMER_TICK_DIVISOR			( configCPU_CLOCK_HZ / SECOND_TIMER_TICK_RATE_HZ )
 /*-----------------------------------------------------------*/
 
+#if !defined(CONFIG_VERIF)
 /* Defined in main_full.c. */
 extern BaseType_t xTimerForQueueTestInitialized;
+#endif
+
 /*-----------------------------------------------------------*/
 
 /**
@@ -83,8 +86,10 @@ void vInitialiseTimerForIntQueueTest( void )
 {
 unsigned currentCycleCount, firstComparatorValue;
 
+	#if !defined(CONFIG_VERIF)
 	/* Inform the tick hook function that it can access queues now. */
 	xTimerForQueueTestInitialized = pdTRUE;
+	#endif
 
 	#if( SECOND_TIMER_AVAILABLE == 1 )
 	{
@@ -101,9 +106,15 @@ unsigned currentCycleCount, firstComparatorValue;
 		xthal_set_ccompare( SECOND_TIMER_INDEX, firstComparatorValue );
 
 		/* Enable timer interrupt. */
-		xt_ints_on( ( 1 << XCHAL_TIMER1_INTERRUPT ) );
+		xt_interrupt_enable( XCHAL_TIMER1_INTERRUPT );
 	}
 	#endif /* SECOND_TIMER_AVAILABLE */
+}
+/*-----------------------------------------------------------*/
+
+void IntQueueTestTimerHandler( void )
+{
+	portYIELD_FROM_ISR( xSecondTimerHandler() );
 }
 /*-----------------------------------------------------------*/
 
@@ -147,7 +158,7 @@ do {
 			xthal_set_ccompare( SECOND_TIMER_INDEX, newComparatorValue );
 
 			/* Process. */
-			portYIELD_FROM_ISR( xSecondTimerHandler() );
+			IntQueueTestTimerHandler();
 
 			/* Ensure comparator update is complete. */
 			xthal_icache_sync();

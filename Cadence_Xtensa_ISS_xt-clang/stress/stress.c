@@ -25,58 +25,35 @@
  */
 
 /******************************************************************************
- * This project provides two demo applications:
- * - A simple blinky style demo application.
- * - A more comprehensive test and demo application.
- * The mainCREATE_SIMPLE_BLINKY_DEMO_ONLY macro is used to select between the two.
- *
- * The simply blinky demo is implemented and described in the file main_blinky.c.
- * The more comprehensive test and demo application is implemented and described
- * in the file main_full.c.
- *
- * This file implements the code that is not demo specific, including the FreeRTOS
- * hook functions.
- *
- *******************************************************************************
+ * NOTE:  This file only contains the source code that is specific to the
+ * basic demo.  Generic functions, such FreeRTOS hook functions, are defined
+ * in main.c.
+ ******************************************************************************
  */
+
 
 /* Standard includes. */
 #include <stdio.h>
 #include <stdlib.h>
 
-/* FreeRTOS kernel includes. */
-#include "FreeRTOS.h"
-#include "task.h"
+/* Kernel includes. */
+#include <FreeRTOS.h>
+#include <task.h>
+#include <queue.h>
+#include <timers.h>
+#include <semphr.h>
 
-/**
- * This project provides two demo applications:
- * - A simple blinky style demo application.
- * - A more comprehensive test and demo application.
- * The mainCREATE_SIMPLE_BLINKY_DEMO_ONLY macro is used to select between the two.
- *
- * If mainCREATE_SIMPLE_BLINKY_DEMO_ONLY is set to 1 then the blinky demo will be
- * built. The blinky demo is implemented and described in main_blinky.c.
- *
- * If mainCREATE_SIMPLE_BLINKY_DEMO_ONLY is set to 0 then the comprehensive test
- * and demo application will be built. The comprehensive test and demo application
- * is implemented and described in main_full.c.
- */
-#define mainCREATE_SIMPLE_BLINKY_DEMO_ONLY    0
+/* Standard demo includes. */
+#include "TestRunner.h"
+
 /*-----------------------------------------------------------*/
 
 /**
- * The entry function for the blinky demo application.
+ * Start all the tests.
  *
- * This is used when mainCREATE_SIMPLE_BLINKY_DEMO_ONLY is set to 1.
+ * Note that this function starts the scheduler and therefore, never returns.
  */
-extern void main_blinky( void );
-
-/**
- * The entry function for the comprehensive test and demo application.
- *
- * This is used when mainCREATE_SIMPLE_BLINKY_DEMO_ONLY is set to 0.
- */
-extern void main_full( void );
+extern void vStartTests( void );
 
 /**
  * Prototypes for the standard FreeRTOS application hook (callback) functions
@@ -101,19 +78,15 @@ void vFullDemoTickHookFunction( void );
 
 int main( void )
 {
-    /* The mainCREATE_SIMPLE_BLINKY_DEMO_ONLY setting is described at the top
-     * of this file. */
-    #if ( mainCREATE_SIMPLE_BLINKY_DEMO_ONLY == 1 )
-    {
-        main_blinky();
-    }
-    #else
-    {
-        main_full();
-    }
-    #endif
+    /* Startup and Hardware initialization. */
 
-    return 0;
+    /* Start tests. */
+    vStartTests();
+
+    /* Should never reach here. */
+    for( ; ; );
+	
+	return 0;
 }
 /*-----------------------------------------------------------*/
 
@@ -145,21 +118,6 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask,
      * configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2.  This hook
      * function is called if a stack overflow is detected. */
     vAssertCalled( __FILE__, __LINE__ );
-}
-/*-----------------------------------------------------------*/
-
-void vApplicationTickHook( void )
-{
-    /* This function will be called by each tick interrupt if
-    * configUSE_TICK_HOOK is set to 1 in FreeRTOSConfig.h.  User code can be
-    * added here, but the tick hook is called from an interrupt context, so
-    * code must not attempt to block, and only the interrupt safe FreeRTOS API
-    * functions can be used (those that end in FromISR()). */
-    #if ( mainCREATE_SIMPLE_BLINKY_DEMO_ONLY != 1 )
-    {
-        vFullDemoTickHookFunction();
-    }
-    #endif /* mainCREATE_SIMPLE_BLINKY_DEMO_ONLY */
 }
 /*-----------------------------------------------------------*/
 

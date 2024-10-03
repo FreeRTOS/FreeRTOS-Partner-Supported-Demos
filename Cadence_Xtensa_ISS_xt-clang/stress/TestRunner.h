@@ -10,8 +10,7 @@
  * subject to the following conditions:
  *
  * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software. If you wish to use our Amazon
- * FreeRTOS name, please do so in a fair use way that does not cause confusion.
+ * copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
@@ -25,12 +24,14 @@
  *
  */
 
-#ifndef INT_QUEUE_TIMER_H
-#define INT_QUEUE_TIMER_H
+#ifndef TEST_RUNNER_H
+#define TEST_RUNNER_H
 
 /**
- * The function called from interrupt tests to initialise timer.
+ * Start all the tests.
+ *
+ * Note that this function starts the scheduler and therefore, never returns.
  */
-void vInitialiseTimerForIntQueueTest( void );
+void vStartTests( void );
 
-#endif /* INT_QUEUE_TIMER_H */
+#endif /* TEST_RUNNER_H */

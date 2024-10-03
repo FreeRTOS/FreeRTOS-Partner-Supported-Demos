@@ -249,4 +249,89 @@
 
 #define configSTREAM_BUFFER_TRIGGER_LEVEL_TEST_MARGIN	( 2 )	/* Used by stream buffer tests. */
 
+#if (defined CONFIG_VERIF)
+
+/* Set task notification array size (for verif.exe)
+ * Memory size is limited, more on some configs than others.
+ */
+#define configTASK_NOTIFICATION_ARRAY_ENTRIES	  3
+
+/* Enable printf (for verif.exe).  Note that calls are wrapped in double parentheses. */
+#define configPRINTF( X )			printf X
+
+/* Additional configuration for verif.exe) */
+#define configSTART_TASK_NOTIFY_TESTS             1
+#define configSTART_TASK_NOTIFY_ARRAY_TESTS       1
+#define configSTART_BLOCKING_QUEUE_TESTS          1
+#define configSTART_SEMAPHORE_TESTS               1
+#define configSTART_POLLED_QUEUE_TESTS            1
+#define configSTART_INTEGER_MATH_TESTS            1
+#define configSTART_GENERIC_QUEUE_TESTS           1
+#define configSTART_PEEK_QUEUE_TESTS              1
+#define configSTART_MATH_TESTS                    1
+#define configSTART_RECURSIVE_MUTEX_TESTS         1
+#define configSTART_COUNTING_SEMAPHORE_TESTS      1
+#define configSTART_QUEUE_SET_TESTS               1
+#define configSTART_QUEUE_OVERWRITE_TESTS         1
+#define configSTART_EVENT_GROUP_TESTS             1
+#define configSTART_INTERRUPT_SEMAPHORE_TESTS     1
+#define configSTART_QUEUE_SET_POLLING_TESTS       1
+#define configSTART_BLOCK_TIME_TESTS              1
+#define configSTART_ABORT_DELAY_TESTS             1
+#define configSTART_MESSAGE_BUFFER_TESTS          1
+#define configSTART_STREAM_BUFFER_TESTS           1
+#define configSTART_STREAM_BUFFER_INTERRUPT_TESTS 1
+#define configSTART_TIMER_TESTS                   1
+#define configSTART_INTERRUPT_QUEUE_TESTS         1
+#define configSTART_REGISTER_TESTS                1
+#define configSTART_DELETE_SELF_TESTS             1
+
+#if configSTART_INTERRUPT_QUEUE_TESTS
+/* Interrupt tests require timer tick to use lowest-priority interrupt
+ * so that it can be preempted.
+ */
+#ifndef XT_TIMER_INDEX
+  #if XCHAL_TIMER3_INTERRUPT != XTHAL_TIMER_UNCONFIGURED
+    #if XCHAL_INT_LEVEL(XCHAL_TIMER3_INTERRUPT) <= XCHAL_EXCM_LEVEL
+      #undef  XT_TIMER_INDEX
+      #define XT_TIMER_INDEX    3
+      #undef  XT_TIMER_LEVEL
+      #define XT_TIMER_LEVEL    XCHAL_INT_LEVEL(XCHAL_TIMER3_INTERRUPT)
+    #endif
+  #endif
+  #if XCHAL_TIMER2_INTERRUPT != XTHAL_TIMER_UNCONFIGURED
+    #if XCHAL_INT_LEVEL(XCHAL_TIMER2_INTERRUPT) <= XCHAL_EXCM_LEVEL && \
+        (!defined(XT_TIMER_INDEX) || \
+     XCHAL_INT_LEVEL(XCHAL_TIMER2_INTERRUPT) < XT_TIMER_LEVEL)
+      #undef  XT_TIMER_INDEX
+      #define XT_TIMER_INDEX    2
+      #undef  XT_TIMER_LEVEL
+      #define XT_TIMER_LEVEL    XCHAL_INT_LEVEL(XCHAL_TIMER2_INTERRUPT)
+    #endif
+  #endif
+  #if XCHAL_TIMER1_INTERRUPT != XTHAL_TIMER_UNCONFIGURED
+    #if XCHAL_INT_LEVEL(XCHAL_TIMER1_INTERRUPT) <= XCHAL_EXCM_LEVEL && \
+        (!defined(XT_TIMER_INDEX) || \
+     XCHAL_INT_LEVEL(XCHAL_TIMER1_INTERRUPT) < XT_TIMER_LEVEL)
+      #undef  XT_TIMER_INDEX
+      #define XT_TIMER_INDEX    1
+      #undef  XT_TIMER_LEVEL
+      #define XT_TIMER_LEVEL    XCHAL_INT_LEVEL(XCHAL_TIMER1_INTERRUPT)
+    #endif
+  #endif
+  #if XCHAL_TIMER0_INTERRUPT != XTHAL_TIMER_UNCONFIGURED
+    #if XCHAL_INT_LEVEL(XCHAL_TIMER0_INTERRUPT) <= XCHAL_EXCM_LEVEL && \
+        (!defined(XT_TIMER_INDEX) || \
+     XCHAL_INT_LEVEL(XCHAL_TIMER0_INTERRUPT) < XT_TIMER_LEVEL)
+      #undef  XT_TIMER_INDEX
+      #define XT_TIMER_INDEX    0
+      #undef  XT_TIMER_LEVEL
+      #define XT_TIMER_LEVEL    XCHAL_INT_LEVEL(XCHAL_TIMER0_INTERRUPT)
+    #endif
+  #endif
+#endif
+#endif /* configSTART_INTERRUPT_QUEUE_TESTS */
+
+#endif /* CONFIG_VERIF */
+
 #endif /* FREERTOS_CONFIG_H */

@@ -1,5 +1,27 @@
 
-How to build and run the tests
+Cadence Hardware and Toolchain
+------------------------------
+
+Information on Tensilica configurable DSPs and controllers can be found on
+the Cadence Silicon Solutions website:
+
+https://www.cadence.com/en_US/home/tools/ip.html
+
+Information on the xt-clang compiler and instructions for setting up the 
+Xtensa Toolchain can be found in the following documents, which are provided
+under an Xtensa license and available for download via the Xtensa Processor
+Generator (XPG) tab of the Xtensa Xplorer IDE:
+
+	Xtensa Development Tools Installation Guide
+	Xtensa Software Development Toolkit User's Guide
+	Xtensa XT-CLANG Compiler User's Guide
+	Xtensa Linker Support Packages (LSPs) Reference Manual
+	GNU Assembler User's Guide
+	GNU Binary Utilities User's Guide
+	GNU Linker User's Guide
+
+
+How to Build and Run the Tests
 ------------------------------
 
 To build the tests, run "make all" in this directory. This will build
@@ -59,6 +81,13 @@ following test in build/stress/ -
 This test runs until manually terminated by the user and displays 
 minimal output at occasional intervals.  Note that this test may run
 slowly in simulation and may not display output for several minutes.
+
+
+Notes for version 3.0
+---------------------
+
+- The directory structure and makefiles have been reorganized to conform
+  to the structure of FreeRTOS version 11.0.0
 
 
 Notes for version 1.8

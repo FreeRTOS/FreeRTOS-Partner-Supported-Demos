@@ -27,11 +27,11 @@ CWDIR       = $(subst /,$(S),$(CURDIR))
 DROOT       = $(CWDIR)
 SRCDIR      = $(DROOT)$(S)common$(S)application_code$(S)cadence_code
 CFGDIR      = $(DROOT)$(S)common$(S)config_files
-OSROOT      = $(abspath $(DROOT)$(S)..$(S)..$(S)..$(S)..$(S)..$(S)..$(S)Source$(S)portable$(S)ThirdParty$(S)Partner-Supported-Ports$(S)Cadence$(S)Xtensa)
+OSROOT      = $(abspath $(DROOT)$(S)..$(S)..$(S)..$(S)..$(S)Source$(S)portable$(S)ThirdParty$(S)Partner-Supported-Ports$(S)Cadence$(S)Xtensa)
 BLDROOT     = $(DROOT)$(S)build
 BLDDIR      = $(BLDROOT)$(S)$(XT_CORE)
 OSINCDIR    = $(abspath $(OSROOT)$(S)..$(S)..$(S)..$(S)..$(S)..$(S)include)
-COMMDIR     = $(abspath $(DROOT)$(S)..$(S)..$(S)..$(S)..$(S)..$(S)Common)
+COMMDIR     = $(abspath $(DROOT)$(S)..$(S)..$(S)..$(S)Common)
 COMMINCDIR  = $(abspath $(COMMDIR)$(S)include)
 
 # Source files
@@ -52,18 +52,21 @@ TEST_FILES  = \
 
 ALL_FILES	= $(COMM_FILES) $(TEST_FILES)
 
-XPLORER_O	= \
-    main.o               \
-    main_full.o          \
-    regtest_xtensa.o
+STRESS_BASE_O	= \
+    IntQueueTimer.o      \
+    TestRunner.o         \
+    RegTests.o           \
+    regtest_xtensa.o     \
+    stress.o
 
-XPLORER_COMM_C	= \
+STRESS_COMM_C	= \
     AbortDelay.c         \
     BlockQ.c             \
     EventGroupsDemo.c    \
     GenQTest.c           \
     IntQueue.c           \
     IntSemTest.c         \
+    MessageBufferAMP.c   \
     MessageBufferDemo.c  \
     PollQ.c              \
     QPeek.c              \
@@ -74,10 +77,12 @@ XPLORER_COMM_C	= \
     StreamBufferDemo.c   \
     StreamBufferInterrupt.c \
     TaskNotify.c         \
+    TaskNotifyArray.c    \
     TimerDemo.c          \
     blocktim.c           \
     countsem.c           \
     death.c              \
+    dynamic.c            \
     flop.c               \
     integer.c            \
     recmutex.c           \
@@ -92,8 +97,9 @@ COMM_OBJS   = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(COMM_FILES)))
 OBJS        = $(addprefix $(BLDDIR)/,$(patsubst %.c,%.o,$(ALL_FILES)))
 SRC_FILES   = $(TEST_FILES)
 
-XPLORER_BASE_O	= $(addprefix $(BLDDIR)/stress/,$(XPLORER_O))
-XPLORER_COMM_O	= $(addprefix $(BLDDIR)/stress/Common/Minimal/,$(patsubst %.c,%.o,$(XPLORER_COMM_C)))
+STRESS_O    = \
+	$(addprefix $(BLDDIR)/stress/,$(STRESS_BASE_O)) \
+	$(addprefix $(BLDDIR)/stress/Common/Minimal/,$(patsubst %.c,%.o,$(STRESS_COMM_C)))
 
 # Search paths
 
@@ -102,6 +108,7 @@ vpath %.c $(SRCDIR)
 # Output files
 
 OSLIB       = $(BLDDIR)$(S)libfreertos.a
+OSLIB_VERIF = $(BLDDIR)$(S)stress$(S)libfreertos.a
 
 # Target-specific options
 
@@ -140,6 +147,7 @@ endif
 CFLAGS     += -g -Wall -Werror
 CCFLAGS     = $(CFLAGS) -ffunction-sections -mlongcalls $(DFLAGS) $(MPUFLAGS)
 XX_CCFLAGS  = $(filter-out -Werror,$(CFLAGS)) -ffunction-sections -mlongcalls $(DFLAGS)
+VERIF_CFLAGS= -DCONFIG_VERIF
 LDFLAGS    ?= -Wl,--gc-sections $(CFLAGS)
 
 CFLAGS_mpu_basic = -O0
@@ -215,20 +223,23 @@ $(EXE) : $(BLDDIR)/%.exe : $(BLDDIR)/%.o $(COMM_OBJS) $(OSLIB) $(MPULSP)
 $(OBJS) : $(BLDDIR)/%.o : %.c $(BLDDIR)/.mkdir $(OSLIB)
 	$(CC) $(CCFLAGS) $(CFLAGS_$*) $(INCS) -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
-$(BLDDIR)/stress/stress.exe : $(XPLORER_BASE_O) $(XPLORER_COMM_O) $(OSLIB) $(MPULSP)
-	$(CC) -o $@ $(filter %.o,$^) -mlsp=$(LSPPATH) $(LDFLAGS) $(OSLIB) -lxtutil -lm
+$(BLDDIR)/stress/stress.exe : $(STRESS_O) $(OSLIB_VERIF) $(MPULSP)
+	$(CC) -o $@ $(filter %.o,$^) -mlsp=$(LSPPATH) $(LDFLAGS) $(OSLIB_VERIF) -lxtutil -lm
 
-$(BLDDIR)/stress/%.o : stress/%.c $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB)
-	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+$(BLDDIR)/stress/%.o : stress/%.c $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB_VERIF)
+	$(CC) $(XX_CCFLAGS) $(VERIF_CFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR)$(S)stress -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
-$(BLDDIR)/stress/%.o : stress/%.S $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB)
-	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+$(BLDDIR)/stress/%.o : stress/%.S $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB_VERIF)
+	$(CC) $(XX_CCFLAGS) $(VERIF_CFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR)$(S)stress -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
-$(BLDDIR)/stress/Common/Minimal/%.o : $(COMMDIR)/Minimal/%.c $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB)
-	$(CC) $(XX_CCFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR) -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
+$(BLDDIR)/stress/Common/Minimal/%.o : $(COMMDIR)/Minimal/%.c $(BLDDIR)/.mkdir $(BLDDIR)/stress/.mkdir $(OSLIB_VERIF)
+	$(CC) $(XX_CCFLAGS) $(VERIF_CFLAGS) $(CFLAGS_$*) -I$(CFGDIR) -I$(OSROOT) -I$(OSINCDIR) -I$(OSINCDIR)$(S)private -I$(BLDDIR)$(S)stress -I$(COMMINCDIR) -Istress -MD -MF $(subst .o,.d,$@) -c -o $@ $<
 
 $(OSLIB) ::
 	$(MAKE) -f $(OSROOT)$(S)Makefile all TARGET=$(TARGET) CFLAGS="$(CFLAGS)" SRCROOT=$(OSROOT) BLDROOT=$(BLDROOT) MPU=$(MPU)
+
+$(OSLIB_VERIF) ::
+	$(MAKE) -f $(OSROOT)$(S)Makefile all TARGET=$(TARGET) CFLAGS="$(CFLAGS) $(VERIF_CFLAGS)" SRCROOT=$(OSROOT) BLDROOT=$(BLDROOT) BLDAUX="$(S)stress" MPU=$(MPU)
 
 mpu_basic : $(BLDDIR)/mpu_basic.exe
 
