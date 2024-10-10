@@ -259,6 +259,9 @@
 /* Enable printf (for verif.exe).  Note that calls are wrapped in double parentheses. */
 #define configPRINTF( X )			printf X
 
+/* Set list structure members as volatile; they can be modified from interrupt context */
+#define configLIST_VOLATILE			volatile
+
 /* Additional configuration for verif.exe) */
 #define configSTART_TASK_NOTIFY_TESTS             1
 #define configSTART_TASK_NOTIFY_ARRAY_TESTS       1
