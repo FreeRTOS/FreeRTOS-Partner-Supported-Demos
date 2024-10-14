@@ -1,0 +1,8 @@
+
+Cadence_Xtensa_ISS_xt-clang/build/
+Cadence_Xtensa_ISS_xt-clang/Xplorer/.cproject
+Cadence_Xtensa_ISS_xt-clang/Xplorer/.settings/*.prefs
+Cadence_Xtensa_ISS_xt-clang/Xplorer/.settings/*/*/Debug/
+Cadence_Xtensa_ISS_xt-clang/Xplorer/.settings/*/*/Release/
+Cadence_Xtensa_ISS_xt-clang/Xplorer/bin/
+Cadence_Xtensa_ISS_xt-clang/Xplorer/Makefile
