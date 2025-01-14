@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 /* Kernel includes. */
 #include "FreeRTOS.h"
@@ -511,3 +512,20 @@ void MemManage_Handler( void )
 		" bx r2												\n"
 	);
 }
+
+#if( configENABLE_PAC == 1 )
+    void vApplicationGenerateTaskRandomPacKey( uint32_t * pulTaskPacKey )
+    {
+        static BaseType_t isSeeded = pdFALSE;
+        if ( isSeeded == pdFALSE )
+        {
+            srand(time(NULL));
+            isSeeded = pdTRUE;
+        }
+
+        for ( uint8_t i = 0; i < 4; i++ )
+        {
+            pulTaskPacKey[i] = rand();
+        }
+    }
+#endif /* configENABLE_PAC == 1 */
