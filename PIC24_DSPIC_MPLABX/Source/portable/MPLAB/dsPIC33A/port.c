@@ -492,5 +492,5 @@ __attribute__(( weak )) void vApplicationSetupTickTimerInterrupt( void )
 	T1CONbits.TCKPS1 = 0;
 #endif    
 	/* Start the timer. */
-	T1CONbits.TON = 1;
+	T1CONbits.ON = 1;
 }
