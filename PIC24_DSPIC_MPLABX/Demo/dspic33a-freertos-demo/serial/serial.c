@@ -95,10 +95,10 @@ xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned port
 #endif    
 
 	/* Setup the UART. */
-	U2CONbits.BRGH		= serLOW_SPEED;
+	U2CONbits.BRGS		= serLOW_SPEED;
 	U2CONbits.STP	= serONE_STOP_BIT;
 	U2CONbits.ABDEN	= serAUTO_BAUD_OFF;
-	U2CONbits.WAKE		= serWAKE_UP_DISABLE;
+	U2CONbits.WUE		= serWAKE_UP_DISABLE;
 	U2CONbits.FLO		= serNO_HARDWARE_FLOW_CONTROL;
 	U2CONbits.MODE		= serNO_IRDA;
 	U2CONbits.SIDL	= serCONTINUE_IN_IDLE_MODE;
@@ -106,12 +106,11 @@ xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned port
 
 	U2BRG = (unsigned short)(( (float)configCPU_CLOCK_HZ / ( (float)16 * (float)ulWantedBaud ) ) - (float)0.5);
 
-	U2STAbits.URXISEL	= serINTERRUPT_ON_SINGLE_CHAR;
     U2CONbits.RXEN		= serRX_ENABLE;
 	U2CONbits.TXEN		= serTX_ENABLE;
-	U2CONbits.UTXINV	= serNORMAL_IDLE_STATE;
-	U2STAbits.TXWM	= serINTERRUPT_ON_SINGLE_CHAR;
-	U2STAbits.RXWM	= serINTERRUPT_ON_SINGLE_CHAR;
+	U2CONbits.TXPOL	= serNORMAL_IDLE_STATE;
+	U2STATbits.TXWM	= serINTERRUPT_ON_SINGLE_CHAR;
+	U2STATbits.RXWM	= serINTERRUPT_ON_SINGLE_CHAR;
     
 
 
@@ -128,7 +127,7 @@ xComPortHandle xSerialPortInitMinimal( unsigned long ulWantedBaud, unsigned port
 	IEC2bits.U2RXIE = serINTERRUPT_ENABLE;
 
 	/* Clear the Rx buffer. */
-	while( U2STAbits.RXBE == serCLEAR_FLAG )
+	while( U2STATbits.RXBE == serCLEAR_FLAG )
 	{
 		cChar = U2RXB;
 	}
@@ -194,7 +193,7 @@ portBASE_TYPE xHigherPriorityTaskWoken = pdFALSE;
 	If the post causes a task to wake force a context switch as the woken task
 	may have a higher priority than the task we have interrupted. */
 	IFS2bits.U2RXIF = serCLEAR_FLAG;
-	while( !U2STAbits.RXBE )
+	while( !U2STATbits.RXBE )
 	{
 		cChar = U2RXB;
 		xQueueSendFromISR( xRxedChars, &cChar, &xHigherPriorityTaskWoken );
@@ -216,7 +215,7 @@ portBASE_TYPE xTaskWoken = pdFALSE;
 	Another interrupt will occur the next time there is space so this does
 	not matter. */
 	IFS2bits.U2TXIF = serCLEAR_FLAG;
-	while( !( U2STAbits.UTXBF ) )
+	while( !( U2STATbits.TXBF ) )
 	{
 		if( xQueueReceiveFromISR( xCharsForTx, &cChar, &xTaskWoken ) == pdTRUE )
 		{

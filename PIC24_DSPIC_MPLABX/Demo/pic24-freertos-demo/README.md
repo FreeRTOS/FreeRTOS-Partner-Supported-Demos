@@ -32,8 +32,8 @@ http://www.freertos.org/FAQHelp.html
 
 ## Software Used 
 
-- MPLAB® X IDE v6.0.0 or newer (https://www.microchip.com/mplabx)
-- MPLAB® XC16 v2.0.0 or newer (https://www.microchip.com/xc) 
+- MPLAB® X IDE v6.0 or newer (https://www.microchip.com/mplabx)
+- MPLAB® XC16 v2.0 or newer (https://www.microchip.com/xc) 
 - Any of the serial terminal application. Example: Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 

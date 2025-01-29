@@ -84,7 +84,7 @@ inline static void use_failsafe_stack(void)
 /** Bus error.**/
 void ERROR_HANDLER _BusErrorTrap(void)
 {
-    INTCON3bits.BET2 = 0;  //Clear the trap flag
+    INTCON3bits.DMABET = 0;  //Clear the trap flag
     TRAPS_halt_on_error(TRAPS_DMA_BUS_ERR);
 }
 
