@@ -27,7 +27,7 @@ Creates one task which blinks `LED1` cyclically and polls `BUTTON1` and toggles 
     #define LED_2       IfxPort_P00_6       /* Port/Pin for LED 2     */
     #define BUTTON_1    IfxPort_P00_7       /* Port/Pin for BUTTION 1 */
     ```
-  
+
     - The serial port (ASCLINx) module, port pins and baudrate configuration can be found at the top of ___Cpu0_Main.c___#, i.e.
     ```C
     /* ASCLIN0 module and UART TX/RX pin selection */
@@ -40,40 +40,40 @@ Creates one task which blinks `LED1` cyclically and polls `BUTTON1` and toggles 
     ```
 
 ## Creating an AURIX™ Development Studio Project
-### 1. __File__ → __New__ → __New AURIX Project__, type in a name for the project and click "__Next__"  
+### 1. __File__ → __New__ → __New AURIX Project__, type in a name for the project and click "__Next__"
 <img src="images/ads-new-project-0.png">
 <br>
 <img src="images/ads-new-project-1.png">
 
-### 2. In the right column titled "__Board__", select the "__AURIX TC375 lite Kit__" and click "__Finish__"  
+### 2. In the right column titled "__Board__", select the "__AURIX TC375 lite Kit__" and click "__Finish__"
 <img src="images/ads-new-project-2.png">
 
-### 3. Go to the folder where the project was created and copy over the contents of any demo folder to the root of the project folder, e.g.  
-- The project folder can be accessed as shown below...  
+### 3. Go to the folder where the project was created and copy over the contents of any demo folder to the root of the project folder, e.g.
+- The project folder can be accessed as shown below...
 <img src="images/ads-new-project-3.png">
 
-- Opening the project folder will show something like this...  
+- Opening the project folder will show something like this...
 <img src="images/ads-new-project-4.png">
 
-- Copy over the demo contents, for instance, the "__Blinky__" demo...  
+- Copy over the demo contents, for instance, the "__Blinky__" demo...
 <img src="images/blinky-example.png">
 
 ### 4. Add the FreeRTOS Kernel and the corresponding AURIX™ TC3xx portables in a folder called "__FreeRTOS-Kernel__". The AURIX™ TC3xx FreeRTOS port used for these demos is available in the ___Tasking/AURIX_TC3xx___ folder in the [___Partner Supported Ports___ repository](https://github.com/FreeRTOS/FreeRTOS-Kernel-Partner-Supported-Ports)
 
-### 5. Copy the files from [Infineon AURIX Code Examples - Configurations](https://github.com/Infineon/AURIX_code_examples/tree/master/code_examples/iLLD_TC375_ADS_FreeRTOS_Basic/Configurations) and place it under the `/Configurations/` folder. Ensure `Ifx_Cfg.h` has the following lines, before placing it in the folder.
+### 5. Copy all the files except `FreeRTOSConfig.h` from [Infineon AURIX Code Examples - Configurations](https://github.com/Infineon/AURIX_code_examples/tree/master/code_examples/iLLD_TC375_ADS_FreeRTOS_Basic/Configurations) and place it under the `/Configurations/` folder. Ensure `Ifx_Cfg.h` has the following lines, before placing it in the folder.
 
 ```
 extern int vPortSyscallHandler( unsigned char id );
 #define IFX_CFG_CPU_TRAP_SYSCALL_CPU0_HOOK(t) vPortSyscallHandler(t.tId)
 ```
 
-### 6. The final directory structure should look, for example, something like this:  
-<img src="./images/directory-structure.png">  
+### 6. The final directory structure should look, for example, something like this:
+<img src="./images/directory-structure.png">
 
-### 7. Open __AURIX™ Development Studio__ and refresh the project:  
+### 7. Open __AURIX™ Development Studio__ and refresh the project:
 <img src="./images/ads-refresh-project.png">
 
-### 8. Select a heap implementation and exclude the rest from the build as shown below: 
+### 8. Select a heap implementation and exclude the rest from the build as shown below:
 <img src="./images/ads-heap-selection.png">
 
 ### 9. A TC375 FreeRTOS example that works out-of-the-box is also available in the ___Infineon Code Examples Repository___, which can be accessed using the ___Import___ menu inside __AURIX™ Development Studio__.
@@ -83,16 +83,16 @@ extern int vPortSyscallHandler( unsigned char id );
 ## Run and Test
 - Compile the code using the _**Build Active Project**_ button (![](./images/build_activeproj.gif)) in the toolbar or by right-clicking the project name and selecting _**Build Project**_ (if it is not already the active project, right click on the respective demo project and click ___Set Active Project___)
 - Connect the lite kit to the PC using a micro-USB cable
-- Click the **Debug Active Project** button (<img src="./images/debug_activeproj.gif"/>) to flash and debug the project. When the "Debug Condifuration" dialog pops-up, double-click the "__winIDEA Debugger__" to create a debug configuration and click **Close**. Now click **Debug Active Project** button  (<img src="./images/debug_activeproj.gif"/>) and wait for the debugger window to open  
+- Click the **Debug Active Project** button (<img src="./images/debug_activeproj.gif"/>) to flash and debug the project. When the "Debug Condifuration" dialog pops-up, double-click the "__winIDEA Debugger__" to create a debug configuration and click **Close**. Now click **Debug Active Project** button  (<img src="./images/debug_activeproj.gif"/>) and wait for the debugger window to open
 <img src="images/ads-debugger-config.png">
 
 Once the debugger opens, the code will stop at a default startup breakpoint, click <img src="./images/debug_resume.gif" height=15px width=20px/> or press F5 to continue.
 
-## References  
+## References
 
-AURIX™ Development Studio is available online:  
-- <https://www.infineon.com/aurixdevelopmentstudio>  
-- Use the "Import..." function to get access to more code examples  
+AURIX™ Development Studio is available online:
+- <https://www.infineon.com/aurixdevelopmentstudio>
+- Use the "Import..." function to get access to more code examples
 
 AURIX™ TC3xx User Manual:
 - Part 1: <https://www.infineon.com/dgdl/Infineon-AURIX_TC3xx_Part1-UserManual-v02_00-EN.pdf?fileId=5546d462712ef9b701717d3605221d96>
@@ -101,11 +101,11 @@ AURIX™ TC3xx User Manual:
 FreeRTOS Quick Start Guide:
 - <https://www.freertos.org/FreeRTOS-quick-start-guide.html>
 
-More code examples can be found on the GIT repository:  
-- <https://github.com/Infineon/AURIX_code_examples>  
+More code examples can be found on the GIT repository:
+- <https://github.com/Infineon/AURIX_code_examples>
 
-For additional trainings, visit our webpage:  
-- <https://www.infineon.com/aurix-expert-training>  
+For additional trainings, visit our webpage:
+- <https://www.infineon.com/aurix-expert-training>
 
-For questions and support, use the AURIX™ Forum:  
-- <https://community.infineon.com/t5/AURIX/bd-p/AURIX>  
+For questions and support, use the AURIX™ Forum:
+- <https://community.infineon.com/t5/AURIX/bd-p/AURIX>
