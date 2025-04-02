@@ -60,16 +60,23 @@ Creates one task which blinks `LED1` cyclically and polls `BUTTON1` and toggles 
 
 ### 4. Add the FreeRTOS Kernel and the corresponding AURIX™ TC3xx portables in a folder called "__FreeRTOS-Kernel__". The AURIX™ TC3xx FreeRTOS port used for these demos is available in the ___Tasking/AURIX_TC3xx___ folder in the [___Partner Supported Ports___ repository](https://github.com/FreeRTOS/FreeRTOS-Kernel-Partner-Supported-Ports)
 
-### 5. The final directory structure should look, for example, something like this:  
+### 5. Copy the files from [Infineon AURIX Code Examples - Configurations](https://github.com/Infineon/AURIX_code_examples/tree/master/code_examples/iLLD_TC375_ADS_FreeRTOS_Basic/Configurations) and place it under the `/Configurations/` folder. Ensure `Ifx_Cfg.h` has the following lines, before placing it in the folder.
+
+```
+extern int vPortSyscallHandler( unsigned char id );
+#define IFX_CFG_CPU_TRAP_SYSCALL_CPU0_HOOK(t) vPortSyscallHandler(t.tId)
+```
+
+### 6. The final directory structure should look, for example, something like this:  
 <img src="./images/directory-structure.png">  
 
-### 6. Open __AURIX™ Development Studio__ and refresh the project:  
+### 7. Open __AURIX™ Development Studio__ and refresh the project:  
 <img src="./images/ads-refresh-project.png">
 
-### 7. Select a heap implementation and exclude the rest from the build as shown below: 
+### 8. Select a heap implementation and exclude the rest from the build as shown below: 
 <img src="./images/ads-heap-selection.png">
 
-### 8. A TC375 FreeRTOS example that works out-of-the-box is also available in the ___Infineon Code Examples Repository___, which can be accessed using the ___Import___ menu inside __AURIX™ Development Studio__.
+### 9. A TC375 FreeRTOS example that works out-of-the-box is also available in the ___Infineon Code Examples Repository___, which can be accessed using the ___Import___ menu inside __AURIX™ Development Studio__.
 <img src="images/ads-import-icer.png" width=500px>
 <img src="images/ads-ifx-code-examples-repo.png" width=750px>
 
