@@ -1,0 +1,95 @@
+<projectSpec>
+  <project
+        name            = "f29h85x_freertos_port_validation_tests"
+        device          = "F29H850TU9"
+        cgtVersion      = "1.0.0"
+        toolChain       = "TICLANG"
+        products        = "sysconfig;f29h85x-sdk"
+        connection      = "TIXDS110_Connection.xml"
+  >
+    <configuration name="RAM"   compilerBuildOptions="-I${PATH_F29H85X_SDK}/source -I${PATH_F29H85X_SDK}/source/driverlib -I${PATH_F29H85X_SDK}/source/bitfields -I${PATH_F29H85X_SDK}/examples/device_support/include -I${DLIB_ROOT} -I${PROJECT_ROOT}/device -I${PROJECT_ROOT}/FullDemo/include -I${PROJECT_ROOT}/FullDemo -I${BITFIELDS_ROOT} -I${FreeRTOS_KERNEL_SOURCE}/include -I${FreeRTOS_KERNEL_SOURCE}/portable/ThirdParty/Partner-Supported-Ports/CCS/C2000_C29x_F29H85x -I -O1 -g -DDEBUG -Qunused-arguments" linkerBuildOptions="--stack_size=0x400 --diag_suppress=10325-D --diag_suppress=10063-D"
+     postBuildStep= 
+       "${CG_TOOL_OBJCOPY} -O binary ${ProjName}.out ${ProjName}.bin;
+        $(PYTHON) ${PATH_F29H85X_SDK}/tools/boot/signing/mcu_rom_image_gen.py --image-bin ${ProjName}.bin --core C29 --swrv 1 --loadaddr 0x200E1000 --sign-key ${PATH_F29H85X_SDK}/tools/boot/signing/mcu_gpkey.pem --out-image ${ProjName}_cert.bin --device f29h85x --boot RAM --img_integ no;
+        $(DELETE) C29-cert-pad.bin"
+    />
+    <configuration name="FLASH" compilerBuildOptions="-I${PATH_F29H85X_SDK}/source -I${PATH_F29H85X_SDK}/source/driverlib -I${PATH_F29H85X_SDK}/source/bitfields -I${PATH_F29H85X_SDK}/examples/device_support/include -I${DLIB_ROOT} -I${PROJECT_ROOT}/device -I${PROJECT_ROOT}/FullDemo/include -I${PROJECT_ROOT}/FullDemo -I${BITFIELDS_ROOT} -I${FreeRTOS_KERNEL_SOURCE}/include -I${FreeRTOS_KERNEL_SOURCE}/portable/ThirdParty/Partner-Supported-Ports/CCS/C2000_C29x_F29H85x -I -O1 -g -DDEBUG -D_FLASH -Qunused-arguments"  linkerBuildOptions="--stack_size=0x400 --diag_suppress=10325-D --diag_suppress=10063-D"
+     postBuildStep=
+       "${CG_TOOL_OBJCOPY} --remove-section=cert -O binary ${ProjName}.out ${ProjName}.bin;
+        $(PYTHON) ${PATH_F29H85X_SDK}/tools/boot/signing/mcu_rom_image_gen.py --image-bin ${ProjName}.bin --core C29 --swrv 1 --loadaddr 0x10001000 --sign-key ${PATH_F29H85X_SDK}/tools/boot/signing/mcu_gpkey.pem --out-image ${ProjName}_cert.bin --device f29h85x --boot FLASH --img_integ no;
+        ${CG_TOOL_OBJCOPY} --update-section cert=C29-cert-pad.bin ${ProjName}.out ${ProjName}_cert.out;
+        $(DELETE) ${ProjName}.out C29-cert-pad.bin;
+        $(RENAME) ${ProjName}_cert.out ${ProjName}.out"
+    />
+
+    <pathVariable name="PATH_F29H85X_SDK"       path=""                       scope="project"/>
+    <pathVariable name="PATH_FREERTOS_KERNEL"   path=""                       scope="project"/>
+    <pathVariable name="PATH_FREERTOS_FULL"     path=""                       scope="project" />
+
+    <pathVariable name="DLIB_ROOT"              path="${PATH_F29H85X_SDK}/source/driverlib/f29h85x/"  scope="project"/>
+    <pathVariable name="BITFIELDS_ROOT"         path="${PATH_F29H85X_SDK}/source/bitfields/f29h85x/"  scope="project"/>
+    <pathVariable name="FreeRTOS_KERNEL_SOURCE" path="${PATH_FREERTOS_KERNEL}/"                       scope="project" />
+    <pathVariable name="FreeRTOS_DEMO_COMMON"   path="${PATH_FREERTOS_FULL}/Demo/Common/"             scope="project" />
+
+
+    <file action="copy" path="${PATH_F29H85X_SDK}/examples/device_support/source/codestartbranch.asm" targetDirectory="" />
+    <file action="copy" path="${PATH_F29H85X_SDK}/examples/device_support/source/device.c"            targetDirectory="device" />
+    <file action="copy" path="${PATH_F29H85X_SDK}/examples/device_support/include/device.h"           targetDirectory="device" />
+    <file action="copy" path="${PATH_F29H85X_SDK}/examples/device_support/include/driverlib.h"        targetDirectory="device" />
+    <file action="copy" path="${PATH_F29H85X_SDK}/examples/device_support/makefile.defs"              targetDirectory="" />
+
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/include" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/portable/ThirdParty/Partner-Supported-Ports/CCS/C2000_C29x_F29H85x" targetDirectory="FreeRTOS/Source/portable/CCS" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/portable/MemMang/heap_4.c" targetDirectory="FreeRTOS/Source/portable/MemMang" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/croutine.c" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/event_groups.c" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/list.c" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/queue.c" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/stream_buffer.c" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/tasks.c" targetDirectory="FreeRTOS/Source" />
+    <file action="link" path="${FreeRTOS_KERNEL_SOURCE}/timers.c" targetDirectory="FreeRTOS/Source" />
+
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/include" targetDirectory="FullDemo" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/AbortDelay.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/BlockQ.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/blocktim.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/countsem.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/death.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/dynamic.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/EventGroupsDemo.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/flop.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/GenQTest.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/integer.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/IntSemTest.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/IntQueue.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/MessageBufferAMP.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/MessageBufferDemo.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/PollQ.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/QPeek.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/QueueOverwrite.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/QueueSet.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/QueueSetPolling.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/recmutex.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/semtest.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/StaticAllocation.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/StreamBufferDemo.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/StreamBufferInterrupt.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/TaskNotify.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/TaskNotifyArray.c" targetDirectory="FullDemo/Minimal" />
+    <file action="copy" path="${FreeRTOS_DEMO_COMMON}/Minimal/TimerDemo.c" targetDirectory="FullDemo/Minimal" />
+
+    <file action="copy" path="../TestRunner.c"    targetDirectory="FullDemo" />
+    <file action="copy" path="../TestRunner.h"    targetDirectory="FullDemo" />
+    <file action="copy" path="../RegTests.c"      targetDirectory="FullDemo" />
+    <file action="copy" path="../RegTests.h"      targetDirectory="FullDemo" />
+    <file action="copy" path="../IntQueueTimer.c" targetDirectory="FullDemo" />
+    <file action="copy" path="../IntQueueTimer.h" targetDirectory="FullDemo" />
+
+    <file action="copy" path="../cmd/f29h85x_port_val_ram.cmd"    targetDirectory="" applicableConfigurations="RAM" />
+    <file action="copy" path="../cmd/f29h85x_port_val_flash.cmd"  targetDirectory="" applicableConfigurations="FLASH" />
+
+    <file action="copy" path="../main.c" targetDirectory="" />
+    <file action="copy" path="../config/FreeRTOSConfig.h" targetDirectory="" targetName="FreeRTOSConfig.h" />
+
+  </project>
+</projectSpec>
