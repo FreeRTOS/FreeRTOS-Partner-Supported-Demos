@@ -10,7 +10,7 @@ target_sources(bsp
     INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}/Source/port_asm_vectors.S
         ${CMAKE_CURRENT_SOURCE_DIR}/Source/boot.S
-        ${CMAKE_CURRENT_SOURCE_DIR}/Source/xil-crt0.S
+        ${CMAKE_CURRENT_SOURCE_DIR}/Source/startup.S
         ${CMAKE_CURRENT_SOURCE_DIR}/Source/gic.c
 )
 

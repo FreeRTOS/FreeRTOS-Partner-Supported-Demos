@@ -48,6 +48,10 @@
     #error "Unsupported configNUMBER_OF_CORES value — must be a power‑of‑two up to 4"
 #endif
 
+.set SCTLR_EL1_NTWE,  18     /* SCTLR_EL1.nTWE bit position */
+.set SCTLR_EL1_NTWI,  16     /* SCTLR_EL1.nTWI bit position */
+.set SCTLR_EL1_CACHE, 2      /* SCTLR_EL1.C bit position */
+
 .section .boot,"ax"
 
 _prestart:
@@ -87,10 +91,11 @@ start:
 	mov      x30, #0
 
 	mrs	    x0, currentEL
+	/* Check we’ve come from EL1 (currentEL==0x4), otherwise fault */
 	cmp	    x0, #0x4
 	beq	    InitEL1
 
-	b 	    error			/* Check we’ve come from EL1 (currentEL==0x4), otherwise fault */
+	b 	    error
 InitEL1:
 	/* Set vector table base address */
 	ldr	    x1, =vector_base
@@ -103,8 +108,7 @@ InitEL1:
 	isb
 
 	/* Clear FP status flags (FPSR) to avoid spurious exceptions on first use */
-	mov  x0, 0x0
-	msr  FPSR, x0
+	msr  FPSR, xzr
 
 	/* Define stack pointer for current exception level */
 #if configNUMBER_OF_CORES > 1
@@ -120,8 +124,8 @@ InitEL1:
     /* x4 = this CPU’s index (Aff0 field of MPIDR_EL1) */
     mrs     x4,  MPIDR_EL1
     and     x4,  x4,  #0xFF         /* core_id ∈ {0 … N_CPUS-1} */
-	cmp     x4, #configNUMBER_OF_CORES
-	b.hs    error
+    cmp     x4, #configNUMBER_OF_CORES
+    b.hs    error
     /* x0 = slice_size * core_id  →  how far to step back from the top  */
     mul     x0,  x1,  x4
     /* sp = top_of_pool – offset   (so core 0 gets the very top) */
@@ -153,9 +157,9 @@ InitEL1:
 	 * - Allow EL0 to execute WFE/WFI (Set nTWE/nTWI so they don't trap)
 	 */
 	mrs     x1, SCTLR_EL1
-	orr     x1, x1, #(1 << 18)    /* nTWE = 1 → WFE at EL0 does not trap */
-	orr     x1, x1, #(1 << 16)    /* nTWI = 1 → WFI at EL0 does not trap */
-	orr     x1, x1, #(1 << 2)     /* C = 1   → enable data cache */
+	orr     x1, x1, #(1 << SCTLR_EL1_NTWE)    /* nTWE = 1 → WFE at EL0 does not trap */
+	orr     x1, x1, #(1 << SCTLR_EL1_NTWI)    /* nTWI = 1 → WFI at EL0 does not trap */
+	orr     x1, x1, #(1 << SCTLR_EL1_CACHE)   /* C = 1   → enable data cache */
 	msr     SCTLR_EL1, x1
 	isb
 
