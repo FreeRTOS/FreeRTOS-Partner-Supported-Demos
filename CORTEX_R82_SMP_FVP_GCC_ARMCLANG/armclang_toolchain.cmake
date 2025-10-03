@@ -15,8 +15,8 @@ set(CMAKE_C_STANDARD         11)
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # Common flags for compilation
-set(CMAKE_C_FLAGS "--target=aarch64-arm-none-eabi -mcpu=cortex-r82 -mlittle-endian -Werror -g -gdwarf-3 -mstrict-align" )
-set(CMAKE_ASM_FLAGS "--target=aarch64-arm-none-eabi -mcpu=cortex-r82 -Werror -g -gdwarf-3 -mstrict-align" )
+set(CMAKE_C_FLAGS "--target=aarch64-arm-none-eabi -mcpu=cortex-r82 -mlittle-endian -Werror -mstrict-align" )
+set(CMAKE_ASM_FLAGS "--target=aarch64-arm-none-eabi -mcpu=cortex-r82 -Werror -mstrict-align" )
 
 set(CMAKE_EXE_LINKER_FLAGS_INIT    "--entry=_boot" )
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS_INIT}")

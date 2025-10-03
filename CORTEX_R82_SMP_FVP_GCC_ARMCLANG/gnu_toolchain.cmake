@@ -11,8 +11,8 @@ set(CMAKE_ASM_COMPILER "aarch64-none-elf-gcc")
 
 set(CMAKE_C_STANDARD 11)
 
-set(CMAKE_C_FLAGS "-mcpu=cortex-r82 -mabi=lp64 -mlittle-endian -Wall -Wextra -g -gdwarf-3 -mstrict-align")
-set(CMAKE_ASM_FLAGS "-mcpu=cortex-r82 -mabi=lp64 -Wall -g -gdwarf-3")
+set(CMAKE_C_FLAGS "-mcpu=cortex-r82 -mabi=lp64 -mlittle-endian -Wall -Wextra -Werror -mstrict-align")
+set(CMAKE_ASM_FLAGS "-mcpu=cortex-r82 -mabi=lp64 -Wall -Werror -mstrict-align")
 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 

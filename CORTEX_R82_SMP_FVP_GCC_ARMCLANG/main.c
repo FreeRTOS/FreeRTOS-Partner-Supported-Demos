@@ -63,7 +63,7 @@ static void prvTaskCore0( void * arg )
         {
             if( ulSharedFlag == 0U )
             {
-                printf( "Ping from Core %lu\r\n", xPortGetCoreID() );
+                printf( "Ping from Core %d\r\n", ucPortGetCoreID() );
                 ulSharedFlag = 1U;
                 __asm volatile( "dsb sy");
             }
@@ -83,7 +83,7 @@ static void prvTaskCore1( void * arg )
         {
             if( ulSharedFlag == 1U )
             {
-                printf( "Pong from Core %lu\r\n", xPortGetCoreID() );
+                printf( "Pong from Core %d\r\n", ucPortGetCoreID() );
                 ulSharedFlag = 0U;
                 __asm volatile( "dsb sy");
             }
@@ -116,8 +116,10 @@ int main()
         return EXIT_FAILURE;
     }
 
-    vTaskCoreAffinitySet( prvTaskCore0Handle, 1UL << 0 );  /* Pin to Core 0 */
-    vTaskCoreAffinitySet( prvTaskCore1Handle, 1UL << 1 );  /* Pin to Core 1 */
+    #if ( configNUMBER_OF_CORES > 1 )
+        vTaskCoreAffinitySet( prvTaskCore0Handle, 1UL << 0 );  /* Pin to Core 0 */
+        vTaskCoreAffinitySet( prvTaskCore1Handle, 1UL << 1 );  /* Pin to Core 1 */
+    #endif
 
     xSharedFlagMutex = xSemaphoreCreateMutex();
 
@@ -266,10 +268,12 @@ void vApplicationIRQHandler( uint32_t ulICCIAR )
     {
         FreeRTOS_Tick_Handler();
     }
-    else if( ulInterruptID == SGI0_IRQ )
-    {
-        FreeRTOS_SGI_Handler();
-    }
+    #if ( configNUMBER_OF_CORES > 1 )
+        else if( ulInterruptID == SGI0_IRQ )
+        {
+            FreeRTOS_SGI_Handler();
+        }
+    #endif
     else
     {
         /* Handle other interrupts as needed. */
