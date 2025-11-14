@@ -1,185 +1,171 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <MicomToolCommonProjectFile Version="1.00">
-  <CreatorType Name="CubeSuite+" Version="V8.12.00  [06 Jun 2024]" />
+  <CreatorType Name="CubeSuite+" Version="V8.13.00  [05 Dec 2024]" />
   <Placeholders>
     <PlaceholderPrefix>%</PlaceholderPrefix>
     <PlaceholderPostfix>%</PlaceholderPostfix>
   </Placeholders>
   <Project Name="U2B6_FreeRTOS_port" Type="Application">
     <Files>
-      <Category Name="rh850">
-        <Category Name="aws">
-          <Category Name="FreeRTOS">
-            <Category Name="Source">
-              <Path>rh850\aws\FreeRTOS\Source\.git</Path>
-              <Path>rh850\aws\FreeRTOS\Source\.git-blame-ignore-revs</Path>
-              <Path>rh850\aws\FreeRTOS\Source\.gitattributes</Path>
-              <Path>rh850\aws\FreeRTOS\Source\CMakeLists.txt</Path>
-              <Path>rh850\aws\FreeRTOS\Source\croutine.c</Path>
-              <Path>rh850\aws\FreeRTOS\Source\cspell.config.yaml</Path>
-              <Path>rh850\aws\FreeRTOS\Source\event_groups.c</Path>
-              <Category Name="examples">
-                <Category Name="cmake_example">
-                  <Path>rh850\aws\FreeRTOS\Source\examples\cmake_example\CMakeLists.txt</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\examples\cmake_example\main.c</Path>
-                </Category>
-                <Category Name="coverity">
-                  <Path>rh850\aws\FreeRTOS\Source\examples\coverity\CMakeLists.txt</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\examples\coverity\coverity_misra.config</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\examples\coverity\FreeRTOSConfig.h</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\examples\coverity\README.md</Path>
-                </Category>
-                <Category Name="template_configuration">
-                  <Path>rh850\aws\FreeRTOS\Source\examples\template_configuration\FreeRTOSConfig.h</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\examples\template_configuration\readme.md</Path>
-                </Category>
-              </Category>
-              <Path>rh850\aws\FreeRTOS\Source\GitHub-FreeRTOS-Kernel-Home.url</Path>
-              <Path>rh850\aws\FreeRTOS\Source\History.txt</Path>
-              <Category Name="include">
-                <Path>rh850\aws\FreeRTOS\Source\include\atomic.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\CMakeLists.txt</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\croutine.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\deprecated_definitions.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\event_groups.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\FreeRTOS.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\list.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\message_buffer.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\mpu_prototypes.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\mpu_syscall_numbers.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\mpu_wrappers.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\newlib-freertos.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\picolibc-freertos.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\portable.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\projdefs.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\queue.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\semphr.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\StackMacros.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\stack_macros.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\stdint.readme</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\stream_buffer.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\task.h</Path>
-                <Path>rh850\aws\FreeRTOS\Source\include\timers.h</Path>
-              </Category>
-              <Path>rh850\aws\FreeRTOS\Source\LICENSE.md</Path>
-              <Path>rh850\aws\FreeRTOS\Source\list.c</Path>
-              <Path>rh850\aws\FreeRTOS\Source\manifest.yml</Path>
-              <Path>rh850\aws\FreeRTOS\Source\MISRA.md</Path>
-              <Category Name="portable">
-                <Path>rh850\aws\FreeRTOS\Source\portable\CMakeLists.txt</Path>
-                <Category Name="Common">
-                  <Path>rh850\aws\FreeRTOS\Source\portable\Common\mpu_wrappers.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\Common\mpu_wrappers_v2.c</Path>
-                </Category>
-                <Category Name="MemMang">
-                  <Path>rh850\aws\FreeRTOS\Source\portable\MemMang\heap_1.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\MemMang\heap_2.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\MemMang\heap_3.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\MemMang\heap_4.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\MemMang\heap_5.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\MemMang\ReadMe.url</Path>
-                </Category>
-                <Path>rh850\aws\FreeRTOS\Source\portable\readme.txt</Path>
-                <Category Name="template">
-                  <Path>rh850\aws\FreeRTOS\Source\portable\template\port.c</Path>
-                  <Path>rh850\aws\FreeRTOS\Source\portable\template\portmacro.h</Path>
-                </Category>
-              </Category>
-              <Path>rh850\aws\FreeRTOS\Source\queue.c</Path>
-              <Path>rh850\aws\FreeRTOS\Source\Quick_Start_Guide.url</Path>
-              <Path>rh850\aws\FreeRTOS\Source\README.md</Path>
-              <Path>rh850\aws\FreeRTOS\Source\sbom.spdx</Path>
-              <Path>rh850\aws\FreeRTOS\Source\stream_buffer.c</Path>
-              <Path>rh850\aws\FreeRTOS\Source\tasks.c</Path>
-              <Path>rh850\aws\FreeRTOS\Source\timers.c</Path>
-            </Category>
-            <Category Name="common">
-              <Category Name="include">
-                <Path>rh850\aws\FreeRTOS\Common\include\AbortDelay.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\BlockQ.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\blocktim.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\countsem.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\death.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\dynamic.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\EventGroupsDemo.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\fileIO.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\flash.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\flash_timer.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\flop.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\GenQTest.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\integer.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\IntQueue.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\IntSemTest.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\MessageBufferAMP.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\MessageBufferDemo.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\mevents.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\partest.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\PollQ.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\print.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\QPeek.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\QueueOverwrite.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\QueueSet.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\QueueSetPolling.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\recmutex.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\semtest.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\serial.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\StaticAllocation.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\StreamBufferDemo.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\StreamBufferInterrupt.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\TaskNotify.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\TaskNotifyArray.h</Path>
-                <Path>rh850\aws\FreeRTOS\Common\include\TimerDemo.h</Path>
-              </Category>
-              <Category Name="Minimal">
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\AbortDelay.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\BlockQ.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\blocktim.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\countsem.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\crflash.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\crhook.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\death.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\dynamic.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\EventGroupsDemo.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\flash.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\flash_timer.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\flop.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\GenQTest.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\integer.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\IntQueue.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\IntSemTest.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\MessageBufferAMP.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\MessageBufferDemo.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\PollQ.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\QPeek.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\QueueOverwrite.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\QueueSet.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\QueueSetPolling.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\readme.txt</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\recmutex.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\semtest.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\StaticAllocation.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\StreamBufferDemo.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\StreamBufferInterrupt.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\TaskNotify.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\TaskNotifyArray.c</Path>
-                <Path>rh850\aws\FreeRTOS\Common\Minimal\TimerDemo.c</Path>
-              </Category>
-            </Category>
-          </Category>
+      <Category Name="..\..\..\..\..\Demo\Common">
+        <Category Name="include">
+          <Path>..\..\..\..\Common\include\AbortDelay.h</Path>
+          <Path>..\..\..\..\Common\include\BlockQ.h</Path>
+          <Path>..\..\..\..\Common\include\blocktim.h</Path>
+          <Path>..\..\..\..\Common\include\countsem.h</Path>
+          <Path>..\..\..\..\Common\include\death.h</Path>
+          <Path>..\..\..\..\Common\include\dynamic.h</Path>
+          <Path>..\..\..\..\Common\include\EventGroupsDemo.h</Path>
+          <Path>..\..\..\..\Common\include\fileIO.h</Path>
+          <Path>..\..\..\..\Common\include\flash.h</Path>
+          <Path>..\..\..\..\Common\include\flash_timer.h</Path>
+          <Path>..\..\..\..\Common\include\flop.h</Path>
+          <Path>..\..\..\..\Common\include\GenQTest.h</Path>
+          <Path>..\..\..\..\Common\include\integer.h</Path>
+          <Path>..\..\..\..\Common\include\IntQueue.h</Path>
+          <Path>..\..\..\..\Common\include\IntSemTest.h</Path>
+          <Path>..\..\..\..\Common\include\MessageBufferAMP.h</Path>
+          <Path>..\..\..\..\Common\include\MessageBufferDemo.h</Path>
+          <Path>..\..\..\..\Common\include\mevents.h</Path>
+          <Path>..\..\..\..\Common\include\partest.h</Path>
+          <Path>..\..\..\..\Common\include\PollQ.h</Path>
+          <Path>..\..\..\..\Common\include\print.h</Path>
+          <Path>..\..\..\..\Common\include\QPeek.h</Path>
+          <Path>..\..\..\..\Common\include\QueueOverwrite.h</Path>
+          <Path>..\..\..\..\Common\include\QueueSet.h</Path>
+          <Path>..\..\..\..\Common\include\QueueSetPolling.h</Path>
+          <Path>..\..\..\..\Common\include\recmutex.h</Path>
+          <Path>..\..\..\..\Common\include\semtest.h</Path>
+          <Path>..\..\..\..\Common\include\serial.h</Path>
+          <Path>..\..\..\..\Common\include\StaticAllocation.h</Path>
+          <Path>..\..\..\..\Common\include\StreamBufferDemo.h</Path>
+          <Path>..\..\..\..\Common\include\StreamBufferInterrupt.h</Path>
+          <Path>..\..\..\..\Common\include\TaskNotify.h</Path>
+          <Path>..\..\..\..\Common\include\TaskNotifyArray.h</Path>
+          <Path>..\..\..\..\Common\include\TimerDemo.h</Path>
         </Category>
-        <Category Name="u2b10">
-          <Category Name="freertos_port">
-            <Path>rh850\u2b10\freertos_port\port.c</Path>
-            <Path>rh850\u2b10\freertos_port\portasm.s</Path>
-            <Path>rh850\u2b10\freertos_port\portmacro.h</Path>
-          </Category>
+        <Category Name="Minimal">
+          <Path>..\..\..\..\Common\Minimal\AbortDelay.c</Path>
+          <Path>..\..\..\..\Common\Minimal\BlockQ.c</Path>
+          <Path>..\..\..\..\Common\Minimal\blocktim.c</Path>
+          <Path>..\..\..\..\Common\Minimal\countsem.c</Path>
+          <Path>..\..\..\..\Common\Minimal\crflash.c</Path>
+          <Path>..\..\..\..\Common\Minimal\crhook.c</Path>
+          <Path>..\..\..\..\Common\Minimal\death.c</Path>
+          <Path>..\..\..\..\Common\Minimal\dynamic.c</Path>
+          <Path>..\..\..\..\Common\Minimal\EventGroupsDemo.c</Path>
+          <Path>..\..\..\..\Common\Minimal\flash.c</Path>
+          <Path>..\..\..\..\Common\Minimal\flash_timer.c</Path>
+          <Path>..\..\..\..\Common\Minimal\flop.c</Path>
+          <Path>..\..\..\..\Common\Minimal\GenQTest.c</Path>
+          <Path>..\..\..\..\Common\Minimal\integer.c</Path>
+          <Path>..\..\..\..\Common\Minimal\IntQueue.c</Path>
+          <Path>..\..\..\..\Common\Minimal\IntSemTest.c</Path>
+          <Path>..\..\..\..\Common\Minimal\MessageBufferAMP.c</Path>
+          <Path>..\..\..\..\Common\Minimal\MessageBufferDemo.c</Path>
+          <Path>..\..\..\..\Common\Minimal\PollQ.c</Path>
+          <Path>..\..\..\..\Common\Minimal\QPeek.c</Path>
+          <Path>..\..\..\..\Common\Minimal\QueueOverwrite.c</Path>
+          <Path>..\..\..\..\Common\Minimal\QueueSet.c</Path>
+          <Path>..\..\..\..\Common\Minimal\QueueSetPolling.c</Path>
+          <Path>..\..\..\..\Common\Minimal\readme.txt</Path>
+          <Path>..\..\..\..\Common\Minimal\recmutex.c</Path>
+          <Path>..\..\..\..\Common\Minimal\semtest.c</Path>
+          <Path>..\..\..\..\Common\Minimal\StaticAllocation.c</Path>
+          <Path>..\..\..\..\Common\Minimal\StreamBufferDemo.c</Path>
+          <Path>..\..\..\..\Common\Minimal\StreamBufferInterrupt.c</Path>
+          <Path>..\..\..\..\Common\Minimal\TaskNotify.c</Path>
+          <Path>..\..\..\..\Common\Minimal\TaskNotifyArray.c</Path>
+          <Path>..\..\..\..\Common\Minimal\TimerDemo.c</Path>
         </Category>
       </Category>
-      <Category Name="rh850_cfg">
-        <Category Name="aws">
-          <Path>rh850_cfg\aws\FreeRTOSConfig.h</Path>
-          <Path>rh850_cfg\aws\FreeRTOSConfigMultiCore.h</Path>
+      <Category Name="..\..\..\..\..\Source">
+        <Path>..\..\..\..\..\Source\.git</Path>
+        <Path>..\..\..\..\..\Source\.git-blame-ignore-revs</Path>
+        <Path>..\..\..\..\..\Source\.gitattributes</Path>
+        <Path>..\..\..\..\..\Source\CMakeLists.txt</Path>
+        <Path>..\..\..\..\..\Source\croutine.c</Path>
+        <Path>..\..\..\..\..\Source\cspell.config.yaml</Path>
+        <Path>..\..\..\..\..\Source\event_groups.c</Path>
+        <Category Name="examples">
+          <Category Name="cmake_example">
+            <Path>..\..\..\..\..\Source\examples\cmake_example\CMakeLists.txt</Path>
+            <Path>..\..\..\..\..\Source\examples\cmake_example\main.c</Path>
+          </Category>
+          <Category Name="coverity">
+            <Path>..\..\..\..\..\Source\examples\coverity\CMakeLists.txt</Path>
+            <Path>..\..\..\..\..\Source\examples\coverity\coverity_misra.config</Path>
+            <Path>..\..\..\..\..\Source\examples\coverity\FreeRTOSConfig.h</Path>
+            <Path>..\..\..\..\..\Source\examples\coverity\README.md</Path>
+          </Category>
+          <Category Name="template_configuration">
+            <Path>..\..\..\..\..\Source\examples\template_configuration\FreeRTOSConfig.h</Path>
+            <Path>..\..\..\..\..\Source\examples\template_configuration\readme.md</Path>
+          </Category>
         </Category>
+        <Path>..\..\..\..\..\Source\GitHub-FreeRTOS-Kernel-Home.url</Path>
+        <Path>..\..\..\..\..\Source\History.txt</Path>
+        <Category Name="include">
+          <Path>..\..\..\..\..\Source\include\atomic.h</Path>
+          <Path>..\..\..\..\..\Source\include\CMakeLists.txt</Path>
+          <Path>..\..\..\..\..\Source\include\croutine.h</Path>
+          <Path>..\..\..\..\..\Source\include\deprecated_definitions.h</Path>
+          <Path>..\..\..\..\..\Source\include\event_groups.h</Path>
+          <Path>..\..\..\..\..\Source\include\FreeRTOS.h</Path>
+          <Path>..\..\..\..\..\Source\include\list.h</Path>
+          <Path>..\..\..\..\..\Source\include\message_buffer.h</Path>
+          <Path>..\..\..\..\..\Source\include\mpu_prototypes.h</Path>
+          <Path>..\..\..\..\..\Source\include\mpu_syscall_numbers.h</Path>
+          <Path>..\..\..\..\..\Source\include\mpu_wrappers.h</Path>
+          <Path>..\..\..\..\..\Source\include\newlib-freertos.h</Path>
+          <Path>..\..\..\..\..\Source\include\picolibc-freertos.h</Path>
+          <Path>..\..\..\..\..\Source\include\portable.h</Path>
+          <Path>..\..\..\..\..\Source\include\projdefs.h</Path>
+          <Path>..\..\..\..\..\Source\include\queue.h</Path>
+          <Path>..\..\..\..\..\Source\include\semphr.h</Path>
+          <Path>..\..\..\..\..\Source\include\StackMacros.h</Path>
+          <Path>..\..\..\..\..\Source\include\stack_macros.h</Path>
+          <Path>..\..\..\..\..\Source\include\stdint.readme</Path>
+          <Path>..\..\..\..\..\Source\include\stream_buffer.h</Path>
+          <Path>..\..\..\..\..\Source\include\task.h</Path>
+          <Path>..\..\..\..\..\Source\include\timers.h</Path>
+        </Category>
+        <Path>..\..\..\..\..\Source\LICENSE.md</Path>
+        <Path>..\..\..\..\..\Source\list.c</Path>
+        <Path>..\..\..\..\..\Source\manifest.yml</Path>
+        <Path>..\..\..\..\..\Source\MISRA.md</Path>
+        <Category Name="portable">
+          <Path>..\..\..\..\..\Source\portable\CMakeLists.txt</Path>
+          <Category Name="Common">
+            <Path>..\..\..\..\..\Source\portable\Common\mpu_wrappers.c</Path>
+            <Path>..\..\..\..\..\Source\portable\Common\mpu_wrappers_v2.c</Path>
+          </Category>
+          <Category Name="MemMang">
+            <Path>..\..\..\..\..\Source\portable\MemMang\heap_1.c</Path>
+            <Path>..\..\..\..\..\Source\portable\MemMang\heap_2.c</Path>
+            <Path>..\..\..\..\..\Source\portable\MemMang\heap_3.c</Path>
+            <Path>..\..\..\..\..\Source\portable\MemMang\heap_4.c</Path>
+            <Path>..\..\..\..\..\Source\portable\MemMang\heap_5.c</Path>
+            <Path>..\..\..\..\..\Source\portable\MemMang\ReadMe.url</Path>
+          </Category>
+          <Path>..\..\..\..\..\Source\portable\readme.txt</Path>
+          <Category Name="template">
+            <Path>..\..\..\..\..\Source\portable\template\port.c</Path>
+            <Path>..\..\..\..\..\Source\portable\template\portmacro.h</Path>
+          </Category>
+        </Category>
+        <Path>..\..\..\..\..\Source\queue.c</Path>
+        <Path>..\..\..\..\..\Source\Quick_Start_Guide.url</Path>
+        <Path>..\..\..\..\..\Source\README.md</Path>
+        <Path>..\..\..\..\..\Source\sbom.spdx</Path>
+        <Path>..\..\..\..\..\Source\stream_buffer.c</Path>
+        <Path>..\..\..\..\..\Source\tasks.c</Path>
+        <Path>..\..\..\..\..\Source\timers.c</Path>
+      </Category>
+      <Category Name="..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\CCRH\U2x">
+        <Path>..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\CCRH\U2x\port.c</Path>
+        <Path>..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\CCRH\U2x\portasm.s</Path>
+        <Path>..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\CCRH\U2x\portmacro.h</Path>
       </Category>
       <Category Name="src">
         <Path>src\main0.c</Path>
@@ -198,17 +184,16 @@
       </Category>
       <Category Name="bsp">
         <Category Name="bsp_irq">
-          <Path>bsp\bsp_irq\bsp_irq.c</Path>
-          <Path>bsp\bsp_irq\bsp_irq.h</Path>
-          <Path>bsp\bsp_irq\vector_data.c</Path>
           <Path>bsp\bsp_irq\vector_data.h</Path>
         </Category>
         <Category Name="common">
-          <Path>bsp\common\bsp_common.h</Path>
           <Path>bsp\common\bsp_compiler_support.h</Path>
-          <Path>bsp\common\bsp_macro.h</Path>
           <Path>bsp\common\iodefine.h</Path>
         </Category>
+      </Category>
+      <Category Name="freertos_cfg">
+        <Path>freertos_cfg\FreeRTOSConfig.h</Path>
+        <Path>freertos_cfg\FreeRTOSConfigMultiCore.h</Path>
       </Category>
     </Files>
     <DebugOptions>
@@ -218,7 +203,7 @@
       <DebugToolSettings />
     </DebugOptions>
     <Device Series="RH850">R7F70255x</Device>
-    <BuildOptions Name="CC-RH" Version="V2.06.00">
+    <BuildOptions Name="CC-RH" Version="V2.07.00">
       <BuildMode Name="DefaultBuild" Active="True">
         <LinkOrder>
           <Path>DefaultBuild\port.obj</Path>
@@ -238,8 +223,6 @@
           <Path>DefaultBuild\RegTestsTask.obj</Path>
           <Path>DefaultBuild\TestRunner.obj</Path>
           <Path>DefaultBuild\RegTest.obj</Path>
-          <Path>DefaultBuild\bsp_irq.obj</Path>
-          <Path>DefaultBuild\vector_data.obj</Path>
           <Path>DefaultBuild\AbortDelay.obj</Path>
           <Path>DefaultBuild\BlockQ.obj</Path>
           <Path>DefaultBuild\blocktim.obj</Path>
@@ -249,12 +232,9 @@
           <Path>DefaultBuild\death.obj</Path>
           <Path>DefaultBuild\dynamic.obj</Path>
           <Path>DefaultBuild\EventGroupsDemo.obj</Path>
-          <Path>DefaultBuild\flash.obj</Path>
-          <Path>DefaultBuild\flash_timer.obj</Path>
           <Path>DefaultBuild\flop.obj</Path>
           <Path>DefaultBuild\GenQTest.obj</Path>
           <Path>DefaultBuild\integer.obj</Path>
-          <Path>DefaultBuild\IntQueue.obj</Path>
           <Path>DefaultBuild\IntSemTest.obj</Path>
           <Path>DefaultBuild\MessageBufferAMP.obj</Path>
           <Path>DefaultBuild\MessageBufferDemo.obj</Path>
@@ -274,17 +254,17 @@
           <Path>DefaultBuild\Config_UART0.obj</Path>
         </LinkOrder>
         <CommonOptions>
-          <IncludePathForC>rh850\aws\FreeRTOS</IncludePathForC>
-          <IncludePathForC>rh850\aws\FreeRTOS\Common\include</IncludePathForC>
+          <IncludePathForC>freertos_cfg</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Demo\Common\include</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Source\include</IncludePathForC>
           <IncludePathForC>src</IncludePathForC>
-          <IncludePathForC>rh850_cfg\aws</IncludePathForC>
-          <IncludePathForC>rh850\u2b10\freertos_port</IncludePathForC>
-          <IncludePathForC>rh850\aws\FreeRTOS\Source\portable</IncludePathForC>
-          <IncludePathForC>rh850\aws\FreeRTOS\Source\include</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\CCRH\U2x</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Source\portable</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Source\include</IncludePathForC>
           <IncludePathForC>bsp\bsp_irq</IncludePathForC>
           <IncludePathForC>bsp\common</IncludePathForC>
-          <IncludePathForC>rh850\aws\FreeRTOS\Common\include</IncludePathForC>
-          <IncludePathForC>rh850\aws\FreeRTOS\Common\Minimal</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Demo\Common\include</IncludePathForC>
+          <IncludePathForC>..\..\..\..\..\Demo\Common\Minimal</IncludePathForC>
         </CommonOptions>
         <GeneralOptions>
           <SimultaneouslyBuild>False</SimultaneouslyBuild>
@@ -294,17 +274,18 @@
           <Option>-Xcpu=g4mh</Option>
           <Option>-g</Option>
           <Option>-g_line</Option>
-          <Option>-Irh850\aws\FreeRTOS</Option>
-          <Option>-Irh850\aws\FreeRTOS\Common\include</Option>
+          <Option>-Onothing</Option>
+          <Option>-Ifreertos_cfg</Option>
+          <Option>-I..\..\..\..\..\Demo\Common\include</Option>
+          <Option>-I..\..\..\..\..\Source\include</Option>
           <Option>-Isrc</Option>
-          <Option>-Irh850_cfg\aws</Option>
-          <Option>-Irh850\u2b10\freertos_port</Option>
-          <Option>-Irh850\aws\FreeRTOS\Source\portable</Option>
-          <Option>-Irh850\aws\FreeRTOS\Source\include</Option>
+          <Option>-I..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\CCRH\U2x</Option>
+          <Option>-I..\..\..\..\..\Source\portable</Option>
+          <Option>-I..\..\..\..\..\Source\include</Option>
           <Option>-Ibsp\bsp_irq</Option>
           <Option>-Ibsp\common</Option>
-          <Option>-Irh850\aws\FreeRTOS\Common\include</Option>
-          <Option>-Irh850\aws\FreeRTOS\Common\Minimal</Option>
+          <Option>-I..\..\..\..\..\Demo\Common\include</Option>
+          <Option>-I..\..\..\..\..\Demo\Common\Minimal</Option>
           <Option>-lang=c99</Option>
           <Option>-c</Option>
         </CompileOptions>
@@ -312,8 +293,6 @@
           <Option>-Xobj_path=%BuildModeName%</Option>
           <Option>-Xcpu=g4mh</Option>
           <Option>-g</Option>
-          <Option>-DconfigENABLE_FXU</Option>
-          <Option>-DconfigENABLE_FPU</Option>
           <Option>-c</Option>
         </AssembleOptions>
         <LinkOptions>
@@ -325,7 +304,7 @@
           <Option>-library=v850e3v5\libmalloc.lib</Option>
           <Option>-list=%BuildModeName%\%ProjectName%.map</Option>
           <Option>-show=symbol,total_size</Option>
-          <Option>-start=RESET,STARTUP_CODE_PE0,STARTUP_CODE_PEn,STARTUP_CODE/00000000,ex_entry_PE0/00001000,ex_entry_PE1,.const,.INIT_BSEC.const,.INIT_DSEC.const,.data,.text/00005000,ex_entry_PE2/00100000,.stack_pe2.bss/FD800000,.stack_pe1.bss/FDA00000,.stack.bss,.data.R,.bss/FDC00000,.mev_address.bss/FE000000</Option>
+          <Option>-start=RESET,STARTUP_CODE_PE0,STARTUP_CODE_PEn,STARTUP_CODE/00000000,ex_entry_PE0/00001000,ex_entry_PE1/00001400,ex_entry_PE2/00001800,.const,.INIT_BSEC.const,.INIT_DSEC.const,.data,.text/00004000,.inttable_PE0.const/00040000,.inttable_PE1.const/00041000,.inttable_PE2.const/00042000,.stack_pe2.bss/FD800000,.stack_pe1.bss/FDA00000,.stack.bss/FDC00000,.data.R,.bss,.mev_address.bss/FE000000</Option>
           <Option>-rom=.data=.data.R</Option>
           <Option>-memory=high</Option>
           <Option>-nologo</Option>
@@ -337,19 +316,22 @@
         </LinkOptions>
         <IOHeaderGenerationOptions>
           <Option>"-df=C:\Program Files (x86)\Renesas Electronics\CS+\CC\Device\RH850\Devicefile\DR7F70255x.DVF"</Option>
-          <Option>-o=C:\Users\a5116222\Workspace\projects\u2ax-u2bx_freertos_port\CCRH\U2B6_FreeRTOS_Demo_MultiCore\iodefine.h</Option>
+          <Option>-o=C:\An_Nguyen\FSP\GIT_FreeRTOS_Refer\GIT_FreeRTOS_Community\FreeRTOS\FreeRTOS\Demo\ThirdParty\Partner-Supported-Demos\RH850_U2Bx_CCRH\U2Bx_FreeRTOS_Demo_MultiCore\iodefine.h</Option>
           <Option>-def=off</Option>
           <Option>-f</Option>
           <UpdateIOMode>None</UpdateIOMode>
         </IOHeaderGenerationOptions>
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\examples\cmake_example\main.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\Common\mpu_wrappers.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\Common\mpu_wrappers_v2.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\MemMang\heap_1.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\MemMang\heap_2.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\MemMang\heap_3.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\MemMang\heap_5.c" />
-        <NoTargetFile Target="rh850\aws\FreeRTOS\Source\portable\template\port.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\examples\cmake_example\main.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\Common\mpu_wrappers.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\Common\mpu_wrappers_v2.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\MemMang\heap_1.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\MemMang\heap_2.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\MemMang\heap_3.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\MemMang\heap_5.c" />
+        <NoTargetFile Target="..\..\..\..\..\Source\portable\template\port.c" />
+        <NoTargetFile Target="..\..\..\..\Common\Minimal\flash.c" />
+        <NoTargetFile Target="..\..\..\..\Common\Minimal\flash_timer.c" />
+        <NoTargetFile Target="..\..\..\..\Common\Minimal\IntQueue.c" />
       </BuildMode>
     </BuildOptions>
   </Project>

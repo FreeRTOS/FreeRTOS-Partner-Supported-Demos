@@ -1,55 +1,8 @@
 ;-------------------------------------------------------------------------------
-;-- Module      = coldreset.asm
-;-- Version     = 1.0.0
-;--               manually created
-;--
-;-------------------------------------------------------------------------------
-;--                                  COPYRIGHT
-;-------------------------------------------------------------------------------
-;-- Copyright (c) 2024 by Renesas Electronics Europe GmbH,
-;--               a company of the Renesas Electronics Corporation
-;-------------------------------------------------------------------------------
-;-- Purpose:      Startup Code
-;--
-;-------------------------------------------------------------------------------
-;--
-;-- Warranty Disclaimer
-;--
-;-- Because the Product(s) is licensed free of charge, there is no warranty
-;-- of any kind whatsoever and expressly disclaimed and excluded by Renesas,
-;-- either expressed or implied, including but not limited to those for
-;-- non-infringement of intellectual property, merchantability and/or
-;-- fitness for the particular purpose.
-;-- Renesas shall not have any obligation to maintain, service or provide bug
-;-- fixes for the supplied Product(s) and/or the Application.
-;--
-;-- Each User is solely responsible for determining the appropriateness of
-;-- using the Product(s) and assumes all risks associated with its exercise
-;-- of rights under this Agreement, including, but not limited to the risks
-;-- and costs of program errors, compliance with applicable laws, damage to
-;-- or loss of data, programs or equipment, and unavailability or
-;-- interruption of operations.
-;--
-;-- Limitation of Liability
-;--
-;-- In no event shall Renesas be liable to the User for any incidental,
-;-- consequential, indirect, or punitive damage (including but not limited
-;-- to lost profits) regardless of whether such liability is based on breach
-;-- of contract, tort, strict liability, breach of warranties, failure of
-;-- essential purpose or otherwise and even if advised of the possibility of
-;-- such damages. Renesas shall not be liable for any services or products
-;-- provided by third party vendors, developers or consultants identified or
-;-- referred to the User by Renesas in connection with the Product(s) and/or
-;-- the Application.
-;--
+;-- File name: coldreset.asm
 ;-------------------------------------------------------------------------------
 ;-- Environment:
-;--              Device:         U2B10
 ;--              IDE:            CCRH V2.06.00 or later
-;-------------------------------------------------------------------------------
-;-------------------------------------------------------------------------------
-;-- Revision Control History:
-;-- 1.0.0 :   16th-Oct-2024    : Initial Version
 ;-------------------------------------------------------------------------------
 
 ;-----------------------------------------------------------------------------
@@ -58,7 +11,7 @@
   RESET_ENABLE .set 1
   PE0_USED     .set 1
   PE1_USED     .set 1
-  ;PE2_USED     .set 1
+  ;PE2_USED     .set 0
   ;PE3_USED     .set 0
 
   ; local ram address
@@ -71,23 +24,20 @@
   LOCAL_RAM_CPU2_ADDR         .set 0xFD800000     ; LOCAL RAM(CPU2) start address
   LOCAL_RAM_CPU2_END          .set 0xFD80FFFF     ; LOCAL RAM(CPU2) end address
 
-  ;LOCAL_RAM_CPU3_ADDR         .set 0xFD600000     ; LOCAL RAM(CPU3) start address
-  ;LOCAL_RAM_CPU3_END          .set 0xFD60FFFF     ; LOCAL RAM(CPU3) end address
-
   ; cluster0 ram address
   CLUSTER_RAM0_ADDR0           .set 0xFE000000     ; CLUSTER0 RAM start address
   CLUSTER_RAM0_END0            .set 0xFE057FFF     ; CLUSTER0 RAM end address
-  
+
   CLUSTER_RRAM0_ADDR0           .set 0xFE058000     ; CLUSTER0 RRAM start address
   CLUSTER_RRAM0_END0            .set 0xFE057FFF     ; CLUSTER0 RRAM end address
-  
+
   CLUSTER_RAM0_ADDR1           .set 0xFE060000     ; CLUSTER0 RAM start address
   CLUSTER_RAM0_END1            .set 0xFE07FFFF     ; CLUSTER0 RAM end address
 
   ; cluster1 ram address
   CLUSTER_RAM1_ADDR0           .set 0xFE080000     ; CLUSTER0 RAM start address
   CLUSTER_RAM1_END0            .set 0xFE0DFFFF     ; CLUSTER0 RAM end address
-  
+
   CLUSTER_RRAM1_ADDR0           .set 0xFE0E0000     ; CLUSTER0 RRAM start address
   CLUSTER_RRAM1_END0            .set 0xFE0FFFFF     ; CLUSTER0 RRAM end address
 
@@ -103,12 +53,14 @@
   EIIC  .set 13
 
   CUx_EBV      .set 0x00078000
+
 ;-------------------------------------------------------------------------------
 ;-------------  Public functions
 ;-------------------------------------------------------------------------------
   .extern _RESET_PE0
   .extern _RESET_PEn
   .extern Irq_Handler
+
 ;-------------------------------------------------------------------------------
 ;-------------  Common Startup Routine
 ;-------------------------------------------------------------------------------
@@ -303,22 +255,22 @@ _hdwinit_PE0:
     mov     CLUSTER_RAM0_ADDR0, r6
     mov     CLUSTER_RAM0_END0, r7
     jarl    _zeroclr4, lp
-    
+
     ; clear Cluster RAM0
     mov     CLUSTER_RAM0_ADDR1, r6
     mov     CLUSTER_RAM0_END1, r7
     jarl    _zeroclr4, lp
-    
+
     ; clear Cluster RRAM0
     mov     CLUSTER_RRAM0_ADDR0, r6
     mov     CLUSTER_RRAM0_END0, r7
     jarl    _zeroclr4, lp
-    
+
     ; clear Cluster RAM1
     mov     CLUSTER_RAM1_ADDR0, r6
     mov     CLUSTER_RAM1_END0, r7
     jarl    _zeroclr4, lp
-    
+
     ; clear Cluster RRAM1
     mov     CLUSTER_RRAM1_ADDR0, r6
     mov     CLUSTER_RRAM1_END0, r7
@@ -329,21 +281,12 @@ _hdwinit_PE0:
     mov     LOCAL_RAM_CPU0_END, r7
     jarl    _zeroclr4, lp
 
-    ; finish the clock gearup seaquence
-    ;mov     MEV_ADDR, r10
-    ;set1    4, [r10]
-
-    ;mov     MEV_ADDR, r10
-    ;set1    0, [r10]                ; Bit0 indicate PE0 wait for PEx
-
   ; .mev_address section in cRAM_0 is used for Sync flags
     mov     #__s.mev_address.bss, r20
     st.w    r0, 0[r20]
-    ;jmp     [lp]
-    
+
     mov     r14, lp
     jmp     [lp]
-
 
 $ifdef PE1_USED
 ;-----------------------------------------------------------------------------
@@ -361,18 +304,6 @@ _hdwinit_PE1:
     jarl    _zeroclr4, lp
 
     ; wait for PE0
-;    mov     MEV_ADDR, r10
-;;
-;.L.hdwinit_PE1.0:
-;    tst1    4, [r10]                ; Check the value of bit 4 of MEV_ADDR
-;    bnz    .L.hdwinit_PE1.1
-;    snooze
-;    br     .L.hdwinit_PE1.0
-;;
-;.L.hdwinit_PE1.1:
-;    mov     MEV_ADDR, r10
-;    set1    1, [r10]                ; Bit1 indicate PE1 wait for PEx
-;
     mov     r14, lp
     jmp     [lp]
 
@@ -392,20 +323,8 @@ _hdwinit_PE2:
     mov     LOCAL_RAM_CPU2_ADDR, r6
     mov     LOCAL_RAM_CPU2_END, r7
     jarl    _zeroclr4, lp
-    
+
     ; wait for PE0
-    ;mov     MEV_ADDR, r10
-
-;.L.hdwinit_PE2.0:
-    ;tst1    4, [r10]                ; Check the value of bit 4 of MEV_ADDR
-    ;bnz    .L.hdwinit_PE2.1
-    ;snooze
-    ;br     .L.hdwinit_PE2.0
-
-;.L.hdwinit_PE2.1:
-    ;mov     MEV_ADDR, r10
-    ;set1    2, [r10]                ; Bit2 indicate PE2 wait for PEx
-
     mov     r14, lp
     jmp     [lp]
 
@@ -432,6 +351,7 @@ _zeroclr4:
 ;-------------------------------------------------------------------------------
   .section "RESET", text
   .align 4
+
 ;-------------------------------------------------------------------------------
 ;-------------  Initializing of interrupt vector table
 ;-------------  Please do not modify this section
