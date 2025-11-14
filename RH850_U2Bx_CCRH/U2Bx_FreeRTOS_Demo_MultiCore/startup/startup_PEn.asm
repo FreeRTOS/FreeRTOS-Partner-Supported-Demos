@@ -1,53 +1,9 @@
 ;-------------------------------------------------------------------------------
-;-- Module      = startup_PEn.asm
-;-- Version     = 1.0.0
-;-------------------------------------------------------------------------------
-;--                                  COPYRIGHT
-;-------------------------------------------------------------------------------
-;-- Copyright (c) 2024 by Renesas Electronics Europe GmbH,
-;--               a company of the Renesas Electronics Corporation
-;-------------------------------------------------------------------------------
-;-- Purpose:      Startup Code
-;--
-;-------------------------------------------------------------------------------
-;--
-;-- Warranty Disclaimer
-;--
-;-- Because the Product(s) is licensed free of charge, there is no warranty
-;-- of any kind whatsoever and expressly disclaimed and excluded by Renesas,
-;-- either expressed or implied, including but not limited to those for
-;-- non-infringement of intellectual property, merchantability and/or
-;-- fitness for the particular purpose.
-;-- Renesas shall not have any obligation to maintain, service or provide bug
-;-- fixes for the supplied Product(s) and/or the Application.
-;--
-;-- Each User is solely responsible for determining the appropriateness of
-;-- using the Product(s) and assumes all risks associated with its exercise
-;-- of rights under this Agreement, including, but not limited to the risks
-;-- and costs of program errors, compliance with applicable laws, damage to
-;-- or loss of data, programs or equipment, and unavailability or
-;-- interruption of operations.
-;--
-;-- Limitation of Liability
-;--
-;-- In no event shall Renesas be liable to the User for any incidental,
-;-- consequential, indirect, or punitive damage (including but not limited
-;-- to lost profits) regardless of whether such liability is based on breach
-;-- of contract, tort, strict liability, breach of warranties, failure of
-;-- essential purpose or otherwise and even if advised of the possibility of
-;-- such damages. Renesas shall not be liable for any services or products
-;-- provided by third party vendors, developers or consultants identified or
-;-- referred to the User by Renesas in connection with the Product(s) and/or
-;-- the Application.
-;--
+;-- File name: startup_PEn.asm
 ;-------------------------------------------------------------------------------
 ;-- Environment:
-;--              Device:         U2A6
+;--              Device:         U2B6
 ;--              IDE:            CCRH V2.06.00 or later
-;-------------------------------------------------------------------------------
-;-------------------------------------------------------------------------------
-;-- Revision Control History:
-;-- 1.0.0 :   26th-Sep-2024    : Initial Version
 ;-------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------
@@ -55,7 +11,6 @@
 ;-------------  User modifiable section
 ;-------------  Please uncomment the required interrupt service handler
 ;-------------------------------------------------------------------------------
-
 
 ;-------------------------------------------------------------------------------
 ;-------------  ASM macros
@@ -72,8 +27,14 @@
   .extern _SYNC_PE0
   .extern _exit
 
-  .section "STARTUP_CODE_PE0", text
-  .align 4
+$ifdef PE1_USED
+  .public _PE1_stacktop
+$endif
+
+$ifdef PE2_USED
+  .public _PE2_stacktop
+$endif
+
 ;-----------------------------------------------------------------------------
 ;  system stack
 ;-----------------------------------------------------------------------------
@@ -145,43 +106,43 @@ $endif
 
 $ifdef PE2_USED
 __PE2:
-    jarl __initsp_PE2, lp
+    ;-- Initialization of the interrupt base pointer
+    .extern _g_vector_table_PE2
+    mov    #_g_vector_table_PE2, r10
+    ldsr  r10, 4, 1 ; INTBP
+
+    mov  #_PE2_stacktop, sp    ;  set sp register
+    mov  #__sex_entry_PE2, r10  ;-- First set EBASE register address
     jr32 __DONE
 $endif
 
 $ifdef PE1_USED
 __PE1:
-    jarl __initsp_PE1, lp
-    jr32 __DONE
-$endif
+    ;-- Initialization of the interrupt base pointer
+    .extern _g_vector_table_PE1
+    mov    #_g_vector_table_PE1, r10
+    ldsr  r10, 4, 1 ; INTBP
 
-$ifdef PE2_USED
-__initsp_PE2:
-    mov  #_PE2_stacktop, sp    ;  set sp register
-    mov  #__sex_entry_PE2, r10  ;-- First set EBASE register address
-    jr32 __DONE
-$endif
-    
-$ifdef PE1_USED
-__initsp_PE1:
     mov  #_PE1_stacktop, sp    ;  set sp register
     mov  #__sex_entry_PE1, r10  ;-- First set EBASE register address
+    jr32 __DONE
 $endif
-
 
 __DONE:
   ;-- Set RINT bit for direct vector interupt and
   ;-- And Set RINT bit for reducing interrupt processing
-  mov   0x0000003, r11        ; DV bit
+  mov   0x0000003, r11        ; DV, RINT bit
   or    r11, r10
-
   ldsr  r10, 3, 1 ; EBASE
-  ;-- then set 1 to PSW.EBV -> RBASE!=EBASE
-  ;-- then set 1 to PSW.CU0 and CU1
+  synci
+
+  ;-- Then set 1 to PSW.EBV -> RBASE!=EBASE
+  ;-- Then set 1 to PSW.CU0 and CU1
   stsr  5, r10, 0 ; PSW
   mov   CUx_EBV, r11 ; CUx_EBV
   or    r11, r10
   ldsr  r10, 5, 0 ; PSW
+  synci
 
   ;-- Jump to the initialisation functions of the library
   ;-- and from there to main()
@@ -189,7 +150,7 @@ __DONE:
   stsr  5, r10, 0    ; r10 <- PSW
   ldsr  r10, 3, 0    ; FEPSW <- r10
   mov  #_exit, lp    ; lp <- #_exit
-  
+
 ;-----------------------------------------------
 ; jump to entry point of each PE main function
 ;-----------------------------------------------
@@ -250,12 +211,10 @@ __ex_entry_PE1:
 
 ;----SYSERR
     .offset 0x0010
-    .extern _SYSERR_PE1
     jr __unused_isr
 
 ;----FETRAP
     .offset 0x0030
-    .extern _FETRAP_PE1
     jr __unused_isr
 
 ;----TRAP0
@@ -265,12 +224,10 @@ __ex_entry_PE1:
 
 ;----TRAP1
     .offset 0x0050
-    .extern _EITRAP1_PE1
     jr __unused_isr
 
 ;----RIEX
     .offset 0x0060
-    .extern _RIEX_PE1
     jr __unused_isr
 
 ;----UCPOP
@@ -280,12 +237,10 @@ __ex_entry_PE1:
 
 ;----MIP_MDP
     .offset 0x0090
-    .extern _MIP_MDP_PE1
     jr __unused_isr
 
 ;----PIE
     .offset 0x00a0
-    .extern _PIE_PE1
     jr __unused_isr
 
 ;----MAE_MAEX
@@ -295,21 +250,19 @@ __ex_entry_PE1:
 
 ;----FENMI
     .offset 0x00e0
-    ;.extern _FENMI_PE1
     jr __unused_isr
 
 ;----FEINT
     .offset 0x00f0
-    ;.extern _FEINT_PE1
     jr __unused_isr
 
 ;----EIINTn priority_0
+;----EBASE.RINT is 1, all interrupts are handled at this entry
     .offset 0x0100
     .extern _vIrq_Handler
     jr _vIrq_Handler
 
 $endif ;end PE1
-
 
 ; PE2
 $ifdef PE2_USED
@@ -325,12 +278,10 @@ __ex_entry_PE2:
 
 ;----SYSERR
     .offset 0x0010
-    .extern _SYSERR_PE2
     jr __unused_isr
 
 ;----FETRAP
     .offset 0x0030
-    .extern _FETRAP_PE2
     jr __unused_isr
 
 ;----TRAP0
@@ -340,45 +291,38 @@ __ex_entry_PE2:
 
 ;----TRAP1
     .offset 0x0050
-    .extern _EITRAP1_PE2
     jr __unused_isr
 
 ;----RIEX
     .offset 0x0060
-    .extern _RIEX_PE2
     jr __unused_isr
 
 ;----UCPOP
     .offset 0x0080
-    .extern _UCPOP_PE2
     jr __unused_isr
 
 ;----MIP_MDP
     .offset 0x0090
-    .extern _MIP_MDP_PE2
     jr __unused_isr
 
 ;----PIE
     .offset 0x00a0
-    .extern _PIE_PE2
     jr __unused_isr
 
 ;----MAE_MAEX
     .offset 0x00c0
-    .extern _MAE_MAEX_PE2
     jr __unused_isr
 
 ;----FENMI
     .offset 0x00e0
-    ;.extern _FENMI_PE2
     jr __unused_isr
 
 ;----FEINT
     .offset 0x00f0
-    ;.extern _FEINT_PE2
     jr __unused_isr
 
 ;----EIINTn priority_0
+;----EBASE.RINT is 1, all interrupts are handled at this entry
     .offset 0x0100
     .extern _vIrq_Handler
     jr _vIrq_Handler
@@ -387,10 +331,10 @@ $endif ;end PE2
 
 
 ;-------------  End of exception table
-;-------------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
 
 ;-----------------------------------------------------------------------------
-;    dummy section
+;   dummy section
 ;-----------------------------------------------------------------------------
     .section ".data", data
 .L.dummy.data:

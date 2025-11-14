@@ -62,28 +62,27 @@
 #include "TimerDemo.h"
 
 /* Various test includes. */
-
- #include "RegTests.h"
+#include "RegTests.h"
 
 /**
  * Priorities at which the tasks are created.
  */
-#define testrunnerCHECK_TASK_PRIORITY         (configMAX_PRIORITIES - 2)
-#define testrunnerQUEUE_POLL_PRIORITY         (tskIDLE_PRIORITY + 1)
-#define testrunnerSEM_TEST_PRIORITY           (tskIDLE_PRIORITY + 1)
-#define testrunnerBLOCK_Q_PRIORITY            (tskIDLE_PRIORITY + 2)
-#define testrunnerCREATOR_TASK_PRIORITY       (tskIDLE_PRIORITY + 3)
-#define testrunnerFLASH_TASK_PRIORITY         (tskIDLE_PRIORITY + 1)
-#define testrunnerINTEGER_TASK_PRIORITY       (tskIDLE_PRIORITY)
-#define testrunnerGEN_QUEUE_TASK_PRIORITY     (tskIDLE_PRIORITY)
-#define testrunnerFLOP_TASK_PRIORITY          (tskIDLE_PRIORITY)
-#define testrunnerQUEUE_OVERWRITE_PRIORITY    (tskIDLE_PRIORITY)
-#define testrunnerREGISTER_TEST_PRIORITY      (tskIDLE_PRIORITY)
+#define testrunnerCHECK_TASK_PRIORITY         ( configMAX_PRIORITIES - 2 )
+#define testrunnerQUEUE_POLL_PRIORITY         ( tskIDLE_PRIORITY + 1 )
+#define testrunnerSEM_TEST_PRIORITY           ( tskIDLE_PRIORITY + 1 )
+#define testrunnerBLOCK_Q_PRIORITY            ( tskIDLE_PRIORITY + 2 )
+#define testrunnerCREATOR_TASK_PRIORITY       ( tskIDLE_PRIORITY + 3 )
+#define testrunnerFLASH_TASK_PRIORITY         ( tskIDLE_PRIORITY + 1 )
+#define testrunnerINTEGER_TASK_PRIORITY       ( tskIDLE_PRIORITY )
+#define testrunnerGEN_QUEUE_TASK_PRIORITY     ( tskIDLE_PRIORITY )
+#define testrunnerFLOP_TASK_PRIORITY          ( tskIDLE_PRIORITY )
+#define testrunnerQUEUE_OVERWRITE_PRIORITY    ( tskIDLE_PRIORITY )
+#define testrunnerREGISTER_TEST_PRIORITY      ( tskIDLE_PRIORITY )
 
 /**
  * Period used in timer tests.
  */
-#define testrunnerTIMER_TEST_PERIOD           (50)
+#define testrunnerTIMER_TEST_PERIOD           ( 50 )
 
 /*-----------------------------------------------------------*/
 
@@ -91,6 +90,8 @@
  * The variable into which error messages are latched.
  */
 static char * pcStatusMessage = "No errors";
+static char * pcStatusMessage_1[ 30 ];
+static int count = 0;
 
 /*-----------------------------------------------------------*/
 
@@ -98,172 +99,172 @@ static char * pcStatusMessage = "No errors";
  * The task that periodically checks that all the standard demo tasks are
  * still executing and error free.
  */
-static void prvCheckTask(void * pvParameters);
+static void prvCheckTask( void * pvParameters );
 
 /*-----------------------------------------------------------*/
 
-void vStartTests (void)
+void vStartTests( void )
 {
     BaseType_t xResult;
 
-    xResult = xTaskCreate(prvCheckTask, "Check", configMINIMAL_STACK_SIZE, NULL, testrunnerCHECK_TASK_PRIORITY, NULL);
+    xResult = xTaskCreate( prvCheckTask, "Check", configMINIMAL_STACK_SIZE, NULL, testrunnerCHECK_TASK_PRIORITY, NULL );
 
-    if (xResult == pdPASS)
+    if( xResult == pdPASS )
     {
-#if (configSTART_TASK_NOTIFY_TESTS == 1)
+        #if ( configSTART_TASK_NOTIFY_TESTS == 1 )
         {
             vStartTaskNotifyTask();
         }
-#endif                                 /* configSTART_TASK_NOTIFY_TESTS */
+        #endif /* configSTART_TASK_NOTIFY_TESTS */
 
-#if (configSTART_TASK_NOTIFY_ARRAY_TESTS == 1)
+        #if ( configSTART_TASK_NOTIFY_ARRAY_TESTS == 1 )
         {
             vStartTaskNotifyArrayTask();
         }
-#endif                                 /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
+        #endif /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
 
-#if (configSTART_BLOCKING_QUEUE_TESTS == 1)
+        #if ( configSTART_BLOCKING_QUEUE_TESTS == 1 )
         {
-            vStartBlockingQueueTasks(testrunnerBLOCK_Q_PRIORITY);
+            vStartBlockingQueueTasks( testrunnerBLOCK_Q_PRIORITY );
         }
-#endif                                 /* configSTART_BLOCKING_QUEUE_TESTS */
+        #endif /* configSTART_BLOCKING_QUEUE_TESTS */
 
-#if (configSTART_SEMAPHORE_TESTS == 1)
+        #if ( configSTART_SEMAPHORE_TESTS == 1 )
         {
-            vStartSemaphoreTasks(testrunnerSEM_TEST_PRIORITY);
+            vStartSemaphoreTasks( testrunnerSEM_TEST_PRIORITY );
         }
-#endif                                 /* configSTART_SEMAPHORE_TESTS */
+        #endif /* configSTART_SEMAPHORE_TESTS */
 
-#if (configSTART_POLLED_QUEUE_TESTS == 1)
+        #if ( configSTART_POLLED_QUEUE_TESTS == 1 )
         {
-            vStartPolledQueueTasks(testrunnerQUEUE_POLL_PRIORITY);
+            vStartPolledQueueTasks( testrunnerQUEUE_POLL_PRIORITY );
         }
-#endif                                 /* configSTART_POLLED_QUEUE_TESTS */
+        #endif /* configSTART_POLLED_QUEUE_TESTS */
 
-#if (configSTART_INTEGER_MATH_TESTS == 1)
+        #if ( configSTART_INTEGER_MATH_TESTS == 1 )
         {
-            vStartIntegerMathTasks(testrunnerINTEGER_TASK_PRIORITY);
+            vStartIntegerMathTasks( testrunnerINTEGER_TASK_PRIORITY );
         }
-#endif                                 /* configSTART_INTEGER_MATH_TESTS */
+        #endif /* configSTART_INTEGER_MATH_TESTS */
 
-#if (configSTART_GENERIC_QUEUE_TESTS == 1)
+        #if ( configSTART_GENERIC_QUEUE_TESTS == 1 )
         {
-            vStartGenericQueueTasks(testrunnerGEN_QUEUE_TASK_PRIORITY);
+            vStartGenericQueueTasks( testrunnerGEN_QUEUE_TASK_PRIORITY );
         }
-#endif                                 /* configSTART_GENERIC_QUEUE_TESTS */
+        #endif /* configSTART_GENERIC_QUEUE_TESTS */
 
-#if (configSTART_PEEK_QUEUE_TESTS == 1)
+        #if ( configSTART_PEEK_QUEUE_TESTS == 1 )
         {
             vStartQueuePeekTasks();
         }
-#endif                                 /* configSTART_PEEK_QUEUE_TESTS */
+        #endif /* configSTART_PEEK_QUEUE_TESTS */
 
-#if (configSTART_MATH_TESTS == 1)
+        #if ( configSTART_MATH_TESTS == 1 )
         {
-            vStartMathTasks(testrunnerFLOP_TASK_PRIORITY);
+            vStartMathTasks( testrunnerFLOP_TASK_PRIORITY );
         }
-#endif                                 /* configSTART_MATH_TESTS */
+        #endif /* configSTART_MATH_TESTS */
 
-#if (configSTART_RECURSIVE_MUTEX_TESTS == 1)
+        #if ( configSTART_RECURSIVE_MUTEX_TESTS == 1 )
         {
             vStartRecursiveMutexTasks();
         }
-#endif                                 /* configSTART_RECURSIVE_MUTEX_TESTS */
+        #endif /* configSTART_RECURSIVE_MUTEX_TESTS */
 
-#if (configSTART_COUNTING_SEMAPHORE_TESTS == 1)
+        #if ( configSTART_COUNTING_SEMAPHORE_TESTS == 1 )
         {
             vStartCountingSemaphoreTasks();
         }
-#endif                                 /* configSTART_COUNTING_SEMAPHORE_TESTS */
+        #endif /* configSTART_COUNTING_SEMAPHORE_TESTS */
 
-#if (configSTART_QUEUE_SET_TESTS == 1)
+        #if ( configSTART_QUEUE_SET_TESTS == 1 )
         {
             vStartQueueSetTasks();
         }
-#endif                                 /* configSTART_QUEUE_SET_TESTS */
+        #endif /* configSTART_QUEUE_SET_TESTS */
 
-#if (configSTART_QUEUE_OVERWRITE_TESTS == 1)
+        #if ( configSTART_QUEUE_OVERWRITE_TESTS == 1 )
         {
-            vStartQueueOverwriteTask(testrunnerQUEUE_OVERWRITE_PRIORITY);
+            vStartQueueOverwriteTask( testrunnerQUEUE_OVERWRITE_PRIORITY );
         }
-#endif                                 /* configSTART_QUEUE_OVERWRITE_TESTS */
+        #endif /* configSTART_QUEUE_OVERWRITE_TESTS */
 
-#if (configSTART_EVENT_GROUP_TESTS == 1)
+        #if ( configSTART_EVENT_GROUP_TESTS == 1 )
         {
             vStartEventGroupTasks();
         }
-#endif                                 /* configSTART_EVENT_GROUP_TESTS */
+        #endif /* configSTART_EVENT_GROUP_TESTS */
 
-#if (configSTART_INTERRUPT_SEMAPHORE_TESTS == 1)
+        #if ( configSTART_INTERRUPT_SEMAPHORE_TESTS == 1 )
         {
             vStartInterruptSemaphoreTasks();
         }
-#endif                                 /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
+        #endif /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
 
-#if (configSTART_QUEUE_SET_POLLING_TESTS == 1)
+        #if ( configSTART_QUEUE_SET_POLLING_TESTS == 1 )
         {
             vStartQueueSetPollingTask();
         }
-#endif                                 /* configSTART_QUEUE_SET_POLLING_TESTS */
+        #endif /* configSTART_QUEUE_SET_POLLING_TESTS */
 
-#if (configSTART_BLOCK_TIME_TESTS == 1)
+        #if ( configSTART_BLOCK_TIME_TESTS == 1 )
         {
             vCreateBlockTimeTasks();
         }
-#endif                                 /* configSTART_BLOCK_TIME_TESTS */
+        #endif /* configSTART_BLOCK_TIME_TESTS */
 
-#if (configSTART_ABORT_DELAY_TESTS == 1)
+        #if ( configSTART_ABORT_DELAY_TESTS == 1 )
         {
             vCreateAbortDelayTasks();
         }
-#endif                                 /* configSTART_ABORT_DELAY_TESTS */
+        #endif /* configSTART_ABORT_DELAY_TESTS */
 
-#if (configSTART_MESSAGE_BUFFER_TESTS == 1)
+        #if ( configSTART_MESSAGE_BUFFER_TESTS == 1 )
         {
-            vStartMessageBufferTasks(configMINIMAL_STACK_SIZE);
+            vStartMessageBufferTasks( configMINIMAL_STACK_SIZE );
         }
-#endif                                 /* configSTART_MESSAGE_BUFFER_TESTS */
+        #endif /* configSTART_MESSAGE_BUFFER_TESTS */
 
-#if (configSTART_STREAM_BUFFER_TESTS == 1)
+        #if ( configSTART_STREAM_BUFFER_TESTS == 1 )
         {
             vStartStreamBufferTasks();
         }
-#endif                                 /* configSTART_STREAM_BUFFER_TESTS */
+        #endif /* configSTART_STREAM_BUFFER_TESTS */
 
-#if (configSTART_STREAM_BUFFER_INTERRUPT_TESTS == 1)
+        #if ( configSTART_STREAM_BUFFER_INTERRUPT_TESTS == 1 )
         {
             vStartStreamBufferInterruptDemo();
         }
-#endif                                 /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
+        #endif /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
 
-#if ((configSTART_TIMER_TESTS == 1) && (configUSE_PREEMPTION != 0))
+        #if ( ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) )
         {
             /* Don't expect these tasks to pass when preemption is not used. */
-            vStartTimerDemoTask(testrunnerTIMER_TEST_PERIOD);
+            vStartTimerDemoTask( testrunnerTIMER_TEST_PERIOD );
         }
-#endif                                 /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
+        #endif /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
 
-#if (configSTART_INTERRUPT_QUEUE_TESTS == 1)
+        #if ( configSTART_INTERRUPT_QUEUE_TESTS == 1 )
         {
             vStartInterruptQueueTasks();
         }
-#endif                                 /* configSTART_INTERRUPT_QUEUE_TESTS */
+        #endif /* configSTART_INTERRUPT_QUEUE_TESTS */
 
-#if (configSTART_REGISTER_TESTS == 1)
+        #if ( configSTART_REGISTER_TESTS == 1 )
         {
-            vStartRegisterTasks(testrunnerREGISTER_TEST_PRIORITY);
+            vStartRegisterTasks( testrunnerREGISTER_TEST_PRIORITY );
         }
-#endif                                 /* configSTART_REGISTER_TESTS */
+        #endif /* configSTART_REGISTER_TESTS */
 
-#if (configSTART_DELETE_SELF_TESTS == 1)
+        #if ( configSTART_DELETE_SELF_TESTS == 1 )
         {
             /* The suicide tasks must be created last as they need to know how many
              * tasks were running prior to their creation.  This then allows them to
              * ascertain whether or not the correct/expected number of tasks are
              * running at any given time. */
-            vCreateSuicidalTasks(testrunnerCREATOR_TASK_PRIORITY);
+            vCreateSuicidalTasks( testrunnerCREATOR_TASK_PRIORITY );
         }
-#endif                                 /* configSTART_DELETE_SELF_TESTS */
+        #endif /* configSTART_DELETE_SELF_TESTS */
     }
 
     vTaskStartScheduler();
@@ -271,320 +272,453 @@ void vStartTests (void)
 
 /*-----------------------------------------------------------*/
 
-void vApplicationTickHook (void)
+void vApplicationTickHook( void )
 {
-#if (configSTART_TASK_NOTIFY_TESTS == 1)
+    #if ( configSTART_TASK_NOTIFY_TESTS == 1 )
     {
         xNotifyTaskFromISR();
     }
-#endif                                 /* configSTART_TASK_NOTIFY_TESTS */
+    #endif /* configSTART_TASK_NOTIFY_TESTS */
 
-#if (configSTART_TASK_NOTIFY_ARRAY_TESTS == 1)
+    #if ( configSTART_TASK_NOTIFY_ARRAY_TESTS == 1 )
     {
         xNotifyArrayTaskFromISR();
     }
-#endif                                 /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
+    #endif /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
 
-#if (configSTART_QUEUE_SET_TESTS == 1)
+    #if ( configSTART_QUEUE_SET_TESTS == 1 )
     {
         vQueueSetAccessQueueSetFromISR();
     }
-#endif                                 /* configSTART_QUEUE_SET_TESTS */
+    #endif /* configSTART_QUEUE_SET_TESTS */
 
-#if (configSTART_QUEUE_OVERWRITE_TESTS == 1)
+    #if ( configSTART_QUEUE_OVERWRITE_TESTS == 1 )
     {
         vQueueOverwritePeriodicISRDemo();
     }
-#endif                                 /* configSTART_QUEUE_OVERWRITE_TESTS */
+    #endif /* configSTART_QUEUE_OVERWRITE_TESTS */
 
-#if (configSTART_EVENT_GROUP_TESTS == 1)
+    #if ( configSTART_EVENT_GROUP_TESTS == 1 )
     {
         vPeriodicEventGroupsProcessing();
     }
-#endif                                 /* configSTART_EVENT_GROUP_TESTS */
+    #endif /* configSTART_EVENT_GROUP_TESTS */
 
-#if (configSTART_INTERRUPT_SEMAPHORE_TESTS == 1)
+    #if ( configSTART_INTERRUPT_SEMAPHORE_TESTS == 1 )
     {
         vInterruptSemaphorePeriodicTest();
     }
-#endif                                 /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
+    #endif /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
 
-#if (configSTART_QUEUE_SET_POLLING_TESTS == 1)
+    #if ( configSTART_QUEUE_SET_POLLING_TESTS == 1 )
     {
         vQueueSetPollingInterruptAccess();
     }
-#endif                                 /* configSTART_QUEUE_SET_POLLING_TESTS */
+    #endif /* configSTART_QUEUE_SET_POLLING_TESTS */
 
-#if (configSTART_STREAM_BUFFER_TESTS == 1)
+    #if ( configSTART_STREAM_BUFFER_TESTS == 1 )
     {
         vPeriodicStreamBufferProcessing();
     }
-#endif                                 /* configSTART_STREAM_BUFFER_TESTS */
+    #endif /* configSTART_STREAM_BUFFER_TESTS */
 
-#if (configSTART_STREAM_BUFFER_INTERRUPT_TESTS == 1)
+    #if ( configSTART_STREAM_BUFFER_INTERRUPT_TESTS == 1 )
     {
         vBasicStreamBufferSendFromISR();
     }
-#endif                                 /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
+    #endif /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
 
-#if ((configSTART_TIMER_TESTS == 1) && (configUSE_PREEMPTION != 0))
+    #if ( ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) )
     {
         /* Only created when preemption is used. */
         vTimerPeriodicISRTests();
     }
-#endif                                 /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
+    #endif /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
 
-#if (configSTART_INTERRUPT_QUEUE_TESTS == 1)
+    #if ( configSTART_INTERRUPT_QUEUE_TESTS == 1 )
     {
-        portYIELD_FROM_ISR(xFirstTimerHandler());
+        portYIELD_FROM_ISR( xFirstTimerHandler() );
     }
-#endif                                 /* configSTART_INTERRUPT_QUEUE_TESTS */
+    #endif /* configSTART_INTERRUPT_QUEUE_TESTS */
 }
 
 /*-----------------------------------------------------------*/
 
-static void prvCheckTask (void * pvParameters)
+static void prvCheckTask( void * pvParameters )
 {
-    TickType_t       xNextWakeTime;
-    const TickType_t xCycleFrequency = pdMS_TO_TICKS(5000UL);
+    TickType_t xNextWakeTime;
+    const TickType_t xCycleFrequency = pdMS_TO_TICKS( 5000UL );
 
     /* Silence compiler warnings about unused variables. */
-    (void) pvParameters;
+    ( void ) pvParameters;
 
     /* Initialise xNextWakeTime - this only needs to be done once. */
     xNextWakeTime = xTaskGetTickCount();
 
-    for ( ; ; )
+    for( ; ; )
     {
         /* Place this task in the blocked state until it is time to run again. */
-        vTaskDelayUntil(&xNextWakeTime, xCycleFrequency);
+        vTaskDelayUntil( &xNextWakeTime, xCycleFrequency );
 
-#if (configSTART_TASK_NOTIFY_TESTS == 1)
+        #if ( configSTART_TASK_NOTIFY_TESTS == 1 )
         {
-            if (xAreTaskNotificationTasksStillRunning() != pdTRUE)
+            if( xAreTaskNotificationTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  Notification";
+                pcStatusMessage = "Error: Notification";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Notification";
+                count++;
             }
         }
-#endif                                 /* configSTART_TASK_NOTIFY_TESTS */
+        #endif /* configSTART_TASK_NOTIFY_TESTS */
 
-#if (configSTART_TASK_NOTIFY_ARRAY_TESTS == 1)
+        #if ( configSTART_TASK_NOTIFY_ARRAY_TESTS == 1 )
         {
-            if (xAreTaskNotificationArrayTasksStillRunning() != pdTRUE)
+            if( xAreTaskNotificationArrayTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  Notification Array";
+                pcStatusMessage = "Error: Notification Array";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Notification Array";
+                count++;
             }
         }
-#endif                                 /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
+        #endif /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
 
-#if (configSTART_BLOCKING_QUEUE_TESTS == 1)
+        #if ( configSTART_BLOCKING_QUEUE_TESTS == 1 )
         {
-            if (xAreBlockingQueuesStillRunning() != pdTRUE)
+            if( xAreBlockingQueuesStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: BlockQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: BlockQueue";
+                count++;
+            }
         }
-#endif                                 /* configSTART_BLOCKING_QUEUE_TESTS */
+        #endif /* configSTART_BLOCKING_QUEUE_TESTS */
 
-#if (configSTART_SEMAPHORE_TESTS == 1)
+        #if ( configSTART_SEMAPHORE_TESTS == 1 )
         {
-            if (xAreSemaphoreTasksStillRunning() != pdTRUE)
+            if( xAreSemaphoreTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: SemTest";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: SemTest";
+                count++;
+            }
         }
-#endif                                 /* configSTART_SEMAPHORE_TESTS */
+        #endif /* configSTART_SEMAPHORE_TESTS */
 
-#if (configSTART_POLLED_QUEUE_TESTS == 1)
+        #if ( configSTART_POLLED_QUEUE_TESTS == 1 )
         {
-            if (xArePollingQueuesStillRunning() != pdTRUE)
+            if( xArePollingQueuesStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: PollQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: PollQueue";
+                count++;
+            }
         }
-#endif                                 /* configSTART_POLLED_QUEUE_TESTS */
+        #endif /* configSTART_POLLED_QUEUE_TESTS */
 
-#if (configSTART_INTEGER_MATH_TESTS == 1)
+        #if ( configSTART_INTEGER_MATH_TESTS == 1 )
         {
-            if (xAreIntegerMathsTaskStillRunning() != pdTRUE)
+            if( xAreIntegerMathsTaskStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: IntMath";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: IntMath";
+                count++;
+            }
         }
-#endif                                 /* configSTART_INTEGER_MATH_TESTS */
+        #endif /* configSTART_INTEGER_MATH_TESTS */
 
-#if (configSTART_GENERIC_QUEUE_TESTS == 1)
+        #if ( configSTART_GENERIC_QUEUE_TESTS == 1 )
         {
-            if (xAreGenericQueueTasksStillRunning() != pdTRUE)
+            if( xAreGenericQueueTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: GenQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: GenQueue";
+                count++;
+            }
         }
-#endif                                 /* configSTART_GENERIC_QUEUE_TESTS */
+        #endif /* configSTART_GENERIC_QUEUE_TESTS */
 
-#if (configSTART_PEEK_QUEUE_TESTS == 1)
+        #if ( configSTART_PEEK_QUEUE_TESTS == 1 )
         {
-            if (xAreQueuePeekTasksStillRunning() != pdTRUE)
+            if( xAreQueuePeekTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: QueuePeek";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: QueuePeek";
+                count++;
+            }
         }
-#endif                                 /* configSTART_PEEK_QUEUE_TESTS */
+        #endif /* configSTART_PEEK_QUEUE_TESTS */
 
-#if (configSTART_MATH_TESTS == 1)
+        #if ( configSTART_MATH_TESTS == 1 )
         {
-            if (xAreMathsTaskStillRunning() != pdPASS)
+            if( xAreMathsTaskStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Flop";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Flop";
+                count++;
+            }
         }
-#endif                                 /* configSTART_MATH_TESTS */
+        #endif /* configSTART_MATH_TESTS */
 
-#if (configSTART_RECURSIVE_MUTEX_TESTS == 1)
+        #if ( configSTART_RECURSIVE_MUTEX_TESTS == 1 )
         {
-            if (xAreRecursiveMutexTasksStillRunning() != pdTRUE)
+            if( xAreRecursiveMutexTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: RecMutex";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: RecMutex";
+                count++;
+            }
         }
-#endif                                 /* configSTART_RECURSIVE_MUTEX_TESTS */
+        #endif /* configSTART_RECURSIVE_MUTEX_TESTS */
 
-#if (configSTART_COUNTING_SEMAPHORE_TESTS == 1)
+        #if ( configSTART_COUNTING_SEMAPHORE_TESTS == 1 )
         {
-            if (xAreCountingSemaphoreTasksStillRunning() != pdTRUE)
+            if( xAreCountingSemaphoreTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: CountSem";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: CountSem";
+                count++;
+            }
         }
-#endif                                 /* configSTART_COUNTING_SEMAPHORE_TESTS */
+        #endif /* configSTART_COUNTING_SEMAPHORE_TESTS */
 
-#if (configSTART_QUEUE_SET_TESTS == 1)
+        #if ( configSTART_QUEUE_SET_TESTS == 1 )
         {
-            if (xAreQueueSetTasksStillRunning() != pdPASS)
+            if( xAreQueueSetTasksStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Queue set";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Queue set";
+                count++;
+            }
         }
-#endif                                 /* configSTART_QUEUE_SET_TESTS */
+        #endif /* configSTART_QUEUE_SET_TESTS */
 
-#if (configSTART_QUEUE_OVERWRITE_TESTS == 1)
+        #if ( configSTART_QUEUE_OVERWRITE_TESTS == 1 )
         {
-            if (xIsQueueOverwriteTaskStillRunning() != pdPASS)
+            if( xIsQueueOverwriteTaskStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Queue overwrite";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Queue overwrite";
+                count++;
+            }
         }
-#endif                                 /* configSTART_QUEUE_OVERWRITE_TESTS */
+        #endif /* configSTART_QUEUE_OVERWRITE_TESTS */
 
-#if (configSTART_EVENT_GROUP_TESTS == 1)
+        #if ( configSTART_EVENT_GROUP_TESTS == 1 )
         {
-            if (xAreEventGroupTasksStillRunning() != pdTRUE)
+            if( xAreEventGroupTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: EventGroup";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: EventGroup";
+                count++;
+            }
         }
-#endif                                 /* configSTART_EVENT_GROUP_TESTS */
+        #endif /* configSTART_EVENT_GROUP_TESTS */
 
-#if (configSTART_INTERRUPT_SEMAPHORE_TESTS == 1)
+        #if ( configSTART_INTERRUPT_SEMAPHORE_TESTS == 1 )
         {
-            if (xAreInterruptSemaphoreTasksStillRunning() != pdTRUE)
+            if( xAreInterruptSemaphoreTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: IntSem";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: IntSem";
+                count++;
+            }
         }
-#endif                                 /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
+        #endif /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
 
-#if (configSTART_QUEUE_SET_POLLING_TESTS == 1)
+        #if ( configSTART_QUEUE_SET_POLLING_TESTS == 1 )
         {
-            if (xAreQueueSetPollTasksStillRunning() != pdPASS)
+            if( xAreQueueSetPollTasksStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Queue set polling";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Queue set polling";
+                count++;
+            }
         }
-#endif                                 /* configSTART_QUEUE_SET_POLLING_TESTS */
+        #endif /* configSTART_QUEUE_SET_POLLING_TESTS */
 
-#if (configSTART_BLOCK_TIME_TESTS == 1)
+        #if ( configSTART_BLOCK_TIME_TESTS == 1 )
         {
-            if (xAreBlockTimeTestTasksStillRunning() != pdPASS)
+            if( xAreBlockTimeTestTasksStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Block time";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Block time";
+                count++;
+            }
         }
-#endif                                 /* configSTART_BLOCK_TIME_TESTS */
+        #endif /* configSTART_BLOCK_TIME_TESTS */
 
-#if (configSTART_ABORT_DELAY_TESTS == 1)
+        #if ( configSTART_ABORT_DELAY_TESTS == 1 )
         {
-            if (xAreAbortDelayTestTasksStillRunning() != pdPASS)
+            if( xAreAbortDelayTestTasksStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Abort delay";
             }
-        }
-#endif                                 /* configSTART_ABORT_DELAY_TESTS */
-
-#if (configSTART_MESSAGE_BUFFER_TESTS == 1)
-        {
-            if (xAreMessageBufferTasksStillRunning() != pdTRUE)
+            else
             {
-                pcStatusMessage = "Error:  MessageBuffer";
+                pcStatusMessage_1[ count ] = "Passed: Abort delay";
+                count++;
             }
         }
-#endif                                 /* configSTART_MESSAGE_BUFFER_TESTS */
+        #endif /* configSTART_ABORT_DELAY_TESTS */
 
-#if (configSTART_STREAM_BUFFER_TESTS == 1)
+        #if ( configSTART_MESSAGE_BUFFER_TESTS == 1 )
         {
-            if (xAreStreamBufferTasksStillRunning() != pdTRUE)
+            if( xAreMessageBufferTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  StreamBuffer";
+                pcStatusMessage = "Error: MessageBuffer";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: MessageBuffer";
+                count++;
             }
         }
-#endif                                 /* configSTART_STREAM_BUFFER_TESTS */
+        #endif /* configSTART_MESSAGE_BUFFER_TESTS */
 
-#if (configSTART_STREAM_BUFFER_INTERRUPT_TESTS == 1)
+        #if ( configSTART_STREAM_BUFFER_TESTS == 1 )
         {
-            if (xIsInterruptStreamBufferDemoStillRunning() != pdPASS)
+            if( xAreStreamBufferTasksStillRunning() != pdTRUE )
+            {
+                pcStatusMessage = "Error: StreamBuffer";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: StreamBuffer";
+                count++;
+            }
+        }
+        #endif /* configSTART_STREAM_BUFFER_TESTS */
+
+        #if ( configSTART_STREAM_BUFFER_INTERRUPT_TESTS == 1 )
+        {
+            if( xIsInterruptStreamBufferDemoStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Stream buffer interrupt";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Stream buffer interrupt";
+                count++;
+            }
         }
-#endif                                 /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
+        #endif /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
 
-#if ((configSTART_TIMER_TESTS == 1) && (configUSE_PREEMPTION != 0))
+        #if ( ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) )
         {
-            if (xAreTimerDemoTasksStillRunning(xCycleFrequency) != pdTRUE)
+            if( xAreTimerDemoTasksStillRunning( xCycleFrequency ) != pdTRUE )
             {
                 pcStatusMessage = "Error: TimerDemo";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: TimerDemo";
+                count++;
+            }
         }
-#endif                                 /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
+        #endif /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
 
-#if (configSTART_INTERRUPT_QUEUE_TESTS == 1)
+        #if ( configSTART_INTERRUPT_QUEUE_TESTS == 1 )
         {
-            if (xAreIntQueueTasksStillRunning() != pdTRUE)
+            if( xAreIntQueueTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: IntQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: IntQueue";
+                count++;
+            }
         }
-#endif                                 /* configSTART_INTERRUPT_QUEUE_TESTS */
+        #endif /* configSTART_INTERRUPT_QUEUE_TESTS */
 
-#if (configSTART_REGISTER_TESTS == 1)
+        #if ( configSTART_REGISTER_TESTS == 1 )
         {
-            if (xAreRegisterTasksStillRunning() != pdTRUE)
+            if( xAreRegisterTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: RegTests";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: RegTests";
+                count++;
+            }
         }
-#endif                                 /* configSTART_REGISTER_TESTS */
+        #endif /* configSTART_REGISTER_TESTS */
 
-#if (configSTART_DELETE_SELF_TESTS == 1)
+        #if ( configSTART_DELETE_SELF_TESTS == 1 )
         {
-            if (xIsCreateTaskStillRunning() != pdTRUE)
+            if( xIsCreateTaskStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: Death";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Death";
+                count++;
+            }
         }
-#endif                                 /* configSTART_DELETE_SELF_TESTS */
+        #endif /* configSTART_DELETE_SELF_TESTS */
 
-        configPRINTF(("%s \r\n", pcStatusMessage));
+        configPRINTF( ( "%s \r\n", pcStatusMessage ) );
+
+        for( int i = 0; i < count; i++ )
+        {
+            vTaskDelay( 10 / portTICK_PERIOD_MS );
+            configPRINTF( ( "%s \r\n", pcStatusMessage_1[ i ] ) );
+        }
+
+        vTaskSuspend( NULL );
     }
 }
 

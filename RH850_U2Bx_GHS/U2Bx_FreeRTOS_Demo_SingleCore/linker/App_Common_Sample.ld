@@ -1,46 +1,10 @@
 /*====================================================================================================================*/
-/* Module       = App_Common_Sample.ld                                                                                */
-/* SW-VERSION   = 2.1.1                                                                                               */
-/*====================================================================================================================*/
-/*                                                     COPYRIGHT                                                      */
-/*====================================================================================================================*/
-/* (c) 2021-2024 Renesas Electronics Corporation. All rights reserved.                                                */
-/*====================================================================================================================*/
-/* Purpose:     Template of common linker directive file                                                              */
-/*                                                                                                                    */
-/*====================================================================================================================*/
-/* Unless otherwise agreed upon in writing between your company and Renesas Electronics Corporation the following     */
-/* shall apply!                                                                                                       */
-/*                                                                                                                    */
-/* Warranty Disclaimer                                                                                                */
-/*                                                                                                                    */
-/* There is no warranty of any kind whatsoever granted by Renesas. Any warranty is expressly disclaimed and excluded  */
-/* by Renesas, either expressed or implied, including but not limited to those for non-infringement of intellectual   */
-/* property, merchantability and/or fitness for the particular purpose.                                               */
-/*                                                                                                                    */
-/* Renesas shall not have any obligation to maintain, service or provide bug fixes for the supplied Product(s) and/or */
-/* the Application.                                                                                                   */
-/*                                                                                                                    */
-/* Each User is solely responsible for determining the appropriateness of using the Product(s) and assumes all risks  */
-/* associated with its exercise of rights under this Agreement, including, but not limited to the risks and costs of  */
-/* program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and             */
-/* unavailability or interruption of operations.                                                                      */
-/*                                                                                                                    */
-/* Limitation of Liability                                                                                            */
-/*                                                                                                                    */
-/* In no event shall Renesas be liable to the User for any incidental, consequential, indirect, or punitive damage    */
-/* (including but not limited to lost profits) regardless of whether such liability is based on breach of contract,   */
-/* tort, strict liability, breach of warranties, failure of essential purpose or otherwise and even if advised of the */
-/* possibility of such damages. Renesas shall not be liable for any services or products provided by third party      */
-/* vendors, developers or consultants identified or referred to the User by Renesas in connection with the Product(s) */
-/* and/or the Application.                                                                                            */
-/*                                                                                                                    */
+/* File name: App_Common_Sample.ld                                                                                    */
 /*====================================================================================================================*/
 /* Environment:                                                                                                       */
 /*              Device:         U2B                                                                                   */
 /*              IDE:            GHS Multi V7.1.4 or later                                                             */
 /*====================================================================================================================*/
-/* Revision Control History:                                                                                          */
 
 SECTIONS
 {
@@ -48,13 +12,11 @@ SECTIONS
 
   .intvect_PE0 0x0000          align(16)        :> iROM_0   /* start of interrupt vector. This section contains RESET and exception table for PE0 */
 
-  .intvect_PE1 0x2000          align(16)        :>.   /* start of interrupt vector. This section contains exception table for PE1 */
-
-  .intvect_PE2 0x4000          align(16)        :>.   /*start of interrupt vector. This section contains exception table for PE2 */
+  .inttable_PE0 0x00020000     align(4)         :>.
 
   .rozdata                                      :>.   /* constant datas in ZDA area */
   .robase                      align(4)         :>.   /* initialize textpointer TP for SDA addressing */
-  .rosdata                     align(4)         :>.   /*constant datas in SDA area */
+  .rosdata                     align(4)         :>.   /* constant datas in SDA area */
   .rodata                      align(4)         :>.
 
   /* program code area */
@@ -70,17 +32,9 @@ SECTIONS
   .romsdata             ROM(.sdata)             :>.    /* constant data to initialize variables in SDA area (copied to RAM at startup)*/
   .romtdata             ROM(.tdata)             :>.    /* constant data to initialize variables in TDA area (copied to RAM at startup)*/
   .romsldata            ROM(.sldata)            :>.
-  
+
   /* Start of PE0 internal RAM area (iRAM_0) */
-  .stack    align(4)    pad(0x8000)             :> iRAM_0 /* initialized data */
-
-  /* Start of PE1 internal RAM area (iRAM_1) */
-  /* Initialized data in SDA area */
-  .stack1_PE1   align(4) pad(0x10000)     :>iRAM_1   /* this section is used for stack pointer of CPU1 */
-
-  /* Start of PE2 internal RAM area (iRAM_2) */
-  /* Initialized data in SDA area */
-  .stack2_PE2                       align(4) pad(0x10000)         :> iRAM_2
+  .stack        align(4)    pad(0x8000)         :> iRAM_0 /* initialized data */
 
   /* Start of internal retention RAM area (iRAM_R) */
   .rcode    align(4) pad(0x2000)  :>iRAM_R
@@ -91,17 +45,17 @@ SECTIONS
   .top_of_RAM_R align(4)          :> iRAM_R_TOP
 
   /* Start of cluster RAM area (cRAM_0) */
-  .SpinlockStatus                    pad(0x00FF)      :> cRAM_0   /* initialized data */ 
+  .SpinlockStatus                    pad(0x00FF)      :> cRAM_0   /* initialized data */
   .data                              align(4)         :>.   /* initialized data */
   .sdabase                           align(4)         :>.      /* initialize global pointer GP for SDA addressing */
   .zdata                             align(4)         :>.      /* initialized data in ZDA area */
   .sldata                            align(4)         :>.      /* initialized data in LSDA area */
   .sdata                             align(4)         :>.      /* initialized data in SDA area */
 
-  .bss                                  align(4) :>.      /* zero initialized data */
-  .zbss                                 align(4) :>.      /* zero initialized data in ZDA area */
-  .slbss                                align(4) :>.      /* zero initialized data in LSDA area */
-  .sbss                                 align(4) :>.      /* zero initialized data in SDA area */
+  .bss                               align(4) :>.      /* zero initialized data */
+  .zbss                              align(4) :>.      /* zero initialized data in ZDA area */
+  .slbss                             align(4) :>.      /* zero initialized data in LSDA area */
+  .sbss                              align(4) :>.      /* zero initialized data in SDA area */
   .ramtext  align(128)  MAX_SIZE(0x2000)        :>.      /* initialized and zero-initialized data in TDA area */
   .tdata    align(4)    MAX_SIZE(0x0100)        :>.      /* initialized and zero-initialized data in TDA area */
   .exec     align(128)                          :>.
@@ -110,12 +64,8 @@ SECTIONS
   .heapbase align(4)                            :>.
   .heap     align(4)
             pad(addr(cRAM_0_TOP)-addr(.heapbase))
-            NOCLEAR                             :>.      /* definition of heap size */        
+            NOCLEAR                             :>.      /* definition of heap size */
   .top_of_RAM                     align(4)      :> cRAM_0_TOP
-
-  /* Start of Cluster RAM area (cRAM_1) */
-  .ETH_PORT_RAM_1                 align(32)    :> cRAM_1
-
 
   /*  Symbols for compiler references */
   ___ghs_romstart       = MEMADDR(iROM_0);

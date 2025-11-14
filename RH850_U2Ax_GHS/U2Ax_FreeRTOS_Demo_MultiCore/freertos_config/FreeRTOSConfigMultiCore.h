@@ -1,6 +1,6 @@
 /*
- * FreeRTOS Kernel V10.2.0
- * Copyright (C) 2019 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ * FreeRTOS Kernel V11.2.0
+ * Copyright (C) 2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -25,7 +25,6 @@
  * 1 tab == 4 spaces!
  */
 
-
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
 
@@ -42,12 +41,12 @@
 *----------------------------------------------------------*/
 
 /* Supported device */
-#define U2Bx_DEVICES                                1
-#define U2Ax_DEVICES                                2
+#define U2Bx_DEVICES                        1
+#define U2Ax_DEVICES                        2
 #define configDEVICE_NAME                   U2Ax_DEVICES
 
 /* Constants that describe the hardware and memory usage. */
-#define configCPU_CLOCK_HZ                  ( 24000000UL )  /* 24MHz */
+#define configCPU_CLOCK_HZ                  ( 24000000UL )      /* 24MHz */
 #define configTICK_RATE_HZ                  ( ( TickType_t ) 1000 )
 #define configTOTAL_HEAP_SIZE               ( ( size_t ) ( 256 * 1024 ) )
 #define configMINIMAL_STACK_SIZE            ( ( uint16_t ) 512 )
@@ -63,28 +62,38 @@
 #define configMAX_TASK_NAME_LEN             ( 10 )
 #define configTICK_TYPE_WIDTH_IN_BITS       TICK_TYPE_WIDTH_32_BITS
 
+#ifndef __ASSEMBLER__
+    extern uint32_t stacktop[];
+    extern uint32_t stacktop_PE1[];
+
+    #define configPORT_ISR_STACK_TOPS              \
+    {                                              \
+        ( UBaseType_t ) ( uintptr_t ) stacktop,    \
+        ( UBaseType_t ) ( uintptr_t ) stacktop_PE1 \
+    }
+#endif
+
 /* Software timer definitions. */
-#define configUSE_TIMERS                    1
-#define configTIMER_TASK_PRIORITY           2
-#define configTIMER_QUEUE_LENGTH            5
-#define configTIMER_TASK_STACK_DEPTH        ( configMINIMAL_STACK_SIZE * 3 )
+#define configUSE_TIMERS                  1
+#define configTIMER_TASK_PRIORITY         2
+#define configTIMER_QUEUE_LENGTH          5
+#define configTIMER_TASK_STACK_DEPTH      ( configMINIMAL_STACK_SIZE * 3 )
 
 /* Constants that build features in or out. */
-#define configUSE_MUTEXES                   1
-#define configUSE_RECURSIVE_MUTEXES         1
-#define configUSE_COUNTING_SEMAPHORES       1
-#define configUSE_QUEUE_SETS                1
-#define configUSE_TASK_NOTIFICATIONS        1
-#define configUSE_TRACE_FACILITY            1
-#define configUSE_TICKLESS_IDLE             0
-#define configUSE_APPLICATION_TASK_TAG      0
-#define configUSE_NEWLIB_REENTRANT          0
-#define configUSE_CO_ROUTINES               0
-#define configUSE_EVENT_GROUPS              1
-
+#define configUSE_MUTEXES                 1
+#define configUSE_RECURSIVE_MUTEXES       1
+#define configUSE_COUNTING_SEMAPHORES     1
+#define configUSE_QUEUE_SETS              1
+#define configUSE_TASK_NOTIFICATIONS      1
+#define configUSE_TRACE_FACILITY          1
+#define configUSE_TICKLESS_IDLE           0
+#define configUSE_APPLICATION_TASK_TAG    0
+#define configUSE_NEWLIB_REENTRANT        0
+#define configUSE_CO_ROUTINES             0
+#define configUSE_EVENT_GROUPS            1
 
 /* Constants provided for debugging and optimisation assistance. */
-#define configCHECK_FOR_STACK_OVERFLOW    0
+#define configCHECK_FOR_STACK_OVERFLOW    1
 #define configQUEUE_REGISTRY_SIZE         0
 #define configASSERT( x )    if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ; ; ) {} }
 
@@ -96,21 +105,17 @@
 
 /* Port specific configuration. */
 #define configENABLE_MPU                           0
-#define configENABLE_FPU                           1
-#define configENABLE_FXU                           0
 #define configENABLE_TRUSTZONE                     0
 #define configMINIMAL_SECURE_STACK_SIZE            ( ( uint32_t ) 1024 )
 #define configRUN_FREERTOS_SECURE_ONLY             0
 #define configNUMBER_OF_CORES                      2
 
-#define configRUN_MULTIPLE_PRIORITIES              0
+#define configRUN_MULTIPLE_PRIORITIES              1 /* Switch to 0 or 1. */
 #define configUSE_CORE_AFFINITY                    0
 #define configTICK_CORE                            0
 #define configUSE_TASK_PREEMPTION_DISABLE          0
 #define portCRITICAL_NESTING_IN_TCB                1
 #define configUSE_PASSIVE_IDLE_HOOK                0
-/*#define configTASK_DEFAULT_CORE_AFFINITY    1 */
-/*#define configUSE_TASK_PREEMPTION_DISABLE   1 */
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION    0
 
 /* Set the following definitions to 1 to include the API function, or zero
