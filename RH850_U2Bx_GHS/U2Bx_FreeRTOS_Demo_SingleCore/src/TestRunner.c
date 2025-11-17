@@ -62,7 +62,6 @@
 #include "TimerDemo.h"
 
 /* Various test includes. */
-
 #include "RegTests.h"
 
 /**
@@ -91,6 +90,8 @@
  * The variable into which error messages are latched.
  */
 static char * pcStatusMessage = "No errors";
+static char * pcStatusMessage_1[ 30 ];
+static int count = 0;
 
 /*-----------------------------------------------------------*/
 
@@ -363,7 +364,12 @@ static void prvCheckTask( void * pvParameters )
         {
             if( xAreTaskNotificationTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  Notification";
+                pcStatusMessage = "Error: Notification";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Notification";
+                count++;
             }
         }
         #endif /* configSTART_TASK_NOTIFY_TESTS */
@@ -372,7 +378,12 @@ static void prvCheckTask( void * pvParameters )
         {
             if( xAreTaskNotificationArrayTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  Notification Array";
+                pcStatusMessage = "Error: Notification Array";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Notification Array";
+                count++;
             }
         }
         #endif /* configSTART_TASK_NOTIFY_ARRAY_TESTS */
@@ -383,6 +394,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: BlockQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: BlockQueue";
+                count++;
+            }
         }
         #endif /* configSTART_BLOCKING_QUEUE_TESTS */
 
@@ -391,6 +407,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreSemaphoreTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: SemTest";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: SemTest";
+                count++;
             }
         }
         #endif /* configSTART_SEMAPHORE_TESTS */
@@ -401,6 +422,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: PollQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: PollQueue";
+                count++;
+            }
         }
         #endif /* configSTART_POLLED_QUEUE_TESTS */
 
@@ -409,6 +435,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreIntegerMathsTaskStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: IntMath";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: IntMath";
+                count++;
             }
         }
         #endif /* configSTART_INTEGER_MATH_TESTS */
@@ -419,6 +450,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: GenQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: GenQueue";
+                count++;
+            }
         }
         #endif /* configSTART_GENERIC_QUEUE_TESTS */
 
@@ -427,6 +463,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreQueuePeekTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: QueuePeek";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: QueuePeek";
+                count++;
             }
         }
         #endif /* configSTART_PEEK_QUEUE_TESTS */
@@ -437,6 +478,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: Flop";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Flop";
+                count++;
+            }
         }
         #endif /* configSTART_MATH_TESTS */
 
@@ -445,6 +491,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreRecursiveMutexTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: RecMutex";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: RecMutex";
+                count++;
             }
         }
         #endif /* configSTART_RECURSIVE_MUTEX_TESTS */
@@ -455,6 +506,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: CountSem";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: CountSem";
+                count++;
+            }
         }
         #endif /* configSTART_COUNTING_SEMAPHORE_TESTS */
 
@@ -463,6 +519,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreQueueSetTasksStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Queue set";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Queue set";
+                count++;
             }
         }
         #endif /* configSTART_QUEUE_SET_TESTS */
@@ -473,6 +534,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: Queue overwrite";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Queue overwrite";
+                count++;
+            }
         }
         #endif /* configSTART_QUEUE_OVERWRITE_TESTS */
 
@@ -481,6 +547,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreEventGroupTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: EventGroup";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: EventGroup";
+                count++;
             }
         }
         #endif /* configSTART_EVENT_GROUP_TESTS */
@@ -491,6 +562,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: IntSem";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: IntSem";
+                count++;
+            }
         }
         #endif /* configSTART_INTERRUPT_SEMAPHORE_TESTS */
 
@@ -499,6 +575,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreQueueSetPollTasksStillRunning() != pdPASS )
             {
                 pcStatusMessage = "Error: Queue set polling";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Queue set polling";
+                count++;
             }
         }
         #endif /* configSTART_QUEUE_SET_POLLING_TESTS */
@@ -509,6 +590,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: Block time";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Block time";
+                count++;
+            }
         }
         #endif /* configSTART_BLOCK_TIME_TESTS */
 
@@ -518,6 +604,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: Abort delay";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Abort delay";
+                count++;
+            }
         }
         #endif /* configSTART_ABORT_DELAY_TESTS */
 
@@ -525,7 +616,12 @@ static void prvCheckTask( void * pvParameters )
         {
             if( xAreMessageBufferTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  MessageBuffer";
+                pcStatusMessage = "Error: MessageBuffer";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: MessageBuffer";
+                count++;
             }
         }
         #endif /* configSTART_MESSAGE_BUFFER_TESTS */
@@ -534,7 +630,12 @@ static void prvCheckTask( void * pvParameters )
         {
             if( xAreStreamBufferTasksStillRunning() != pdTRUE )
             {
-                pcStatusMessage = "Error:  StreamBuffer";
+                pcStatusMessage = "Error: StreamBuffer";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: StreamBuffer";
+                count++;
             }
         }
         #endif /* configSTART_STREAM_BUFFER_TESTS */
@@ -545,6 +646,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: Stream buffer interrupt";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Stream buffer interrupt";
+                count++;
+            }
         }
         #endif /* configSTART_STREAM_BUFFER_INTERRUPT_TESTS */
 
@@ -553,6 +659,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreTimerDemoTasksStillRunning( xCycleFrequency ) != pdTRUE )
             {
                 pcStatusMessage = "Error: TimerDemo";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: TimerDemo";
+                count++;
             }
         }
         #endif /* ( configSTART_TIMER_TESTS == 1 ) && ( configUSE_PREEMPTION != 0 ) */
@@ -563,6 +674,11 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: IntQueue";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: IntQueue";
+                count++;
+            }
         }
         #endif /* configSTART_INTERRUPT_QUEUE_TESTS */
 
@@ -571,6 +687,11 @@ static void prvCheckTask( void * pvParameters )
             if( xAreRegisterTasksStillRunning() != pdTRUE )
             {
                 pcStatusMessage = "Error: RegTests";
+            }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: RegTests";
+                count++;
             }
         }
         #endif /* configSTART_REGISTER_TESTS */
@@ -581,11 +702,24 @@ static void prvCheckTask( void * pvParameters )
             {
                 pcStatusMessage = "Error: Death";
             }
+            else
+            {
+                pcStatusMessage_1[ count ] = "Passed: Death";
+                count++;
+            }
         }
         #endif /* configSTART_DELETE_SELF_TESTS */
 
         configPRINTF( ( "%s \r\n", pcStatusMessage ) );
-        asm("nop");
+        asm ( "nop" );
+
+        for( int i = 0; i < count; i++ )
+        {
+            vTaskDelay( 10 / portTICK_PERIOD_MS );
+            configPRINTF( ( "%s \r\n", pcStatusMessage_1[ i ] ) );
+        }
+
+        vTaskSuspend( NULL );
     }
 }
 

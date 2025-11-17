@@ -32,8 +32,8 @@
 #include "RegTests.h"
 
 /* Tasks that implement register tests. */
-extern void vRegTest1Task(void * pvParameters);
-extern void vRegTest2Task(void * pvParameters);
+extern void vRegTest1Task( void * pvParameters );
+extern void vRegTest2Task( void * pvParameters );
 
 /* Flag that will be latched to pdTRUE should any unexpected behaviour be
  * detected in any of the tasks. */
@@ -46,31 +46,31 @@ volatile uint32_t ulRegisterTest2Counter = 0;
 
 /*-----------------------------------------------------------*/
 
-void vStartRegisterTasks (UBaseType_t uxPriority)
+void vStartRegisterTasks( UBaseType_t uxPriority )
 {
     BaseType_t ret;
 
-    ret = xTaskCreate(vRegTest1Task, "RegTest1", configMINIMAL_STACK_SIZE, NULL, uxPriority, NULL);
-    configASSERT(ret == pdPASS);
+    ret = xTaskCreate( vRegTest1Task, "RegTest1", configMINIMAL_STACK_SIZE, NULL, uxPriority, NULL );
+    configASSERT( ret == pdPASS );
 
-    ret = xTaskCreate(vRegTest2Task, "RegTest2", configMINIMAL_STACK_SIZE, NULL, uxPriority, NULL);
-    configASSERT(ret == pdPASS);
+    ret = xTaskCreate( vRegTest2Task, "RegTest2", configMINIMAL_STACK_SIZE, NULL, uxPriority, NULL );
+    configASSERT( ret == pdPASS );
 }
 
 /*-----------------------------------------------------------*/
 
-BaseType_t xAreRegisterTasksStillRunning (void)
+BaseType_t xAreRegisterTasksStillRunning( void )
 {
     static uint32_t ulLastRegisterTest1Counter = 0, ulLastRegisterTest2Counter = 0;
 
     /* If the register test task is still running then we expect the loop
      * counters to have incremented since this function was last called. */
-    if (ulLastRegisterTest1Counter == ulRegisterTest1Counter)
+    if( ulLastRegisterTest1Counter == ulRegisterTest1Counter )
     {
         xErrorDetected = pdTRUE;
     }
 
-    if (ulLastRegisterTest2Counter == ulRegisterTest2Counter)
+    if( ulLastRegisterTest2Counter == ulRegisterTest2Counter )
     {
         xErrorDetected = pdTRUE;
     }
@@ -80,7 +80,7 @@ BaseType_t xAreRegisterTasksStillRunning (void)
 
     /* Errors detected in the task itself will have latched xErrorDetected
      * to true. */
-    return (BaseType_t) !xErrorDetected;
+    return ( BaseType_t ) !xErrorDetected;
 }
 
 /*-----------------------------------------------------------*/

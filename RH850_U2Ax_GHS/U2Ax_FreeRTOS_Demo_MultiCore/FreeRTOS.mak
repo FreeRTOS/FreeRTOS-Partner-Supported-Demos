@@ -35,14 +35,14 @@ CPU_CORE = g4mh
 EXE = $(CURRENT_APPL).$(EXE_FILE_SUFFIX)
 
 # Get the common sample application directory into variable "COMMON_SAMPLE_CORE_PATH"
-COMMON_SAMPLE_CORE_PATH =U:\
+COMMON_SAMPLE_CORE_PATH =$(SPECIFIC_APPL_ROOT_PATH)\
 
 ################################################################################
 # Maros for build
 #
 LIBRARIES_TO_BUILD =
 
-OBJECT_OUTPUT_PATH = U:\obj\ghs
+OBJECT_OUTPUT_PATH = $(SPECIFIC_APPL_ROOT_PATH)\obj\ghs
 
 CC_FILES_TO_BUILD =
 ASM_FILES_TO_BUILD =
@@ -63,8 +63,102 @@ MAKE_DEBUG_RULES += debug_base_make
 ################################################################################
 # GHS Compiler for rh850
 #
-include U:\ghs\make\ghs_rh850_defs.mak
-include U:\ghs\make\ghs_rh850_rules.mak
+
+# ghs defs
+################################################################################
+# INTERNAL REQUIRED CONFIGURATION
+#
+# COMPILER_INSTALL_DIR
+#
+
+################################################################################
+# REQUIRED (in base_make)
+#
+# CC
+# LINKER
+# DBLINKER
+# CONVERTER
+# GHS Compiler Driver for compiling source files
+CC="$(COMPILER_INSTALL_DIR)\ccrh850.exe"
+
+# GHS Compiler Driver for assembling the startup files
+ASM="$(COMPILER_INSTALL_DIR)\ccrh850.exe"
+
+# GHS Compiler Driver for linking the object files and startup code
+LINKER="$(COMPILER_INSTALL_DIR)\ccrh850.exe"
+
+# GHS Linker for linking the object files without startup code
+DBLINKER="$(COMPILER_INSTALL_DIR)\elxr.exe"
+
+# GHS Code converter to generate motorola S-Record file
+CONVERTER="$(COMPILER_INSTALL_DIR)\gsrec.exe"
+################################################################################
+
+################################################################################
+# Compiler Flag
+CFLAGS= -c -g -cpu=rh850$(CPU_CORE) -gsize -prepare_dispose -inline_prologue -sda=all -passsource -Wundef -no_callt -reserve_r2 --short_enum --prototype_errors --diag_error 193 -dual_debug -large_sda --no_commons -shorten_loads -shorten_moves -Wshadow -ignore_callt_state_in_interrupts -delete -additional_sda_reg=0 -rh850_abi=ghs2014 -MMD -G -no_rosda
+################################################################################
+
+################################################################################
+# Assembler Flag
+AFLAGS= -c -g -cpu=rh850$(CPU_CORE) -gsize -prepare_dispose -inline_prologue -sda=all -passsource -Wundef -no_callt -reserve_r2 --short_enum --prototype_errors --diag_error 193 -dual_debug -large_sda --no_commons -shorten_loads -shorten_moves -Wshadow -ignore_callt_state_in_interrupts -delete -additional_sda_reg=0 -rh850_abi=ghs2014 -MMD -G -no_rosda
+################################################################################
+
+################################################################################
+# Linker Flag
+LFLAGS= -g -cpu=rh850$(CPU_CORE) -gsize -prepare_dispose -inline_prologue -sda=all -passsource -Wundef -no_callt -reserve_r2 --short_enum --prototype_errors --diag_error 193 -dual_debug -large_sda --no_commons -shorten_loads -shorten_moves -Wshadow -ignore_callt_state_in_interrupts -delete -entry=_RESET_VECTOR -additional_sda_reg=0 -rh850_abi=ghs2014 -G -no_rosda
+################################################################################
+
+################################################################################
+SFLAGS= -S3
+################################################################################
+
+ASM_FILE_SUFFIX = 850
+OBJ_FILE_SUFFIX = o
+ASM_OBJ_FILE_SUFFIX = ao
+LST_FILE_SUFFIX = lst
+PRE_FILE_SUFFIX = pre
+MAP_FILE_SUFFIX = map
+S_RECORD_SUFFIX = s37
+EXE_FILE_SUFFIX = out
+C_FILE_SUFFIX = c
+
+################################################################################
+# REGISTRY
+#
+CPP_INCLUDE_PATH +=
+ASM_INCLUDE_PATH +=
+
+################################################################################
+# Directory to store the Assembly List file and the Preprocessor file          #
+################################################################################
+export TEXTPATH=$(OBJECT_OUTPUT_PATH)
+export OBJPATH=$(OBJECT_OUTPUT_PATH)
+
+################################################################################
+# End of ghs defs
+
+# ghs rules
+#######################################################################
+# REGISTRY
+#
+CC_FILES_TO_BUILD +=
+
+MAKE_DEBUG_RULES += debug_ghs_makefile
+
+#######################################################################
+# Command to print debug information                                  #
+#######################################################################
+debug_ghs_makefile:
+	@echo COMPILER_INSTALL_DIR = $(COMPILER_INSTALL_DIR)
+	@echo CC = $(CC)
+	@echo CFLAGS = $(CFLAGS)
+	@echo MAKELIB = $(MAKELIB)
+
+#######################################################################
+#end of ghs rules
+
+
 
 ###############################################################################
 # CPU_Option
@@ -91,58 +185,54 @@ endif
 # Modules to be included in the project                                        #
 ################################################################################
 # Include make file for module
-include U:\ghs\make\FreeRTOS_Common_Sample.mak
-include U:\startup\make\ghs\startup_rh850_U2Ax_defs.mak
-include U:\startup\make\ghs\startup_rh850_U2Ax_rules.mak
+include $(SPECIFIC_APPL_ROOT_PATH)\ghs\make\FreeRTOS_Common_Sample.mak
 
 ################################################################################
 # Path to Linker Directives Files
 #
-LNKFILE = U:\linker\App_U2A_Sample.ld
-LNKFILE_DB = U:\linker\App_U2A_Sample_db.ld
-LNKFILE_COMMON = U:\linker\App_Common_Sample.ld
+LNKFILE = $(SPECIFIC_APPL_ROOT_PATH)\linker\App_U2A_Sample.ld
+LNKFILE_COMMON = $(SPECIFIC_APPL_ROOT_PATH)\linker\App_Common_Sample.ld
 
 ################################################################################
 # Include generated source files list to the global "C" file list              #
 ################################################################################
 #
 ASM_INCLUDE_PATH +=
-ASM_INCLUDE_PATH += U:\startup\include
+ASM_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\startup\include
 
 CC_INCLUDE_PATH +=
-CC_INCLUDE_PATH += U:\freertos_port
-CC_INCLUDE_PATH += U:\bsp\bsp_irq
-CC_INCLUDE_PATH += U:\bsp\common
-CC_INCLUDE_PATH += U:\freertos_config
-CC_INCLUDE_PATH += U:\FreeRTOS_Kernel\Common\include
-CC_INCLUDE_PATH += U:\FreeRTOS_Kernel\Source\include
-CC_INCLUDE_PATH += U:\ghs\include
-CC_INCLUDE_PATH += U:\src
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\GHS\U2x
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\bsp\bsp_irq
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\bsp\common
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\freertos_config
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Demo\Common\include
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source\include
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\ghs\include
+CC_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\src
 
 CC_SRC_PATH +=
-CC_SRC_PATH += U:\startup
-CC_SRC_PATH += U:\freertos_port
-CC_SRC_PATH += U:\src
-CC_SRC_PATH += U:\bsp\bsp_irq
-CC_SRC_PATH += U:\FreeRTOS_Kernel\Common\Minimal
-CC_SRC_PATH += U:\FreeRTOS_Kernel\Source
-CC_SRC_PATH += U:\FreeRTOS_Kernel\Source\portable\MemMang
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\startup
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\GHS\U2x
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\src
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\bsp\bsp_irq
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Demo\Common\Minimal
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source
+CC_SRC_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source\portable\MemMang
 
 CPP_INCLUDE_PATH +=
-CPP_INCLUDE_PATH += U:\src
-CPP_INCLUDE_PATH += U:\bsp\bsp_irq
-CPP_INCLUDE_PATH += U:\ghs\include
-CPP_INCLUDE_PATH += U:\bsp\common
-CPP_INCLUDE_PATH += U:\freertos_config
-CPP_INCLUDE_PATH += U:\FreeRTOS_Kernel\Common\include
-CPP_INCLUDE_PATH += U:\FreeRTOS_Kernel\Source\include
+CPP_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\src
+CPP_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\bsp\bsp_irq
+CPP_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\bsp\common
+CPP_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\freertos_config
+CPP_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Demo\Common\include
+CPP_INCLUDE_PATH += $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source\include
 
 ASM_FILES_TO_BUILD  += \
-                 U:\freertos_port\portasm.850 \
-                 U:\startup\coldreset.850 \
-                 U:\startup\U2Ax_startup_PE0.850 \
-                 U:\startup\U2Ax_startup_PEn.850 \
-                 U:\src\RegTest.850
+                 $(SPECIFIC_APPL_ROOT_PATH)\..\..\..\..\..\Source\portable\ThirdParty\Partner-Supported-Ports\GHS\U2x\portasm.850 \
+                 $(SPECIFIC_APPL_ROOT_PATH)\startup\coldreset.850 \
+                 $(SPECIFIC_APPL_ROOT_PATH)\startup\U2Ax_startup_PE0.850 \
+                 $(SPECIFIC_APPL_ROOT_PATH)\startup\U2Ax_startup_PEn.850 \
+                 $(SPECIFIC_APPL_ROOT_PATH)\src\RegTest.850
 ###############################################################################
 # REGISTRY device sample app
 #

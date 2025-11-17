@@ -27,7 +27,7 @@
 #ifndef REG_TEST_H
 #define REG_TEST_H
 
-void       vStartRegisterTasks(UBaseType_t uxPriority);
-BaseType_t xAreRegisterTasksStillRunning(void);
+void vStartRegisterTasks( UBaseType_t uxPriority );
+BaseType_t xAreRegisterTasksStillRunning( void );
 
-#endif                                 /* REG_TEST_H */
+#endif /* REG_TEST_H */

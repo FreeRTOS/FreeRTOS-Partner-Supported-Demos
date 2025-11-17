@@ -32,6 +32,6 @@
  *
  * Note that this function starts the scheduler and therefore, never returns.
  */
-void vStartTests(void);
+void vStartTests( void );
 
-#endif                                 /* TEST_RUNNER_H */
+#endif /* TEST_RUNNER_H */
