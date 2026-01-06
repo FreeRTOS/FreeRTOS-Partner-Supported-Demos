@@ -43,7 +43,7 @@ endif
 FREERTOS_DIR          := $(abspath $(FREERTOS_DIR))
 PROJECT_ROOT          := $(abspath .)
 
-FREERTOS_PORTABLE_DIR := $(FREERTOS_DIR)/Source/portable/GCC/XEN_x86/IA32
+FREERTOS_PORTABLE_DIR := $(FREERTOS_DIR)/Source/portable/ThirdParty/Partner-Supported-Ports/GCC/XEN_x86/IA32
 
 include ../Makefile.common
 INCLUDE_DIRS          += -I${PROJECT_ROOT}/../xen/include/x86/x86_32
