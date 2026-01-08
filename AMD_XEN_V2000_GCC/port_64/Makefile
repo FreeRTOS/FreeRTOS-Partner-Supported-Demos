@@ -61,11 +61,11 @@ SOURCE_FILES          += ${XEN_SRC}/arch/x86/gnttab.c
 # 64 bit specific tests
 SOURCE_FILES          += ${PROJECT_ROOT}/../tests/usertask.c
 
-NASM_SOURCE_FILES     := $(shell find portable/asm_src/ -name *.asm)
-NASM_OBJECT_FILES     := $(patsubst portable/asm_src/%.asm, build/portable/asm_src/%.o, $(NASM_SOURCE_FILES))
+NASM_SOURCE_FILES     := $(shell find ${FREERTOS_PORTABLE_DIR}/asm_src/ -name *.asm)
+NASM_OBJECT_FILES     := $(patsubst ${FREERTOS_PORTABLE_DIR}/asm_src/%.asm, build/${FREERTOS_PORTABLE_DIR}/asm_src/%.o, $(NASM_SOURCE_FILES))
 
-ASM_SOURCE_FILES     := portable/asm_src/xennote.S
-ASM_OBJECT_FILES     := $(patsubst portable/asm_src/%.S, build/portable/asm_src/%.o, $(ASM_SOURCE_FILES))
+ASM_SOURCE_FILES     := ${FREERTOS_PORTABLE_DIR}/asm_src/xennote.S
+ASM_OBJECT_FILES     := $(patsubst ${FREERTOS_PORTABLE_DIR}/asm_src/%.S, build/${FREERTOS_PORTABLE_DIR}/asm_src/%.o, $(ASM_SOURCE_FILES))
 
 
 CFLAGS                :=    -O3 -mstackrealign -fno-stack-protector -fno-builtin -nostdlib -std=gnu99 -ffreestanding -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=0 -D__XEN_INTERFACE_VERSION__=0x00030205 -D__INSIDE_MINIOS__ -DCONFIG_XENBUS
@@ -96,13 +96,13 @@ ${BUILD_DIR}/%.o : %.S Makefile
 	$(CC) -D__ASSEMBLY__ -Wa,--noexecstack -m64 -DCONFIG_NETFRONT -DCONFIG_XENBUS -DCONFIG_LIBXS -D__XEN_INTERFACE_VERSION__=0x00030205 $(CPPFLAGS) -c $< -o $@
 
 
-$(NASM_OBJECT_FILES): build/portable/asm_src/%.o : portable/asm_src/%.asm
+$(NASM_OBJECT_FILES): build/${FREERTOS_PORTABLE_DIR}/asm_src/%.o : ${FREERTOS_PORTABLE_DIR}/asm_src/%.asm
 	mkdir -p $(dir $@) && \
-	nasm -f elf64 $(patsubst build/portable/asm_src/%.o, portable/asm_src/%.asm, $@) -o $@
+	nasm -f elf64 $(patsubst build/${FREERTOS_PORTABLE_DIR}/asm_src/%.o, ${FREERTOS_PORTABLE_DIR}/asm_src/%.asm, $@) -o $@
 
-$(ASM_OBJECT_FILES): build/portable/asm_src/%.o : portable/asm_src/%.S
+$(ASM_OBJECT_FILES): build/${FREERTOS_PORTABLE_DIR}/asm_src/%.o : ${FREERTOS_PORTABLE_DIR}/asm_src/%.S
 	mkdir -p $(dir $@) && \
-	$(CC)  $(CPPFLAGS) $(CFLAGS) -c $(patsubst build/portable/asm_src/%.o, portable/asm_src/%.S, $@) -o $@
+	$(CC)  $(CPPFLAGS) $(CFLAGS) -c $(patsubst build/${FREERTOS_PORTABLE_DIR}/asm_src/%.o, ${FREERTOS_PORTABLE_DIR}/asm_src/%.S, $@) -o $@
 
 .PHONY: clean
 
