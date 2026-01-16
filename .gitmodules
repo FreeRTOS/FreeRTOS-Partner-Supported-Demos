@@ -4,3 +4,6 @@
 [submodule "Demos_Dependencies/trusted_firmware-m"]
 	path = Demos_Dependencies/trusted_firmware-m
 	url = https://review.trustedfirmware.org/TF-M/trusted-firmware-m.git
+[submodule "Demos_Dependencies/pico-sdk"]
+	path = Demos_Dependencies/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk.git
