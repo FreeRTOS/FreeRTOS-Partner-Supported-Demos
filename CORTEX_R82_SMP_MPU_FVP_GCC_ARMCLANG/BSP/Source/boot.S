@@ -6,7 +6,7 @@
 #if defined(__ARMCC_VERSION)
     /* Externs needed by the MPU setup code. These are defined in Scatter-Loading
     * description file (armclang.sct). */
-    .set __el1_stack,		 Image$$ARM_LIB_STACK$$Base
+    .set __el1_stack,        Image$$ARM_LIB_STACK$$Base
     .set _el1_stack_end,     Image$$ARM_LIB_HEAP$$Base
 #endif
 
@@ -48,6 +48,7 @@
     #error "Unsupported configNUMBER_OF_CORES value — must be a power‑of‑two up to 4"
 #endif
 
+.set SCTLR_EL1_SPAN,  23     /* SCTLR_EL1.SPAN bit position */
 .set SCTLR_EL1_NTWE,  18     /* SCTLR_EL1.nTWE bit position */
 .set SCTLR_EL1_NTWI,  16     /* SCTLR_EL1.nTWI bit position */
 .set SCTLR_EL1_CACHE, 2      /* SCTLR_EL1.C bit position */
@@ -139,27 +140,29 @@ InitEL1:
 
 	/* Enable ICC system-register interface (SRE=1) and disable FIQ/IRQ bypass (DFB/DIB) */
 	mov     x0, #0x7
-    msr     ICC_SRE_EL1, x0
+	msr     ICC_SRE_EL1, x0
 
 	/* Invalidate I and D caches */
-	ic      IALLU
-	bl 	    invalidate_dcaches
-	dsb	    sy
+	ic    IALLU
+	bl    invalidate_dcaches
+	dsb   sy
 	isb
 
-    /* Unmask SError interrupts (clear DAIF.A bit) */
-    mrs 	x1,DAIF
-    bic	    x1,x1,#(0x1<<8)
-    msr	    DAIF,x1
+	/* Unmask SError interrupts (clear DAIF.A bit) */
+	mrs    x1,DAIF
+	bic    x1,x1,#(0x1<<8)
+	msr    DAIF,x1
 
 	/* Configure SCTLR_EL1:
 	 * - Enable data cache (C=1)
 	 * - Allow EL0 to execute WFE/WFI (Set nTWE/nTWI so they don't trap)
+	 * - Set SPAN so PSTATE.PAN is preserved on exception entry
 	 */
 	mrs     x1, SCTLR_EL1
+	orr     x1, x1, #(1 << SCTLR_EL1_SPAN)    /* SPAN = 1 → The value of PSTATE.PAN is left unchanged on taking an exception to EL1 */
 	orr     x1, x1, #(1 << SCTLR_EL1_NTWE)    /* nTWE = 1 → WFE at EL0 does not trap */
 	orr     x1, x1, #(1 << SCTLR_EL1_NTWI)    /* nTWI = 1 → WFI at EL0 does not trap */
-	orr     x1, x1, #(1 << SCTLR_EL1_CACHE)   /* C = 1   → enable data cache */
+	orr     x1, x1, #(1 << SCTLR_EL1_CACHE)   /* C = 1    → enable data cache */
 	msr     SCTLR_EL1, x1
 	isb
 
@@ -184,16 +187,16 @@ invalidateCaches_flush_level:
     lsr     w3, w0, w3             /* w3 = w0 >> w3 */
     ubfx    w3, w3, #0, #3         /* w3 = cache type of this level */
     cmp     w3, #2                 /* No cache at this level? */
-	b.lt    invalidateCaches_next_level
+    b.lt    invalidateCaches_next_level
 
-	lsl     w4, w1, #1
+    lsl     w4, w1, #1
     msr     CSSELR_EL1, x4         /* Select current cache level in CSSELR */
     isb                            /* ISB required to reflect new CSIDR */
     mrs     x4, CCSIDR_EL1         /* w4 = CSIDR */
 
-	ubfx    w3, w4, #0, #3
-	add    	w3, w3, #2             /* w3 = log2(line size) */
-	ubfx    w5, w4, #13, #15
+    ubfx    w3, w4, #0, #3
+    add    	w3, w3, #2             /* w3 = log2(line size) */
+    ubfx    w5, w4, #13, #15
     ubfx    w4, w4, #3, #10        /* w4 = Way number */
     clz     w6, w4                 /* w6 = 32 - log2(number of ways) */
 

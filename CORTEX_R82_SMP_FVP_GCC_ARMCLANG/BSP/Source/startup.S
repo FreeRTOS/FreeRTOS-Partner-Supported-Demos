@@ -13,7 +13,8 @@
 #endif
 
 #include "FreeRTOSConfig.h"
-	.file	"xil-crt0.S"
+#include "portmacro.h"
+	.file	"startup.S"
 	.align	2
 
 .extern _vector_table
@@ -98,6 +99,7 @@ c_init_end:
 #endif
 	b	    jump_to_main
 
+#if configNUMBER_OF_CORES > 1
 secondary_cores_hold:
     ldr     x0, =ucPrimaryCoreInitDoneFlag
     ldr     w1, [x0]               			/* Has the primary core set the flag? */
@@ -115,11 +117,12 @@ make_secondary_cores_ready:
 	ldr  x0, =ucSecondaryCoresReadyFlags
 	mrs  x1, MPIDR_EL1
 	and  x1, x1, #0xFF
-	sub  x1, x1, #1             /* Core 1 is index 0 in the array */
+	sub  x1, x1, #1                 /* Core 1 is index 0 in the array */
 	add	 x0, x0, x1
 	mov  w1, #1
-	strb w1, [x0]               /* Mark this core as ready */
-	SVC 106                     /* Start the first task on the secondary core */
+	strb w1, [x0]                   /* Mark this core as ready */
+	SVC  # portSVC_START_FIRST_TASK /* Start the first task on the secondary core */
+#endif
 
 jump_to_main:
 	ldr     X1, = freertos_vector_base
