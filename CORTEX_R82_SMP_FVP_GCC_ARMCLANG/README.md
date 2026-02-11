@@ -59,7 +59,7 @@ This example relies on the `FVP_BaseR_AEMv8R` implementing fully coherent caches
 | **Shared flag** | `ulSharedFlag` (64-bit) is cache-coherent across cores. |
 | **Tasks** | `prvTaskCore0` (core 0) prints **Ping**, sets flag to 1; `prvTaskCore1` (core 1) prints **Pong**, sets flag to 0. Each task delays for 1 s (`vTaskDelay( pdMS_TO_TICKS(1000) )`). |
 | **Core affinity** | After creation, tasks are pinned via `vTaskCoreAffinitySet()` to ensure deterministic execution. |
-| **Scheduler bring-up** | Only primary Core (i.e., Core 0) jumps to main, creates the user tasks, and calls `vTaskStartScheduler()`. Each secondary core starts and does all the its core specific initialisation and spin in `wfe` until `ucPrimaryCoreInitDoneFlag` is set to `1`, initialize the GIC redistributor and enable SGIs so interrupts from the primary core are receivable, signal the primary core that this secondary core is online and ready by setting the its flag in the `ucSecondaryCoresReadyFlags` array, finally issues an SVC with immediate value `106` to enter `FreeRTOS_SWI_Handler`, which will call `vPortRestoreContext()` based on the SVC number to start scheduling on the secondary core. |
+| **Scheduler bring-up** | Only primary Core (i.e., Core 0) jumps to main, creates the user tasks, and calls `vTaskStartScheduler()`. Each secondary core starts and does all the its core specific initialisation and spin in `wfe` until `ucPrimaryCoreInitDoneFlag` is set to `1`, initialize the GIC redistributor and enable SGIs so interrupts from the primary core are receivable, signal the primary core that this secondary core is online and ready by setting the its flag in the `ucSecondaryCoresReadyFlags` array, finally issues an SVC with immediate value `106` (i.e., `portSVC_START_FIRST_TASK`) to enter `FreeRTOS_SWI_Handler`, which will call `vPortRestoreContext()` based on the SVC number to start scheduling on the secondary core. |
 | **Tick timer** | `vConfigureTickInterrupt()` programs `CNTP_EL0` for the FreeRTOS tick and routes `IRQ 30` through the GIC to all cores. |
 | **Cache maintenance** | Each write to `ulSharedFlag` is followed by a `DSB SY` to guarantee visibility before the other core wakes. |
 
@@ -134,4 +134,4 @@ Rebuild the example and launch the model as usual.
 
 ## License
 
-This example is released under the **MIT License**.
+This example is released under the **MIT License**. See the [LICENSE](LICENSE.md) file.
