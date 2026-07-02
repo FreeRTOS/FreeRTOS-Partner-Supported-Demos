@@ -1,5 +1,5 @@
 # Default owners for everything in the repo
-* @iot-edge-and-devices-dev
+* @FreeRTOS/iot-edge-and-devices-dev
 
 # Arm Ltd
 /CORTEX_M35P_FAST_MODEL_BLINKY_GCC/ @ithinuel
