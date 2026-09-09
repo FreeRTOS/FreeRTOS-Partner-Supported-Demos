@@ -1,7 +1,7 @@
 # FreeRTOS Port for Infineon AURIX™ TC3xx Devices
 
 ## Getting Started with FreeRTOS on AURIX™ TC3xx
-All the currently available examples/demos are based on the [AURIX™ Development Studio (ADS)](https://www.infineon.com/cms/en/product/promopages/aurix-development-studio/), which includes a free TASKING compiler and debugger. The examples are built for the entry level [AURIX™ TC375 Lite Kit](https://www.infineon.com/cms/en/product/evaluation-boards/kit_a2g_tc375_lite/) but should run on any TC3xx device/hardware with minor changes. All demos use the [Infineon Low Level Drivers (iLLDs)](https://www.infineon.com/cms/en/tools/aurix-embedded-sw/aurix-illd-drivers/), but a separate download is not required since they are included in ___AURIX™ Development Studio___
+All the currently available examples/demos are based on the [AURIX™ Development Studio (ADS)](https://www.infineon.com/cms/en/product/promopages/aurix-development-studio/), which includes a free TASKING compiler, a free GCC compiler and debugger. The examples are built for the entry level [AURIX™ TC375 Lite Kit](https://www.infineon.com/cms/en/product/evaluation-boards/kit_a2g_tc375_lite/) but should run on any TC3xx device/hardware with minor changes. All demos use the [Infineon Low Level Drivers (iLLDs)](https://www.infineon.com/cms/en/tools/aurix-embedded-sw/aurix-illd-drivers/), but a separate download is not required since they are included in ___AURIX™ Development Studio___
 
 There are two demos available in this folder:
 ### Blinky
@@ -58,7 +58,7 @@ Creates one task which blinks `LED1` cyclically and polls `BUTTON1` and toggles 
 - Copy over the demo contents, for instance, the "__Blinky__" demo...
 <img src="images/blinky-example.png">
 
-### 4. Add the FreeRTOS Kernel and the corresponding AURIX™ TC3xx portables in a folder called "__FreeRTOS-Kernel__". The AURIX™ TC3xx FreeRTOS port used for these demos is available in the ___Tasking/AURIX_TC3xx___ folder in the [___Partner Supported Ports___ repository](https://github.com/FreeRTOS/FreeRTOS-Kernel-Partner-Supported-Ports)
+### 4. Add the FreeRTOS Kernel and the corresponding AURIX™ TC3xx portables in a folder called "__FreeRTOS-Kernel__". The AURIX™ TC3xx FreeRTOS port used for these demos is available in the ___Tasking/AURIX_TC3xx___ folder or the ___GCC/AURIX_TC3xx___ folder in the [___Partner Supported Ports___ repository](https://github.com/FreeRTOS/FreeRTOS-Kernel-Partner-Supported-Ports). You can select either of them.
 
 ### 5. Copy all the files except `FreeRTOSConfig.h` from [Infineon AURIX Code Examples - Configurations](https://github.com/Infineon/AURIX_code_examples/tree/master/code_examples/iLLD_TC375_ADS_FreeRTOS_Basic/Configurations) and place it under the `/Configurations/` folder. Ensure `Ifx_Cfg.h` has the following lines, before placing it in the folder.
 

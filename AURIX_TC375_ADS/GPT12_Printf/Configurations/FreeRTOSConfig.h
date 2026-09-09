@@ -42,37 +42,6 @@
 #define INCLUDE_vTaskDelayUntil                    1
 #define INCLUDE_vTaskDelay                         1
 
-////////////////////// Testing //////////////////////////////////////////////
-#define INCLUDE_eTaskGetState                     1
-#define configPRINTF( X )                  printf X
-#define configTASK_NOTIFICATION_ARRAY_ENTRIES     3
-#define configSTART_TASK_NOTIFY_TESTS             0
-#define configSTART_TASK_NOTIFY_ARRAY_TESTS       0
-#define configSTART_BLOCKING_QUEUE_TESTS          0
-#define configSTART_SEMAPHORE_TESTS               0
-#define configSTART_POLLED_QUEUE_TESTS            0
-#define configSTART_INTEGER_MATH_TESTS            0
-#define configSTART_GENERIC_QUEUE_TESTS           0
-#define configSTART_PEEK_QUEUE_TESTS              0
-#define configSTART_MATH_TESTS                    0
-#define configSTART_RECURSIVE_MUTEX_TESTS         0
-#define configSTART_COUNTING_SEMAPHORE_TESTS      0
-#define configSTART_QUEUE_SET_TESTS               0
-#define configSTART_QUEUE_OVERWRITE_TESTS         0
-#define configSTART_EVENT_GROUP_TESTS             0
-#define configSTART_INTERRUPT_SEMAPHORE_TESTS     0
-#define configSTART_QUEUE_SET_POLLING_TESTS       0
-#define configSTART_BLOCK_TIME_TESTS              0
-#define configSTART_ABORT_DELAY_TESTS             0
-#define configSTART_MESSAGE_BUFFER_TESTS          0
-#define configSTART_STREAM_BUFFER_TESTS           0
-#define configSTART_STREAM_BUFFER_INTERRUPT_TESTS 0
-#define configSTART_TIMER_TESTS                   0
-#define configSTART_INTERRUPT_QUEUE_TESTS         1
-#define configSTART_REGISTER_TESTS                1
-#define configSTART_DELETE_SELF_TESTS             0
-////////////////////////////////////////////////////////////////////
-
 /* Interrupt above priority 31 are not effected by critical sections, but cannot call interrupt safe FreeRTOS functions. */
 #define configMAX_API_CALL_INTERRUPT_PRIORITY      31
 
@@ -81,7 +50,10 @@
 #ifdef __TASKING__
 #define configASSERT( x )    if( ( x ) == 0 ) { __disable(); __debug(); }
 #endif
-#ifdef __clang__
+#if defined(__HIGHTEC__) && defined(__clang__)
+#define configASSERT( x )    if( ( x ) == 0 ) { __builtin_tricore_disable(); __builtin_tricore_debug(); }
+#endif
+#if defined(__GNUC__) && !defined(__HIGHTEC__)
 #define configASSERT( x )    if( ( x ) == 0 ) { __builtin_tricore_disable(); __builtin_tricore_debug(); }
 #endif
 #else
